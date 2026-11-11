@@ -84,6 +84,12 @@ Analyze requirements → Design database → Develop frontend & backend → Run 
 ### 3. Devin (`https://devin.ai/`)
 - Operates in a sandboxed development environment, investigates engineering problems, and executes multi-step software development tasks.
 
+### 4. OpenCode (`https://opencode.ai/`)
+- Open-source terminal coding agent that navigates codebases, executes commands, and supports configurable orchestrator and subagent workflows.
+
+### 5. Claude Code (`https://claude.com/product/claude-code`)
+- Anthropic’s agentic CLI and IDE tool that reads codebases, edits files, runs tests, and manages Git workflows, hooks, and subagents.
+
 > **Key Takeaway:** These tools demonstrate how AI can participate in actual software engineering workflows, not just generate code.
 
 ---
