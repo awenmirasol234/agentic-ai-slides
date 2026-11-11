@@ -175,20 +175,7 @@ button {
 .topbar-meta {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.meta-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-secondary);
+  gap: 10px;
 }
 
 .icon-btn {
@@ -1139,60 +1126,6 @@ button {
   color: var(--text-secondary);
   min-width: 68px;
   text-align: center;
-}
-
-/* ==========================================================================
-   PRESENTER NOTES DRAWER
-   ========================================================================== */
-
-.presenter-drawer {
-  position: fixed;
-  bottom: var(--bottombar-height);
-  right: 28px;
-  width: min(520px, calc(100vw - 56px));
-  max-height: 360px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-strong);
-  border-bottom: none;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.45);
-  z-index: 30;
-  display: flex;
-  flex-direction: column;
-  transform: translateY(110%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform var(--duration-normal) var(--ease-out-expo),
-              opacity var(--duration-fast) ease;
-}
-
-.presenter-drawer.is-open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.presenter-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border-subtle);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-}
-
-.presenter-body {
-  padding: 16px;
-  overflow-y: auto;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: var(--text-primary);
-}
-
-.presenter-body p + p {
-  margin-top: 10px;
 }
 
 /* ==========================================================================

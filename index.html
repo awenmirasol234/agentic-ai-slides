@@ -19,29 +19,6 @@
       </div>
 
       <div class="topbar-meta">
-        <div class="meta-pill" id="slide-duration-pill" title="Recommended time for current slide">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          <span id="recommended-time">1.0 min</span>
-        </div>
-
-        <div class="meta-pill" id="elapsed-timer-pill" title="Elapsed presentation timer (Press T to reset)">
-          <span>ELAPSED</span>
-          <strong id="elapsed-time">00:00</strong>
-        </div>
-
-        <button class="icon-btn" id="btn-notes" title="Toggle Presenter Notes (Key: P)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-          </svg>
-          <span>Notes (P)</span>
-        </button>
-
         <button class="icon-btn" id="btn-theme" title="Toggle Monochrome Theme (Key: L)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
@@ -71,14 +48,14 @@
       <!-- ==================================================================
            SLIDE 1 — INTRODUCTION TO AGENTIC AI
            ================================================================== -->
-      <section class="slide is-active" data-slide="1" data-duration="1 min">
+      <section class="slide is-active" data-slide="1">
         <div class="hero-layout">
           <div>
             <div class="hero-badge anim-item" style="--stagger: 0;">
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
-              <span>Slide 01 // Introduction • 10–15 Min Overview</span>
+              <span>Slide 01 // Introduction</span>
             </div>
 
             <h1 class="hero-title anim-item" style="--stagger: 1;">
@@ -159,7 +136,7 @@
       <!-- ==================================================================
            SLIDE 2 — WHAT IS AGENTIC AI?
            ================================================================== -->
-      <section class="slide" data-slide="2" data-duration="1.5 min">
+      <section class="slide" data-slide="2">
         <div class="slide-header">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -253,7 +230,7 @@
       <!-- ==================================================================
            SLIDE 3 — TRADITIONAL AI VS. AGENTIC AI
            ================================================================== -->
-      <section class="slide" data-slide="3" data-duration="2 min">
+      <section class="slide" data-slide="3">
         <div class="slide-header">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -377,7 +354,7 @@
       <!-- ==================================================================
            SLIDE 4 — WHAT MAKES AN AI AGENTIC?
            ================================================================== -->
-      <section class="slide" data-slide="4" data-duration="1.5 min">
+      <section class="slide" data-slide="4">
         <div class="slide-header">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -500,7 +477,7 @@
       <!-- ==================================================================
            SLIDE 5 — HOW DOES AGENTIC AI WORK?
            ================================================================== -->
-      <section class="slide" data-slide="5" data-duration="2 min">
+      <section class="slide" data-slide="5">
         <div class="slide-header">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -609,7 +586,7 @@
       <!-- ==================================================================
            SLIDE 6 — REAL-WORLD EXAMPLES OF AGENTIC AI
            ================================================================== -->
-      <section class="slide" data-slide="6" data-duration="2 min">
+      <section class="slide" data-slide="6">
         <div class="slide-header">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -759,7 +736,7 @@
       <!-- ==================================================================
            SLIDE 7 — MULTI-AGENT AI IN SOFTWARE DEVELOPMENT
            ================================================================== -->
-      <section class="slide" data-slide="7" data-duration="2 min">
+      <section class="slide" data-slide="7">
         <div class="slide-header" style="margin-bottom: 18px;">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -902,7 +879,7 @@
       <!-- ==================================================================
            SLIDE 8 — BENEFITS, CHALLENGES, AND CONCLUSION
            ================================================================== -->
-      <section class="slide" data-slide="8" data-duration="1 min">
+      <section class="slide" data-slide="8">
         <div class="slide-header" style="margin-bottom: 18px;">
           <div class="slide-eyebrow anim-item" style="--stagger: 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1001,15 +978,6 @@
       </section>
 
     </main>
-
-    <!-- PRESENTER NOTES DRAWER -->
-    <aside class="presenter-drawer" id="presenter-drawer" aria-hidden="true">
-      <div class="presenter-header">
-        <span id="presenter-slide-label">SPEAKER NOTES // SLIDE 01</span>
-        <button class="icon-btn" id="btn-close-notes">Close</button>
-      </div>
-      <div class="presenter-body" id="presenter-notes-content"></div>
-    </aside>
 
     <!-- BOTTOM NAVIGATION BAR -->
     <footer class="deck-bottombar">
