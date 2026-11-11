@@ -40,8 +40,8 @@
   --duration-slow: 600ms;
 
   /* Spacing & Layout */
-  --topbar-height: clamp(48px, 5.5vh, 60px);
-  --bottombar-height: clamp(50px, 6vh, 64px);
+  --topbar-height: clamp(42px, 4.8vh, 52px);
+  --bottombar-height: clamp(44px, 5.2vh, 56px);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -158,7 +158,7 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: clamp(0.84rem, 0.95vw, 0.98rem);
+  font-size: clamp(0.88rem, 1vw, 1.08rem);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -184,12 +184,12 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 7px 14px;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   background: var(--bg-surface);
   color: var(--text-secondary);
-  font-size: clamp(0.8rem, 0.9vw, 0.92rem);
+  font-size: clamp(0.84rem, 0.96vw, 1.02rem);
   font-weight: 500;
   transition: all var(--duration-fast) ease;
 }
@@ -207,8 +207,8 @@ button {
 }
 
 .icon-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
 }
 
 /* ==========================================================================
@@ -230,9 +230,9 @@ button {
   inset: 0;
   width: 100%;
   height: 100%;
-  max-width: min(1620px, 95vw);
+  max-width: min(1820px, 97vw);
   margin: 0 auto;
-  padding: clamp(18px, 2.8vh, 44px) clamp(28px, 3.8vw, 64px);
+  padding: clamp(12px, 1.9vh, 28px) clamp(20px, 2.6vw, 44px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -283,11 +283,11 @@ button {
    ========================================================================== */
 
 .slide-header {
-  margin-bottom: clamp(16px, 2.6vh, 34px);
+  margin-bottom: clamp(12px, 1.9vh, 26px);
 }
 
 .slide-header--compact {
-  margin-bottom: clamp(12px, 2vh, 24px);
+  margin-bottom: clamp(8px, 1.3vh, 18px);
 }
 
 .slide-eyebrow {
@@ -295,34 +295,34 @@ button {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: clamp(0.84rem, min(1vw, 1.45vh), 1rem);
+  font-size: clamp(0.9rem, min(1.12vw, 1.65vh), 1.16rem);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
-  margin-bottom: clamp(6px, 1vh, 12px);
+  margin-bottom: clamp(4px, 0.75vh, 10px);
 }
 
 .slide-eyebrow svg {
-  width: clamp(17px, 1.3vw, 21px);
-  height: clamp(17px, 1.3vw, 21px);
+  width: clamp(18px, 1.45vw, 24px);
+  height: clamp(18px, 1.45vw, 24px);
   color: var(--text-primary);
 }
 
 .slide-title {
-  font-size: clamp(2.15rem, min(3.5vw, 5.2vh), 3.4rem);
+  font-size: clamp(2.3rem, min(3.85vw, 5.8vh), 4rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.12;
+  line-height: 1.1;
   color: var(--text-primary);
 }
 
 .slide-subtitle {
-  margin-top: clamp(8px, 1.2vh, 14px);
-  font-size: clamp(1.1rem, min(1.55vw, 2.35vh), 1.55rem);
-  line-height: 1.48;
+  margin-top: clamp(6px, 1vh, 12px);
+  font-size: clamp(1.18rem, min(1.75vw, 2.7vh), 1.82rem);
+  line-height: 1.44;
   color: var(--text-secondary);
-  max-width: 1160px;
+  max-width: min(1560px, 95vw);
 }
 
 /* Hero Slide 1 Specifics */
@@ -332,24 +332,24 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 1180px;
+  max-width: min(1480px, 92vw);
   margin: 0 auto;
-  gap: clamp(18px, 2.8vh, 32px);
+  gap: clamp(20px, 3.2vh, 38px);
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, min(5.2vw, 8vh), 5rem);
+  font-size: clamp(3.2rem, min(6.4vw, 10vh), 6.4rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1.08;
+  line-height: 1.06;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.35rem, min(2.1vw, 3.2vh), 2rem);
+  font-size: clamp(1.5rem, min(2.5vw, 4vh), 2.55rem);
   color: var(--text-secondary);
   font-weight: 400;
-  line-height: 1.4;
-  max-width: 900px;
+  line-height: 1.38;
+  max-width: min(1200px, 88vw);
 }
 
 /* ==========================================================================
@@ -359,36 +359,36 @@ button {
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(14px, 1.4vw, 22px);
-  margin-bottom: clamp(16px, 2.4vh, 28px);
+  gap: clamp(14px, 1.4vw, 24px);
+  margin-bottom: clamp(14px, 2vh, 26px);
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(14px, 1.5vw, 24px);
-  margin-bottom: clamp(16px, 2.4vh, 28px);
+  gap: clamp(16px, 1.55vw, 26px);
+  margin-bottom: clamp(14px, 2vh, 26px);
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(18px, 1.8vw, 28px);
-  margin-bottom: clamp(16px, 2.4vh, 28px);
+  gap: clamp(18px, 1.85vw, 30px);
+  margin-bottom: clamp(14px, 2vh, 26px);
 }
 
 .grid-2--compact {
-  margin-bottom: clamp(14px, 2vh, 22px);
+  margin-bottom: clamp(12px, 1.6vh, 22px);
 }
 
 .feature-card {
-  padding: clamp(18px, 2.4vh, 28px) clamp(18px, 1.6vw, 26px);
+  padding: clamp(18px, 2.4vh, 32px) clamp(18px, 1.75vw, 30px);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 1.4vh, 16px);
+  gap: clamp(10px, 1.45vh, 18px);
   transition: transform var(--duration-fast) ease,
               border-color var(--duration-fast) ease,
               background-color var(--duration-fast) ease;
@@ -407,8 +407,8 @@ button {
 }
 
 .card-icon {
-  width: clamp(40px, 2.8vw, 48px);
-  height: clamp(40px, 2.8vw, 48px);
+  width: clamp(44px, 3.1vw, 58px);
+  height: clamp(44px, 3.1vw, 58px);
   border-radius: var(--radius-sm);
   background: var(--accent-soft);
   border: 1px solid var(--border-subtle);
@@ -419,27 +419,27 @@ button {
 }
 
 .card-icon svg {
-  width: clamp(20px, 1.45vw, 24px);
-  height: clamp(20px, 1.45vw, 24px);
+  width: clamp(22px, 1.65vw, 29px);
+  height: clamp(22px, 1.65vw, 29px);
 }
 
 .card-index {
   font-family: var(--font-mono);
-  font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+  font-size: clamp(0.88rem, min(1.05vw, 1.6vh), 1.12rem);
   font-weight: 500;
   color: var(--text-muted);
 }
 
 .card-title {
-  font-size: clamp(1.18rem, min(1.5vw, 2.3vh), 1.52rem);
+  font-size: clamp(1.32rem, min(1.75vw, 2.7vh), 1.88rem);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
 .card-desc {
-  font-size: clamp(1.02rem, min(1.25vw, 1.95vh), 1.28rem);
-  line-height: 1.5;
+  font-size: clamp(1.12rem, min(1.48vw, 2.35vh), 1.58rem);
+  line-height: 1.45;
   color: var(--text-secondary);
 }
 
@@ -447,16 +447,16 @@ button {
 .callout-banner {
   display: flex;
   align-items: flex-start;
-  gap: clamp(14px, 1.5vw, 22px);
-  padding: clamp(16px, 2.1vh, 24px) clamp(20px, 1.8vw, 28px);
+  gap: clamp(14px, 1.5vw, 24px);
+  padding: clamp(14px, 1.85vh, 24px) clamp(18px, 1.8vw, 30px);
   border-radius: var(--radius-md);
   background: var(--bg-elevated);
   border: 1px solid var(--border-strong);
 }
 
 .callout-icon {
-  width: clamp(38px, 2.7vw, 46px);
-  height: clamp(38px, 2.7vw, 46px);
+  width: clamp(42px, 2.95vw, 54px);
+  height: clamp(42px, 2.95vw, 54px);
   border-radius: var(--radius-sm);
   background: var(--text-primary);
   color: var(--text-inverse);
@@ -468,8 +468,8 @@ button {
 }
 
 .callout-icon svg {
-  width: clamp(20px, 1.4vw, 24px);
-  height: clamp(20px, 1.4vw, 24px);
+  width: clamp(21px, 1.55vw, 27px);
+  height: clamp(21px, 1.55vw, 27px);
 }
 
 .callout-body {
@@ -478,7 +478,7 @@ button {
 
 .callout-label {
   font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+  font-size: clamp(0.86rem, min(1.05vw, 1.6vh), 1.08rem);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -486,8 +486,8 @@ button {
 }
 
 .callout-text {
-  font-size: clamp(1.06rem, min(1.32vw, 2.1vh), 1.32rem);
-  line-height: 1.5;
+  font-size: clamp(1.14rem, min(1.48vw, 2.35vh), 1.58rem);
+  line-height: 1.45;
   color: var(--text-primary);
 }
 
@@ -496,18 +496,18 @@ button {
    ========================================================================== */
 
 .compare-panel {
-  padding: clamp(20px, 2.5vh, 30px) clamp(22px, 2vw, 32px);
+  padding: clamp(18px, 2.3vh, 30px) clamp(20px, 2vw, 34px);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.6vh, 18px);
+  gap: clamp(12px, 1.6vh, 20px);
 }
 
 .compare-panel--compact {
-  padding: clamp(18px, 2.2vh, 26px) clamp(20px, 1.8vw, 28px);
-  gap: clamp(10px, 1.4vh, 16px);
+  padding: clamp(16px, 2vh, 26px) clamp(18px, 1.8vw, 30px);
+  gap: clamp(10px, 1.3vh, 16px);
 }
 
 .compare-panel.compare-highlight {
@@ -519,7 +519,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: clamp(10px, 1.4vh, 16px);
+  padding-bottom: clamp(10px, 1.35vh, 16px);
   border-bottom: 1px solid var(--border-hairline);
 }
 
@@ -530,19 +530,19 @@ button {
 }
 
 .compare-title-group svg {
-  width: clamp(22px, 1.6vw, 26px);
-  height: clamp(22px, 1.6vw, 26px);
+  width: clamp(24px, 1.85vw, 32px);
+  height: clamp(24px, 1.85vw, 32px);
 }
 
 .compare-title {
-  font-size: clamp(1.22rem, min(1.55vw, 2.4vh), 1.5rem);
+  font-size: clamp(1.34rem, min(1.8vw, 2.8vh), 1.9rem);
   font-weight: 700;
 }
 
 .compare-tag {
   font-family: var(--font-mono);
-  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
-  padding: 4px 11px;
+  font-size: clamp(0.84rem, min(1vw, 1.55vh), 1.06rem);
+  padding: 4px 12px;
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
   color: var(--text-muted);
@@ -559,21 +559,21 @@ button {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.25vh, 14px);
+  gap: clamp(8px, 1.25vh, 15px);
 }
 
 .clean-list li {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: clamp(1.02rem, min(1.28vw, 2vh), 1.28rem);
-  line-height: 1.42;
+  font-size: clamp(1.12rem, min(1.5vw, 2.38vh), 1.58rem);
+  line-height: 1.4;
   color: var(--text-secondary);
 }
 
 .clean-list li svg {
-  width: clamp(18px, 1.3vw, 21px);
-  height: clamp(18px, 1.3vw, 21px);
+  width: clamp(20px, 1.48vw, 25px);
+  height: clamp(20px, 1.48vw, 25px);
   color: var(--text-muted);
   flex-shrink: 0;
 }
@@ -588,19 +588,19 @@ button {
 
 .scenario-box {
   margin-top: auto;
-  padding: clamp(12px, 1.6vh, 18px) clamp(14px, 1.4vw, 20px);
+  padding: clamp(12px, 1.6vh, 20px) clamp(14px, 1.5vw, 22px);
   border-radius: var(--radius-sm);
   background: var(--bg-canvas);
   border: 1px solid var(--border-hairline);
-  font-size: clamp(0.94rem, min(1.12vw, 1.8vh), 1.1rem);
-  line-height: 1.48;
+  font-size: clamp(1.02rem, min(1.28vw, 2.02vh), 1.36rem);
+  line-height: 1.45;
   color: var(--text-secondary);
 }
 
 .scenario-box strong {
   display: block;
   font-family: var(--font-mono);
-  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  font-size: clamp(0.84rem, min(1vw, 1.55vh), 1.04rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -614,19 +614,19 @@ button {
 .cycle-layout {
   display: grid;
   grid-template-columns: 1.32fr 0.88fr;
-  gap: clamp(20px, 2vw, 32px);
+  gap: clamp(18px, 1.9vw, 32px);
   align-items: stretch;
 }
 
 .cycle-steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(12px, 1.2vw, 18px);
+  gap: clamp(12px, 1.25vw, 20px);
 }
 
 .cycle-step-card {
   position: relative;
-  padding: clamp(16px, 2.2vh, 24px) clamp(16px, 1.4vw, 22px);
+  padding: clamp(16px, 2.2vh, 26px) clamp(16px, 1.45vw, 24px);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -634,7 +634,7 @@ button {
   transition: all var(--duration-fast) ease;
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.1vh, 12px);
+  gap: clamp(8px, 1.1vh, 14px);
 }
 
 .cycle-step-card.is-pulsing,
@@ -652,9 +652,9 @@ button {
 
 .cycle-step-num {
   font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 0.92vw, 0.92rem);
+  font-size: clamp(0.86rem, min(1.02vw, 1.58vh), 1.08rem);
   font-weight: 600;
-  padding: 3px 9px;
+  padding: 3px 10px;
   border-radius: 4px;
   background: var(--accent-soft);
   color: var(--text-secondary);
@@ -667,8 +667,8 @@ button {
 }
 
 .cycle-step-icon svg {
-  width: clamp(19px, 1.4vw, 23px);
-  height: clamp(19px, 1.4vw, 23px);
+  width: clamp(21px, 1.6vw, 27px);
+  height: clamp(21px, 1.6vw, 27px);
   color: var(--text-secondary);
 }
 
@@ -677,19 +677,19 @@ button {
 }
 
 .cycle-step-title {
-  font-size: clamp(1.1rem, min(1.4vw, 2.2vh), 1.42rem);
+  font-size: clamp(1.22rem, min(1.58vw, 2.48vh), 1.68rem);
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .cycle-step-desc {
-  font-size: clamp(0.95rem, min(1.15vw, 1.85vh), 1.18rem);
-  line-height: 1.45;
+  font-size: clamp(1.04rem, min(1.3vw, 2.08vh), 1.38rem);
+  line-height: 1.44;
   color: var(--text-secondary);
 }
 
 .example-walkthrough-card {
-  padding: clamp(20px, 2.5vh, 28px) clamp(20px, 1.8vw, 28px);
+  padding: clamp(18px, 2.3vh, 30px) clamp(18px, 1.8vw, 30px);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -702,15 +702,15 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(1.06rem, min(1.3vw, 2.05vh), 1.28rem);
+  font-size: clamp(1.16rem, min(1.48vw, 2.3vh), 1.56rem);
   font-weight: 600;
-  margin-bottom: clamp(12px, 1.8vh, 18px);
+  margin-bottom: clamp(12px, 1.7vh, 20px);
   color: var(--text-primary);
 }
 
 .walkthrough-title svg {
-  width: clamp(18px, 1.35vw, 22px);
-  height: clamp(18px, 1.35vw, 22px);
+  width: clamp(20px, 1.5vw, 25px);
+  height: clamp(20px, 1.5vw, 25px);
   flex-shrink: 0;
 }
 
@@ -718,24 +718,24 @@ button {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(7px, 1vh, 11px);
+  gap: clamp(7px, 1vh, 12px);
 }
 
 .walkthrough-steps li {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: clamp(0.96rem, min(1.18vw, 1.85vh), 1.18rem);
+  font-size: clamp(1.04rem, min(1.32vw, 2.08vh), 1.38rem);
   color: var(--text-secondary);
-  padding: clamp(6px, 0.9vh, 10px) 12px;
+  padding: clamp(6px, 0.9vh, 11px) 14px;
   border-radius: 6px;
   background: var(--bg-canvas);
   border: 1px solid var(--border-hairline);
 }
 
 .walkthrough-steps li span.step-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--text-primary);
   flex-shrink: 0;
@@ -748,26 +748,26 @@ button {
 .examples-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: clamp(12px, 1.35vw, 20px);
-  margin-bottom: clamp(14px, 2vh, 22px);
+  gap: clamp(10px, 1.25vw, 20px);
+  margin-bottom: clamp(12px, 1.6vh, 20px);
 }
 
 .agent-tool-card {
-  padding: clamp(22px, 2.8vh, 32px) clamp(20px, 1.8vw, 28px);
+  padding: clamp(20px, 2.6vh, 32px) clamp(18px, 1.7vw, 28px);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: clamp(16px, 2.2vh, 24px);
+  gap: clamp(14px, 2vh, 24px);
   transition: transform var(--duration-fast) ease, border-color var(--duration-fast) ease;
 }
 
 .examples-grid .agent-tool-card {
   grid-column: span 2;
-  padding: clamp(14px, 1.8vh, 22px) clamp(16px, 1.45vw, 24px);
-  gap: clamp(10px, 1.3vh, 16px);
+  padding: clamp(12px, 1.55vh, 22px) clamp(16px, 1.45vw, 24px);
+  gap: clamp(8px, 1.15vh, 16px);
 }
 
 .examples-grid .agent-tool-card:nth-child(4),
@@ -776,8 +776,12 @@ button {
 }
 
 .examples-grid .agent-tool-card .clean-list {
-  margin-top: clamp(8px, 1.15vh, 14px);
-  gap: clamp(6px, 0.8vh, 10px);
+  margin-top: clamp(8px, 1.1vh, 14px);
+  gap: clamp(5px, 0.75vh, 10px);
+}
+
+.examples-grid .agent-tool-card .clean-list li {
+  font-size: clamp(0.98rem, min(1.24vw, 1.95vh), 1.34rem);
 }
 
 .agent-tool-card:hover {
@@ -786,7 +790,7 @@ button {
 }
 
 .agent-tool-card .clean-list {
-  margin-top: clamp(14px, 2vh, 22px);
+  margin-top: clamp(12px, 1.8vh, 22px);
 }
 
 .agent-tool-card .clean-list li {
@@ -805,16 +809,16 @@ button {
 }
 
 .tool-name {
-  font-size: clamp(1.2rem, min(1.5vw, 2.4vh), 1.5rem);
+  font-size: clamp(1.26rem, min(1.65vw, 2.55vh), 1.72rem);
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .tool-vendor {
   font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 0.92vw, 0.92rem);
+  font-size: clamp(0.86rem, min(1.02vw, 1.58vh), 1.08rem);
   color: var(--text-muted);
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .tool-link {
@@ -822,9 +826,9 @@ button {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: clamp(0.76rem, 0.88vw, 0.9rem);
+  font-size: clamp(0.82rem, min(0.98vw, 1.52vh), 1.05rem);
   color: var(--text-secondary);
-  padding: 8px 12px;
+  padding: 7px 12px;
   border-radius: var(--radius-sm);
   background: var(--bg-canvas);
   border: 1px solid var(--border-subtle);
@@ -836,8 +840,8 @@ button {
 }
 
 .tool-link svg {
-  width: 14px;
-  height: 14px;
+  width: clamp(14px, 1.15vw, 18px);
+  height: clamp(14px, 1.15vw, 18px);
   flex-shrink: 0;
 }
 
@@ -969,7 +973,7 @@ button {
 
 .arch-diagram {
   --arch-gap: clamp(14px, 1.8vw, 28px);
-  --arch-drop: clamp(12px, 1.5vh, 18px);
+  --arch-drop: clamp(10px, 1.35vh, 18px);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -984,20 +988,20 @@ button {
 .arch-input-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: clamp(5px, 0.7vh, 8px) clamp(14px, 1.4vw, 18px);
+  gap: 10px;
+  padding: clamp(5px, 0.72vh, 9px) clamp(16px, 1.6vw, 22px);
   border-radius: 999px;
   background: var(--bg-surface);
   border: 1px solid var(--border-strong);
   font-family: var(--font-mono);
-  font-size: clamp(0.8rem, min(0.95vw, 1.45vh), 0.94rem);
+  font-size: clamp(0.88rem, min(1.08vw, 1.68vh), 1.15rem);
   font-weight: 500;
   color: var(--text-secondary);
 }
 
 .arch-input-pill svg {
-  width: 15px;
-  height: 15px;
+  width: clamp(16px, 1.3vw, 20px);
+  height: clamp(16px, 1.3vw, 20px);
   color: var(--text-primary);
 }
 
@@ -1015,7 +1019,7 @@ button {
 }
 
 .arch-stem--short {
-  height: clamp(10px, 1.3vh, 16px);
+  height: clamp(8px, 1.1vh, 14px);
 }
 
 .arch-stem--trunk {
@@ -1026,9 +1030,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(14px, 2vw, 28px);
-  width: min(680px, 100%);
-  padding: clamp(12px, 1.5vh, 18px) clamp(18px, 1.8vw, 26px);
+  gap: clamp(16px, 2vw, 30px);
+  width: min(860px, 100%);
+  padding: clamp(10px, 1.4vh, 18px) clamp(18px, 1.9vw, 28px);
   border-radius: var(--radius-md);
   background: var(--text-primary);
   color: var(--text-inverse);
@@ -1039,12 +1043,12 @@ button {
 .arch-root-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .arch-root-icon {
-  width: clamp(36px, 2.5vw, 44px);
-  height: clamp(36px, 2.5vw, 44px);
+  width: clamp(40px, 2.85vw, 52px);
+  height: clamp(40px, 2.85vw, 52px);
   border-radius: var(--radius-sm);
   background: rgba(127, 127, 138, 0.2);
   display: flex;
@@ -1054,29 +1058,29 @@ button {
 }
 
 .arch-root-icon svg {
-  width: clamp(20px, 1.45vw, 24px);
-  height: clamp(20px, 1.45vw, 24px);
+  width: clamp(22px, 1.6vw, 28px);
+  height: clamp(22px, 1.6vw, 28px);
 }
 
 .arch-root-title {
-  font-size: clamp(1.08rem, min(1.38vw, 2.15vh), 1.36rem);
+  font-size: clamp(1.18rem, min(1.55vw, 2.4vh), 1.64rem);
   font-weight: 700;
   letter-spacing: -0.015em;
 }
 
 .arch-root-desc {
-  font-size: clamp(0.84rem, min(1.02vw, 1.6vh), 0.98rem);
+  font-size: clamp(0.92rem, min(1.15vw, 1.8vh), 1.24rem);
   opacity: 0.82;
   margin-top: 2px;
 }
 
 .arch-root-badge {
   font-family: var(--font-mono);
-  font-size: clamp(0.74rem, 0.88vw, 0.86rem);
+  font-size: clamp(0.8rem, min(0.95vw, 1.48vh), 1.02rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   border: 1px solid currentColor;
   opacity: 0.85;
@@ -1166,26 +1170,26 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: clamp(7px, 1vh, 11px) 14px;
+  gap: 10px;
+  padding: clamp(7px, 1vh, 12px) 16px;
   border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   border: 1px solid var(--border-strong);
-  margin-bottom: clamp(10px, 1.3vh, 14px);
+  margin-bottom: clamp(8px, 1.15vh, 14px);
 }
 
 .arch-branch-num {
   font-family: var(--font-mono);
-  font-size: clamp(0.74rem, 0.88vw, 0.86rem);
+  font-size: clamp(0.8rem, min(0.95vw, 1.48vh), 1.02rem);
   font-weight: 700;
-  padding: 2px 7px;
+  padding: 2px 8px;
   border-radius: 4px;
   background: var(--text-primary);
   color: var(--text-inverse);
 }
 
 .arch-branch-label {
-  font-size: clamp(0.92rem, min(1.12vw, 1.75vh), 1.1rem);
+  font-size: clamp(1rem, min(1.24vw, 1.95vh), 1.32rem);
   font-weight: 700;
   letter-spacing: 0.01em;
   color: var(--text-primary);
@@ -1196,7 +1200,7 @@ button {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.1vh, 12px);
+  gap: clamp(7px, 1vh, 13px);
   padding-left: clamp(16px, 1.5vw, 22px);
   flex: 1;
 }
@@ -1215,8 +1219,8 @@ button {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: clamp(10px, 1.3vh, 15px) clamp(12px, 1.25vw, 18px);
+  gap: 14px;
+  padding: clamp(9px, 1.25vh, 17px) clamp(12px, 1.3vw, 20px);
   border-radius: var(--radius-sm);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -1271,8 +1275,8 @@ button {
 }
 
 .arch-node-icon {
-  width: clamp(32px, 2.2vw, 38px);
-  height: clamp(32px, 2.2vw, 38px);
+  width: clamp(36px, 2.5vw, 46px);
+  height: clamp(36px, 2.5vw, 46px);
   border-radius: var(--radius-sm);
   background: var(--accent-soft);
   border: 1px solid var(--border-subtle);
@@ -1284,8 +1288,8 @@ button {
 }
 
 .arch-node-icon svg {
-  width: clamp(17px, 1.25vw, 20px);
-  height: clamp(17px, 1.25vw, 20px);
+  width: clamp(19px, 1.42vw, 24px);
+  height: clamp(19px, 1.42vw, 24px);
 }
 
 .arch-node-info {
@@ -1295,34 +1299,34 @@ button {
 }
 
 .arch-node-role {
-  font-size: clamp(0.96rem, min(1.18vw, 1.85vh), 1.18rem);
+  font-size: clamp(1.04rem, min(1.32vw, 2.08vh), 1.38rem);
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .arch-node-task {
-  font-size: clamp(0.84rem, min(1.02vw, 1.6vh), 1rem);
+  font-size: clamp(0.92rem, min(1.14vw, 1.8vh), 1.2rem);
   line-height: 1.35;
   color: var(--text-secondary);
 }
 
 .arch-feedback-bar {
-  margin-top: clamp(12px, 1.6vh, 18px);
+  margin-top: clamp(10px, 1.4vh, 18px);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: clamp(10px, 1.3vh, 14px) clamp(16px, 1.8vw, 24px);
+  padding: clamp(9px, 1.25vh, 15px) clamp(18px, 1.8vw, 26px);
   border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   border: 1px solid var(--border-strong);
-  font-size: clamp(0.9rem, min(1.1vw, 1.75vh), 1.08rem);
+  font-size: clamp(0.98rem, min(1.24vw, 1.95vh), 1.3rem);
   color: var(--text-secondary);
 }
 
 .arch-feedback-bar svg {
-  width: 18px;
-  height: 18px;
+  width: clamp(19px, 1.4vw, 24px);
+  height: clamp(19px, 1.4vw, 24px);
   color: var(--text-primary);
   flex-shrink: 0;
 }
@@ -1403,7 +1407,7 @@ button {
 
 .term-title {
   font-family: var(--font-mono);
-  font-size: clamp(0.76rem, min(0.92vw, 1.45vh), 0.9rem);
+  font-size: clamp(0.84rem, min(1.04vw, 1.62vh), 1.08rem);
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
@@ -1419,10 +1423,10 @@ button {
 
 .term-phase-badge {
   font-family: var(--font-mono);
-  font-size: clamp(0.68rem, min(0.82vw, 1.3vh), 0.78rem);
+  font-size: clamp(0.76rem, min(0.92vw, 1.45vh), 0.96rem);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
   color: var(--text-muted);
@@ -1445,14 +1449,14 @@ button {
 .term-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
+  gap: 6px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   background: var(--bg-elevated);
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: clamp(0.72rem, min(0.86vw, 1.35vh), 0.82rem);
+  font-size: clamp(0.78rem, min(0.95vw, 1.48vh), 0.98rem);
   font-weight: 500;
   cursor: pointer;
   transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
@@ -1465,18 +1469,18 @@ button {
 }
 
 .term-btn svg {
-  width: 13px;
-  height: 13px;
+  width: clamp(14px, 1.05vw, 17px);
+  height: clamp(14px, 1.05vw, 17px);
   flex-shrink: 0;
 }
 
 .term-body {
-  height: clamp(290px, 48vh, 480px);
+  height: clamp(300px, 55vh, 630px);
   overflow-y: auto;
-  padding: clamp(12px, 1.5vh, 18px) clamp(14px, 1.4vw, 20px);
+  padding: clamp(14px, 1.65vh, 22px) clamp(16px, 1.6vw, 26px);
   font-family: var(--font-mono);
-  font-size: clamp(0.76rem, min(0.95vw, 1.48vh), 0.92rem);
-  line-height: 1.5;
+  font-size: clamp(0.88rem, min(1.16vw, 1.8vh), 1.24rem);
+  line-height: 1.52;
   color: var(--text-secondary);
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
@@ -1694,8 +1698,8 @@ button {
 .term-agents-panel {
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1vh, 12px);
-  padding: clamp(10px, 1.3vh, 14px) clamp(12px, 1.2vw, 16px);
+  gap: clamp(8px, 1vh, 14px);
+  padding: clamp(10px, 1.3vh, 18px) clamp(12px, 1.25vw, 20px);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
   background: var(--bg-surface);
@@ -1706,16 +1710,16 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding-bottom: clamp(6px, 0.8vh, 8px);
+  padding-bottom: clamp(6px, 0.85vh, 10px);
   border-bottom: 1px solid var(--border-hairline);
-  font-size: clamp(0.84rem, min(1vw, 1.55vh), 0.96rem);
+  font-size: clamp(0.94rem, min(1.18vw, 1.85vh), 1.24rem);
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .term-agents-count {
   font-family: var(--font-mono);
-  font-size: clamp(0.72rem, min(0.85vw, 1.35vh), 0.82rem);
+  font-size: clamp(0.8rem, min(0.98vw, 1.52vh), 1.02rem);
   font-weight: 500;
   color: var(--text-muted);
 }
@@ -1724,14 +1728,14 @@ button {
   flex: 1;
   display: grid;
   grid-template-rows: repeat(7, 1fr);
-  gap: clamp(5px, 0.72vh, 9px);
+  gap: clamp(5px, 0.72vh, 10px);
 }
 
 .term-agent-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: clamp(5px, 0.75vh, 9px) clamp(8px, 0.95vw, 12px);
+  gap: clamp(10px, 1vw, 14px);
+  padding: clamp(5px, 0.72vh, 11px) clamp(10px, 1vw, 16px);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-hairline);
   background: var(--bg-elevated);
@@ -1749,8 +1753,8 @@ button {
 }
 
 .term-agent-icon {
-  width: clamp(26px, 2vw, 32px);
-  height: clamp(26px, 2vw, 32px);
+  width: clamp(28px, 2.3vw, 40px);
+  height: clamp(28px, 2.3vw, 40px);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   background: var(--bg-surface);
@@ -1769,8 +1773,8 @@ button {
 }
 
 .term-agent-icon svg {
-  width: clamp(14px, 1.1vw, 17px);
-  height: clamp(14px, 1.1vw, 17px);
+  width: clamp(15px, 1.25vw, 22px);
+  height: clamp(15px, 1.25vw, 22px);
 }
 
 .term-agent-meta {
@@ -1781,7 +1785,7 @@ button {
 }
 
 .term-agent-role {
-  font-size: clamp(0.82rem, min(1vw, 1.52vh), 0.96rem);
+  font-size: clamp(0.9rem, min(1.15vw, 1.8vh), 1.22rem);
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
@@ -1790,7 +1794,7 @@ button {
 }
 
 .term-agent-task {
-  font-size: clamp(0.7rem, min(0.84vw, 1.32vh), 0.82rem);
+  font-size: clamp(0.76rem, min(0.95vw, 1.48vh), 1.02rem);
   color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
@@ -1799,10 +1803,10 @@ button {
 
 .term-agent-status {
   font-family: var(--font-mono);
-  font-size: clamp(0.66rem, min(0.78vw, 1.2vh), 0.75rem);
+  font-size: clamp(0.7rem, min(0.86vw, 1.35vh), 0.92rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 2px 7px;
+  padding: 3px 9px;
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
   color: var(--text-muted);
@@ -1887,7 +1891,7 @@ button {
    ========================================================================== */
 
 .closing-quote-box {
-  padding: clamp(18px, 2.4vh, 28px) clamp(22px, 2vw, 32px);
+  padding: clamp(18px, 2.5vh, 32px) clamp(22px, 2.2vw, 38px);
   border-radius: var(--radius-md);
   background: var(--bg-elevated);
   border-left: 4px solid var(--text-primary);
@@ -1901,9 +1905,9 @@ button {
 }
 
 .closing-quote-text {
-  font-size: clamp(1.15rem, min(1.5vw, 2.35vh), 1.48rem);
+  font-size: clamp(1.26rem, min(1.72vw, 2.68vh), 1.82rem);
   font-weight: 500;
-  line-height: 1.48;
+  line-height: 1.44;
   color: var(--text-primary);
 }
 
@@ -1972,9 +1976,9 @@ button {
 
 .slide-counter {
   font-family: var(--font-mono);
-  font-size: clamp(0.84rem, 0.95vw, 0.96rem);
+  font-size: clamp(0.88rem, 1vw, 1.08rem);
   color: var(--text-secondary);
-  min-width: 76px;
+  min-width: 78px;
   text-align: center;
 }
 
