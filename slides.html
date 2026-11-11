@@ -1,0 +1,4205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic AI: The Evolution of AI in Software Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+/* ==========================================================================
+   AGENTIC AI IN SOFTWARE DEVELOPMENT — PRESENTATION DESIGN SYSTEM
+   Aesthetic: Architectural Neutral Monochromatic with Precision Motion
+   Tuned for projection clarity, scaled typography, and viewport adaptability
+   ========================================================================== */
+
+:root {
+  /* Dark Monochromatic Palette (Default) — High-contrast projection tuning */
+  --bg-canvas: #09090b;
+  --bg-slide: #0c0c0f;
+  --bg-surface: #121216;
+  --bg-surface-hover: #18181d;
+  --bg-elevated: #1c1c22;
+  --bg-glass: rgba(18, 18, 22, 0.88);
+
+  --border-hairline: #23232b;
+  --border-subtle: #2e2e38;
+  --border-strong: #4a4a58;
+  --border-focus: #b4b4c0;
+
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4dc;
+  --text-muted: #9494a3;
+  --text-inverse: #09090b;
+
+  --accent-primary: #ffffff;
+  --accent-soft: rgba(255, 255, 255, 0.08);
+  --accent-medium: rgba(255, 255, 255, 0.16);
+  --accent-glow: rgba(255, 255, 255, 0.05);
+  --color-check: #22c55e;
+  --color-wrong: #ef4444;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Motion & Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 360ms;
+  --duration-slow: 600ms;
+
+  /* Spacing & Layout */
+  --topbar-height: clamp(42px, 4.8vh, 52px);
+  --bottombar-height: clamp(44px, 5.2vh, 56px);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+[data-theme="light"] {
+  --bg-canvas: #f4f4f6;
+  --bg-slide: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f4f4f8;
+  --bg-elevated: #ececf1;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+
+  --border-hairline: #dcdce3;
+  --border-subtle: #c8c8d2;
+  --border-strong: #8e8e9c;
+  --border-focus: #18181b;
+
+  --text-primary: #09090b;
+  --text-secondary: #27272a;
+  --text-muted: #52525b;
+  --text-inverse: #fafafa;
+
+  --accent-primary: #09090b;
+  --accent-soft: rgba(9, 9, 11, 0.06);
+  --accent-medium: rgba(9, 9, 11, 0.12);
+  --accent-glow: rgba(9, 9, 11, 0.03);
+  --color-check: #16a34a;
+  --color-wrong: #dc2626;
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--duration-normal) var(--ease-out-expo),
+              color var(--duration-normal) var(--ease-out-expo);
+}
+
+/* Subtle Architectural Grid Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--border-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-hairline) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+  transition: border-color var(--duration-fast) ease, opacity var(--duration-fast) ease;
+}
+
+a:hover {
+  border-bottom-color: var(--text-primary);
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   APP SHELL LAYOUT
+   ========================================================================== */
+
+.deck-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Top Bar */
+.deck-topbar {
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 3vw, 40px);
+  border-bottom: 1px solid var(--border-hairline);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(0.88rem, 1vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.topbar-brand-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.topbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: clamp(0.84rem, 0.96vw, 1.02rem);
+  font-weight: 500;
+  transition: all var(--duration-fast) ease;
+}
+
+.icon-btn:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.icon-btn.active {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+}
+
+.icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ==========================================================================
+   SLIDE STAGE & TRANSITIONS
+   ========================================================================== */
+
+.deck-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: min(1820px, 97vw);
+  margin: 0 auto;
+  padding: clamp(12px, 1.9vh, 28px) clamp(20px, 2.6vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: safe center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(36px) scale(0.99);
+  transition:
+    opacity var(--duration-normal) var(--ease-out-expo),
+    transform var(--duration-normal) var(--ease-out-expo),
+    visibility 0s linear var(--duration-normal);
+  overflow-y: auto;
+}
+
+.slide.is-prev {
+  transform: translateX(-36px) scale(0.99);
+}
+
+.slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+  transition:
+    opacity var(--duration-normal) var(--ease-out-expo),
+    transform var(--duration-normal) var(--ease-out-expo),
+    visibility 0s linear 0s;
+}
+
+/* Staggered Child Animations when Slide is Active */
+.slide .anim-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 480ms var(--ease-out-expo),
+    transform 480ms var(--ease-out-expo);
+  transition-delay: calc(var(--stagger, 0) * 75ms + 80ms);
+}
+
+.slide.is-active .anim-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SLIDE TYPOGRAPHY & HEADERS
+   ========================================================================== */
+
+.slide-header {
+  margin-bottom: clamp(12px, 1.9vh, 26px);
+}
+
+.slide-header--compact {
+  margin-bottom: clamp(8px, 1.3vh, 18px);
+}
+
+.slide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, min(1.12vw, 1.65vh), 1.16rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: clamp(4px, 0.75vh, 10px);
+}
+
+.slide-eyebrow svg {
+  width: clamp(18px, 1.45vw, 24px);
+  height: clamp(18px, 1.45vw, 24px);
+  color: var(--text-primary);
+}
+
+.slide-title {
+  font-size: clamp(2.3rem, min(3.85vw, 5.8vh), 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.slide-subtitle {
+  margin-top: clamp(6px, 1vh, 12px);
+  font-size: clamp(1.18rem, min(1.75vw, 2.7vh), 1.82rem);
+  line-height: 1.44;
+  color: var(--text-secondary);
+  max-width: min(1560px, 95vw);
+}
+
+/* Hero Slide 1 Specifics */
+.hero-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: min(1480px, 92vw);
+  margin: 0 auto;
+  gap: clamp(20px, 3.2vh, 38px);
+}
+
+.hero-title {
+  font-size: clamp(3.2rem, min(6.4vw, 10vh), 6.4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.5rem, min(2.5vw, 4vh), 2.55rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.38;
+  max-width: min(1200px, 88vw);
+}
+
+/* ==========================================================================
+   COMMON CARDS, GRIDS & CALLOUTS
+   ========================================================================== */
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.4vw, 24px);
+  margin-bottom: clamp(14px, 2vh, 26px);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.55vw, 26px);
+  margin-bottom: clamp(14px, 2vh, 26px);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(18px, 1.85vw, 30px);
+  margin-bottom: clamp(14px, 2vh, 26px);
+}
+
+.grid-2--compact {
+  margin-bottom: clamp(12px, 1.6vh, 22px);
+}
+
+.feature-card {
+  padding: clamp(18px, 2.4vh, 32px) clamp(18px, 1.75vw, 30px);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.45vh, 18px);
+  transition: transform var(--duration-fast) ease,
+              border-color var(--duration-fast) ease,
+              background-color var(--duration-fast) ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  background: var(--bg-surface-hover);
+}
+
+.card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: clamp(44px, 3.1vw, 58px);
+  height: clamp(44px, 3.1vw, 58px);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.card-icon svg {
+  width: clamp(22px, 1.65vw, 29px);
+  height: clamp(22px, 1.65vw, 29px);
+}
+
+.card-index {
+  font-family: var(--font-mono);
+  font-size: clamp(0.88rem, min(1.05vw, 1.6vh), 1.12rem);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-size: clamp(1.32rem, min(1.75vw, 2.7vh), 1.88rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.card-desc {
+  font-size: clamp(1.12rem, min(1.48vw, 2.35vh), 1.58rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* Callout / Example Banner */
+.callout-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 1.5vw, 24px);
+  padding: clamp(14px, 1.85vh, 24px) clamp(18px, 1.8vw, 30px);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+}
+
+.callout-icon {
+  width: clamp(42px, 2.95vw, 54px);
+  height: clamp(42px, 2.95vw, 54px);
+  border-radius: var(--radius-sm);
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.callout-icon svg {
+  width: clamp(21px, 1.55vw, 27px);
+  height: clamp(21px, 1.55vw, 27px);
+}
+
+.callout-body {
+  flex: 1;
+}
+
+.callout-label {
+  font-family: var(--font-mono);
+  font-size: clamp(0.86rem, min(1.05vw, 1.6vh), 1.08rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.callout-text {
+  font-size: clamp(1.14rem, min(1.48vw, 2.35vh), 1.58rem);
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SLIDE 3 & SLIDE 8: COMPARISON LAYOUT
+   ========================================================================== */
+
+.compare-panel {
+  padding: clamp(18px, 2.3vh, 30px) clamp(20px, 2vw, 34px);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.6vh, 20px);
+}
+
+.compare-panel--compact {
+  padding: clamp(16px, 2vh, 26px) clamp(18px, 1.8vw, 30px);
+  gap: clamp(10px, 1.3vh, 16px);
+}
+
+.compare-panel.compare-highlight {
+  border-color: var(--border-focus);
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-surface) 100%);
+}
+
+.compare-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: clamp(10px, 1.35vh, 16px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.compare-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.compare-title-group svg {
+  width: clamp(24px, 1.85vw, 32px);
+  height: clamp(24px, 1.85vw, 32px);
+}
+
+.compare-title {
+  font-size: clamp(1.34rem, min(1.8vw, 2.8vh), 1.9rem);
+  font-weight: 700;
+}
+
+.compare-tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.84rem, min(1vw, 1.55vh), 1.06rem);
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.compare-highlight .compare-tag {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+
+.clean-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.25vh, 15px);
+}
+
+.clean-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(1.12rem, min(1.5vw, 2.38vh), 1.58rem);
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.clean-list li svg {
+  width: clamp(20px, 1.48vw, 25px);
+  height: clamp(20px, 1.48vw, 25px);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.compare-highlight .clean-list li {
+  color: var(--text-primary);
+}
+
+.compare-highlight .clean-list li svg,
+.agent-tool-card .clean-list li svg,
+.clean-list li svg:has(polyline[points="20 6 9 17 4 12"]) {
+  color: var(--color-check);
+}
+
+.compare-danger .clean-list li svg,
+.clean-list li svg:has(line[x1="18"][y1="6"][x2="6"][y2="18"]) {
+  color: var(--color-wrong);
+}
+
+.scenario-box {
+  margin-top: auto;
+  padding: clamp(12px, 1.6vh, 20px) clamp(14px, 1.5vw, 22px);
+  border-radius: var(--radius-sm);
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-hairline);
+  font-size: clamp(1.02rem, min(1.28vw, 2.02vh), 1.36rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.scenario-box strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.84rem, min(1vw, 1.55vh), 1.04rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   SLIDE 5: EXECUTION CYCLE STEPPER
+   ========================================================================== */
+
+.cycle-layout {
+  display: grid;
+  grid-template-columns: 1.32fr 0.88fr;
+  gap: clamp(18px, 1.9vw, 32px);
+  align-items: stretch;
+}
+
+.cycle-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.25vw, 20px);
+}
+
+.cycle-step-card {
+  position: relative;
+  padding: clamp(16px, 2.2vh, 26px) clamp(16px, 1.45vw, 24px);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.1vh, 14px);
+}
+
+.cycle-step-card.is-pulsing,
+.cycle-step-card:hover {
+  border-color: var(--text-primary);
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+}
+
+.cycle-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cycle-step-num {
+  font-family: var(--font-mono);
+  font-size: clamp(0.86rem, min(1.02vw, 1.58vh), 1.08rem);
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) ease;
+}
+
+.cycle-step-card.is-pulsing .cycle-step-num {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+.cycle-step-icon svg {
+  width: clamp(21px, 1.6vw, 27px);
+  height: clamp(21px, 1.6vw, 27px);
+  color: var(--text-secondary);
+}
+
+.cycle-step-card.is-pulsing .cycle-step-icon svg {
+  color: var(--text-primary);
+}
+
+.cycle-step-title {
+  font-size: clamp(1.22rem, min(1.58vw, 2.48vh), 1.68rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cycle-step-desc {
+  font-size: clamp(1.04rem, min(1.3vw, 2.08vh), 1.38rem);
+  line-height: 1.44;
+  color: var(--text-secondary);
+}
+
+.example-walkthrough-card {
+  padding: clamp(18px, 2.3vh, 30px) clamp(18px, 1.8vw, 30px);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.walkthrough-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(1.16rem, min(1.48vw, 2.3vh), 1.56rem);
+  font-weight: 600;
+  margin-bottom: clamp(12px, 1.7vh, 20px);
+  color: var(--text-primary);
+}
+
+.walkthrough-title svg {
+  width: clamp(20px, 1.5vw, 25px);
+  height: clamp(20px, 1.5vw, 25px);
+  flex-shrink: 0;
+}
+
+.walkthrough-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7px, 1vh, 12px);
+}
+
+.walkthrough-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(1.04rem, min(1.32vw, 2.08vh), 1.38rem);
+  color: var(--text-secondary);
+  padding: clamp(6px, 0.9vh, 11px) 14px;
+  border-radius: 6px;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-hairline);
+}
+
+/* ==========================================================================
+   SLIDE 6: REAL-WORLD EXAMPLES
+   ========================================================================== */
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(10px, 1.25vw, 20px);
+  margin-bottom: clamp(12px, 1.6vh, 20px);
+}
+
+.agent-tool-card {
+  padding: clamp(20px, 2.6vh, 32px) clamp(18px, 1.7vw, 28px);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(14px, 2vh, 24px);
+  transition: transform var(--duration-fast) ease, border-color var(--duration-fast) ease;
+}
+
+.examples-grid .agent-tool-card {
+  grid-column: span 2;
+  padding: clamp(12px, 1.55vh, 22px) clamp(16px, 1.45vw, 24px);
+  gap: clamp(8px, 1.15vh, 16px);
+}
+
+.examples-grid .agent-tool-card:nth-child(4),
+.examples-grid .agent-tool-card:nth-child(5) {
+  grid-column: span 3;
+}
+
+.examples-grid .agent-tool-card .clean-list {
+  margin-top: clamp(8px, 1.1vh, 14px);
+  gap: clamp(5px, 0.75vh, 10px);
+}
+
+.examples-grid .agent-tool-card .clean-list li {
+  font-size: clamp(0.98rem, min(1.24vw, 1.95vh), 1.34rem);
+}
+
+.examples-grid .card-icon {
+  width: clamp(46px, 3.3vw, 60px);
+  height: clamp(46px, 3.3vw, 60px);
+  padding: 7px;
+  flex-shrink: 0;
+  transition: border-color var(--duration-fast) ease, background var(--duration-fast) ease;
+}
+
+.examples-grid .card-icon svg.tool-brand-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.examples-grid .agent-tool-card:hover .card-icon {
+  border-color: var(--border-strong);
+}
+
+.agent-tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+
+.agent-tool-card .clean-list {
+  margin-top: clamp(12px, 1.8vh, 22px);
+}
+
+.agent-tool-card .clean-list li {
+  align-items: flex-start;
+}
+
+.agent-tool-card .clean-list li svg {
+  margin-top: 3px;
+}
+
+.tool-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.tool-name {
+  font-size: clamp(1.26rem, min(1.65vw, 2.55vh), 1.72rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tool-vendor {
+  font-family: var(--font-mono);
+  font-size: clamp(0.86rem, min(1.02vw, 1.58vh), 1.08rem);
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.tool-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.82rem, min(0.98vw, 1.52vh), 1.05rem);
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  align-self: flex-start;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tool-link svg {
+  width: clamp(14px, 1.15vw, 18px);
+  height: clamp(14px, 1.15vw, 18px);
+  flex-shrink: 0;
+}
+
+.tool-link:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SHARED AGENT IDENTITY COLOR PALETTE (SLIDE 7 & SLIDE 8)
+   ========================================================================== */
+
+:root {
+  --agent-on-solid: #09090b;
+}
+
+[data-theme="light"] {
+  --agent-on-solid: #ffffff;
+}
+
+[data-agent="orchestrator"] {
+  --agent-color: #facc15;
+  --agent-tint: rgba(250, 204, 21, 0.14);
+  --agent-border: rgba(250, 204, 21, 0.45);
+}
+
+[data-agent="planner"] {
+  --agent-color: #c084fc;
+  --agent-tint: rgba(192, 132, 252, 0.14);
+  --agent-border: rgba(192, 132, 252, 0.45);
+}
+
+[data-agent="frontend"] {
+  --agent-color: #f472b6;
+  --agent-tint: rgba(244, 114, 182, 0.14);
+  --agent-border: rgba(244, 114, 182, 0.45);
+}
+
+[data-agent="backend"] {
+  --agent-color: #60a5fa;
+  --agent-tint: rgba(96, 165, 250, 0.14);
+  --agent-border: rgba(96, 165, 250, 0.45);
+}
+
+[data-agent="db"] {
+  --agent-color: #fb923c;
+  --agent-tint: rgba(251, 146, 60, 0.14);
+  --agent-border: rgba(251, 146, 60, 0.45);
+}
+
+[data-agent="tester"] {
+  --agent-color: #4ade80;
+  --agent-tint: rgba(74, 222, 128, 0.14);
+  --agent-border: rgba(74, 222, 128, 0.45);
+}
+
+[data-agent="reviewer"] {
+  --agent-color: #22d3ee;
+  --agent-tint: rgba(34, 211, 238, 0.14);
+  --agent-border: rgba(34, 211, 238, 0.45);
+}
+
+[data-agent="security"] {
+  --agent-color: #f87171;
+  --agent-tint: rgba(248, 113, 113, 0.14);
+  --agent-border: rgba(248, 113, 113, 0.45);
+}
+
+[data-theme="light"] [data-agent="orchestrator"] {
+  --agent-color: #a16207;
+  --agent-tint: rgba(161, 98, 7, 0.11);
+  --agent-border: rgba(161, 98, 7, 0.36);
+}
+
+[data-theme="light"] [data-agent="planner"] {
+  --agent-color: #7e22ce;
+  --agent-tint: rgba(126, 34, 206, 0.1);
+  --agent-border: rgba(126, 34, 206, 0.34);
+}
+
+[data-theme="light"] [data-agent="frontend"] {
+  --agent-color: #be185d;
+  --agent-tint: rgba(190, 24, 93, 0.1);
+  --agent-border: rgba(190, 24, 93, 0.34);
+}
+
+[data-theme="light"] [data-agent="backend"] {
+  --agent-color: #1d4ed8;
+  --agent-tint: rgba(29, 78, 216, 0.1);
+  --agent-border: rgba(29, 78, 216, 0.34);
+}
+
+[data-theme="light"] [data-agent="db"] {
+  --agent-color: #c2410c;
+  --agent-tint: rgba(194, 65, 12, 0.1);
+  --agent-border: rgba(194, 65, 12, 0.34);
+}
+
+[data-theme="light"] [data-agent="tester"] {
+  --agent-color: #15803d;
+  --agent-tint: rgba(21, 128, 61, 0.1);
+  --agent-border: rgba(21, 128, 61, 0.34);
+}
+
+[data-theme="light"] [data-agent="reviewer"] {
+  --agent-color: #0e7490;
+  --agent-tint: rgba(14, 116, 144, 0.1);
+  --agent-border: rgba(14, 116, 144, 0.34);
+}
+
+[data-theme="light"] [data-agent="security"] {
+  --agent-color: #dc2626;
+  --agent-tint: rgba(220, 38, 38, 0.1);
+  --agent-border: rgba(220, 38, 38, 0.34);
+}
+
+/* ==========================================================================
+   SLIDE 7: HIERARCHICAL MULTI-AGENT ARCHITECTURE DIAGRAM
+   ========================================================================== */
+
+@keyframes archPulseDrop {
+  0% {
+    background-position: 0 -16px;
+  }
+  100% {
+    background-position: 0 16px;
+  }
+}
+
+.arch-diagram {
+  --arch-gap: clamp(14px, 1.8vw, 28px);
+  --arch-drop: clamp(10px, 1.35vh, 18px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.arch-root-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arch-input-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(5px, 0.72vh, 9px) clamp(16px, 1.6vw, 22px);
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: clamp(0.88rem, min(1.08vw, 1.68vh), 1.15rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.arch-input-pill svg {
+  width: clamp(16px, 1.3vw, 20px);
+  height: clamp(16px, 1.3vw, 20px);
+  color: var(--text-primary);
+}
+
+.arch-stem {
+  position: relative;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--border-strong) 0%,
+    var(--text-primary) 50%,
+    var(--border-strong) 100%
+  );
+  background-size: 2px 16px;
+  animation: archPulseDrop 1.1s linear infinite;
+}
+
+.arch-stem--short {
+  height: clamp(8px, 1.1vh, 14px);
+}
+
+.arch-stem--trunk {
+  height: var(--arch-drop);
+}
+
+.arch-root-node {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(16px, 2vw, 30px);
+  width: min(860px, 100%);
+  padding: clamp(10px, 1.4vh, 18px) clamp(18px, 1.9vw, 28px);
+  border-radius: var(--radius-md);
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border: 1px solid var(--text-primary);
+  box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.4);
+}
+
+.arch-root-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.arch-root-icon {
+  width: clamp(40px, 2.85vw, 52px);
+  height: clamp(40px, 2.85vw, 52px);
+  border-radius: var(--radius-sm);
+  background: rgba(127, 127, 138, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arch-root-icon svg {
+  width: clamp(22px, 1.6vw, 28px);
+  height: clamp(22px, 1.6vw, 28px);
+}
+
+.arch-root-title {
+  font-size: clamp(1.18rem, min(1.55vw, 2.4vh), 1.64rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.arch-root-desc {
+  font-size: clamp(0.92rem, min(1.15vw, 1.8vh), 1.24rem);
+  opacity: 0.82;
+  margin-top: 2px;
+}
+
+.arch-root-badge {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, min(0.95vw, 1.48vh), 1.02rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.arch-root-node[data-agent] {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--agent-border);
+  border-left: 4px solid var(--agent-color);
+  box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--agent-tint);
+}
+
+.arch-root-node[data-agent] .arch-root-icon {
+  background: var(--agent-tint);
+  border: 1px solid var(--agent-border);
+  color: var(--agent-color);
+}
+
+.arch-root-node[data-agent] .arch-root-desc {
+  color: var(--text-secondary);
+  opacity: 1;
+}
+
+.arch-root-node[data-agent] .arch-root-badge {
+  color: var(--agent-color);
+  border-color: var(--agent-border);
+  background: var(--agent-tint);
+  opacity: 1;
+}
+
+/* Three-Column Hierarchical Tree Branches */
+.arch-branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--arch-gap);
+  align-items: stretch;
+}
+
+.arch-branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--arch-drop);
+}
+
+/* Top horizontal connector rail spanning column centers */
+.arch-branch::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(var(--arch-gap) * -0.5);
+  right: calc(var(--arch-gap) * -0.5);
+  height: 2px;
+  background: var(--border-strong);
+}
+
+.arch-branch:first-child::before {
+  left: 50%;
+}
+
+.arch-branch:last-child::before {
+  right: 50%;
+}
+
+/* Vertical drop stem into each branch header */
+.arch-branch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: var(--arch-drop);
+  background: linear-gradient(
+    to bottom,
+    var(--border-strong) 0%,
+    var(--text-primary) 50%,
+    var(--border-strong) 100%
+  );
+  background-size: 2px 16px;
+  animation: archPulseDrop 1.1s linear infinite;
+}
+
+.arch-branch-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(7px, 1vh, 12px) 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  margin-bottom: clamp(8px, 1.15vh, 14px);
+}
+
+.arch-branch-num {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, min(0.95vw, 1.48vh), 1.02rem);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+.arch-branch-label {
+  font-size: clamp(1rem, min(1.24vw, 1.95vh), 1.32rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+}
+
+/* Left vertical spine connecting subagent nodes in each branch */
+.arch-branch-spine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7px, 1vh, 13px);
+  padding-left: clamp(16px, 1.5vw, 22px);
+  flex: 1;
+}
+
+.arch-branch-spine::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: calc(clamp(10px, 1.3vh, 15px) + 18px);
+  width: 2px;
+  background: var(--border-strong);
+}
+
+.arch-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(9px, 1.25vh, 17px) clamp(12px, 1.3vw, 20px);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--duration-fast) ease,
+              transform var(--duration-fast) ease,
+              background-color var(--duration-fast) ease;
+}
+
+.arch-node::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(16px, 1.5vw, 22px) * -1 + 5px);
+  top: 50%;
+  width: calc(clamp(16px, 1.5vw, 22px) - 5px);
+  height: 2px;
+  background: var(--border-strong);
+  transition: background-color var(--duration-fast) ease;
+}
+
+.arch-node:hover {
+  border-color: var(--text-primary);
+  background: var(--bg-surface-hover);
+  transform: translateX(3px);
+}
+
+.arch-node:hover::before {
+  background: var(--text-primary);
+}
+
+.arch-node[data-agent] {
+  border-left: 3px solid var(--agent-color);
+}
+
+.arch-node[data-agent] .arch-node-icon {
+  background: var(--agent-tint);
+  border-color: var(--agent-border);
+  color: var(--agent-color);
+}
+
+.arch-node[data-agent]:hover {
+  border-color: var(--agent-color);
+}
+
+.arch-node[data-agent]:hover::before {
+  background: var(--agent-color);
+}
+
+.arch-node--meta {
+  border-style: dashed;
+  background: var(--bg-canvas);
+  flex: 1;
+}
+
+.arch-node-icon {
+  width: clamp(36px, 2.5vw, 46px);
+  height: clamp(36px, 2.5vw, 46px);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-primary);
+}
+
+.arch-node-icon svg {
+  width: clamp(19px, 1.42vw, 24px);
+  height: clamp(19px, 1.42vw, 24px);
+}
+
+.arch-node-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arch-node-role {
+  font-size: clamp(1.04rem, min(1.32vw, 2.08vh), 1.38rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.arch-node-task {
+  font-size: clamp(0.92rem, min(1.14vw, 1.8vh), 1.2rem);
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.arch-feedback-bar {
+  margin-top: clamp(10px, 1.4vh, 18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(9px, 1.25vh, 15px) clamp(18px, 1.8vw, 26px);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  font-size: clamp(0.98rem, min(1.24vw, 1.95vh), 1.3rem);
+  color: var(--text-secondary);
+}
+
+.arch-feedback-bar svg {
+  width: clamp(19px, 1.4vw, 24px);
+  height: clamp(19px, 1.4vw, 24px);
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.arch-feedback-bar strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SLIDE 8: TERMINAL WORKFLOW DEMO
+   ========================================================================== */
+
+.demo-workbench {
+  display: grid;
+  grid-template-columns: 1.48fr 0.72fr;
+  gap: clamp(14px, 1.5vw, 22px);
+  align-items: stretch;
+}
+
+.term-window {
+  --term-bg: #070709;
+  --term-surface: var(--bg-surface);
+  --term-card: rgba(255, 255, 255, 0.03);
+  --term-tag-bg: rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--term-bg);
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .term-window {
+  --term-bg: #f8f8fa;
+  --term-surface: #ececf1;
+  --term-card: rgba(9, 9, 11, 0.035);
+  --term-tag-bg: rgba(9, 9, 11, 0.08);
+  box-shadow: 0 14px 32px rgba(9, 9, 11, 0.08);
+}
+
+.term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: clamp(8px, 1.05vh, 11px) clamp(12px, 1.25vw, 18px);
+  background: var(--term-surface);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.term-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.term-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.term-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+}
+
+.term-dot:first-child {
+  background: var(--text-muted);
+  border-color: var(--text-muted);
+}
+
+.term-title {
+  font-family: var(--font-mono);
+  font-size: clamp(0.84rem, min(1.04vw, 1.62vh), 1.08rem);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.term-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.term-phase-badge {
+  font-family: var(--font-mono);
+  font-size: clamp(0.76rem, min(0.92vw, 1.45vh), 0.96rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  background: transparent;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.term-phase-badge[data-state="active"] {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.term-phase-badge[data-state="verified"] {
+  color: var(--text-inverse);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+
+.term-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, min(0.95vw, 1.48vh), 0.98rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.term-btn:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.term-btn svg {
+  width: clamp(14px, 1.05vw, 17px);
+  height: clamp(14px, 1.05vw, 17px);
+  flex-shrink: 0;
+}
+
+.term-body {
+  height: clamp(260px, 49vh, 575px);
+  overflow-y: auto;
+  padding: clamp(14px, 1.65vh, 22px) clamp(16px, 1.6vw, 26px);
+  font-family: var(--font-mono);
+  font-size: clamp(0.88rem, min(1.16vw, 1.8vh), 1.24rem);
+  line-height: 1.52;
+  color: var(--text-secondary);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.term-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.term-body::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+.term-output {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.1vh, 12px);
+}
+
+.term-line {
+  animation: termLineIn 0.22s ease forwards;
+}
+
+.term-turn-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.term-turn-divider::before,
+.term-turn-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-hairline);
+}
+
+.term-prompt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.term-prompt-row--committed {
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--term-card);
+  border-left: 3px solid var(--text-primary);
+}
+
+.term-prompt-sigil {
+  color: var(--text-muted);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.term-typed-text {
+  word-break: break-word;
+}
+
+.term-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--text-primary);
+  animation: termBlink 0.75s steps(2, start) infinite;
+}
+
+.term-spinner-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.term-spinner-glyph {
+  display: inline-block;
+  width: 1.2em;
+  color: var(--text-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.term-done-check {
+  color: var(--color-check);
+  font-weight: 700;
+}
+
+.term-status-text {
+  color: var(--text-secondary);
+}
+
+.term-plan-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 14px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--border-strong);
+  background: var(--term-card);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.term-plan-item {
+  font-size: 0.92em;
+  color: var(--text-secondary);
+}
+
+.term-cmd-block {
+  padding: clamp(7px, 0.95vh, 10px) clamp(10px, 1vw, 14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--term-card);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.term-cmd-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.term-agent-tag {
+  font-size: 0.84em;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: var(--term-tag-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.term-cmd-text {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.term-diff-line {
+  font-size: 0.92em;
+  color: var(--text-muted);
+  padding-left: 8px;
+  border-left: 2px solid var(--border-subtle);
+}
+
+.term-diff-line--add {
+  color: var(--text-secondary);
+  border-left-color: var(--text-primary);
+}
+
+.term-test-pass {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.term-test-badge {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+.term-response-box {
+  padding: clamp(9px, 1.15vh, 12px) clamp(12px, 1.1vw, 15px);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--text-primary);
+  background: var(--term-card);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.term-response-title {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.term-response-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-secondary);
+  font-size: 0.94em;
+}
+
+/* Per-agent accents inside streamed terminal output */
+[data-agent] .term-agent-tag {
+  background: var(--agent-tint);
+  border-color: var(--agent-border);
+  color: var(--agent-color);
+}
+
+.term-spinner-row[data-agent] .term-spinner-glyph {
+  color: var(--agent-color);
+}
+
+.term-plan-list[data-agent] {
+  border-left: 3px solid var(--agent-color);
+}
+
+.term-cmd-block[data-agent] {
+  border-color: var(--agent-border);
+  border-left: 3px solid var(--agent-color);
+}
+
+.term-cmd-block[data-agent] .term-diff-line--add {
+  border-left-color: var(--agent-color);
+}
+
+.term-cmd-block[data-agent] .term-test-badge {
+  background: var(--agent-color);
+  color: var(--agent-on-solid);
+}
+
+.term-response-box[data-agent] {
+  border-color: var(--agent-border);
+  border-left: 3px solid var(--agent-color);
+}
+
+.term-response-box[data-agent] .term-response-title {
+  color: var(--agent-color);
+}
+
+/* Bottom Live Prompt Bar */
+.term-prompt-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(8px, 1.05vh, 13px) clamp(14px, 1.5vw, 22px);
+  background: var(--term-surface);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: clamp(0.84rem, min(1.08vw, 1.68vh), 1.14rem);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.term-prompt-bar[data-state="typing"] {
+  border-top-color: var(--text-primary);
+}
+
+.term-prompt-bar[data-state="busy"] {
+  color: var(--text-muted);
+}
+
+.term-prompt-bar[data-state="busy"] .term-cursor,
+.term-prompt-bar[data-state="done"] .term-cursor,
+.term-prompt-bar[data-state="idle"] .term-cursor {
+  display: none;
+}
+
+.term-prompt-bar-sigil {
+  color: var(--text-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.term-prompt-bar[data-state="busy"] .term-prompt-bar-sigil {
+  color: var(--text-muted);
+}
+
+.term-prompt-bar-track {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.term-prompt-bar-text {
+  white-space: nowrap;
+}
+
+.term-prompt-bar-meta {
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.term-prompt-bar[data-state="typing"] .term-prompt-bar-meta {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+/* Right Pane: Live Agent Roster */
+.term-agents-panel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vh, 14px);
+  padding: clamp(10px, 1.3vh, 18px) clamp(12px, 1.25vw, 20px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.term-agents-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: clamp(6px, 0.85vh, 10px);
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: clamp(0.94rem, min(1.18vw, 1.85vh), 1.24rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.term-agents-count {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, min(0.98vw, 1.52vh), 1.02rem);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.term-agents-list {
+  flex: 1;
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  gap: clamp(5px, 0.72vh, 10px);
+}
+
+.term-agent-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1vw, 14px);
+  padding: clamp(5px, 0.72vh, 11px) clamp(10px, 1vw, 16px);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+  transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease;
+}
+
+.term-agent-card[data-status="active"] {
+  border-color: var(--text-primary);
+  background: var(--bg-surface-hover);
+  animation: agentPulse 1.4s ease-in-out infinite;
+}
+
+.term-agent-card[data-status="done"] {
+  border-color: var(--border-strong);
+}
+
+.term-agent-icon {
+  width: clamp(28px, 2.3vw, 40px);
+  height: clamp(28px, 2.3vw, 40px);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.term-agent-card[data-status="active"] .term-agent-icon,
+.term-agent-card[data-status="done"] .term-agent-icon {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.term-agent-icon svg {
+  width: clamp(15px, 1.25vw, 22px);
+  height: clamp(15px, 1.25vw, 22px);
+}
+
+.term-agent-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.term-agent-role {
+  font-size: clamp(0.9rem, min(1.15vw, 1.8vh), 1.22rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.term-agent-task {
+  font-size: clamp(0.76rem, min(0.95vw, 1.48vh), 1.02rem);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.term-agent-status {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, min(0.86vw, 1.35vh), 0.92rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.term-agent-card[data-status="active"] .term-agent-status {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+
+.term-agent-card[data-status="done"] .term-agent-status {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+}
+
+/* Per-agent identity colors in Slide 8 roster */
+.term-agent-card[data-agent] {
+  border-left: 3px solid var(--agent-color);
+}
+
+.term-agent-card[data-agent] .term-agent-icon,
+.term-agent-card[data-agent][data-status="active"] .term-agent-icon,
+.term-agent-card[data-agent][data-status="done"] .term-agent-icon {
+  color: var(--agent-color);
+  background: var(--agent-tint);
+  border-color: var(--agent-border);
+}
+
+.term-agent-card[data-agent][data-status="active"] {
+  border-color: var(--agent-color);
+}
+
+.term-agent-card[data-agent][data-status="done"] {
+  border-color: var(--agent-border);
+  border-left-color: var(--agent-color);
+}
+
+.term-agent-card[data-agent][data-status="active"] .term-agent-status {
+  color: var(--agent-color);
+  border-color: var(--agent-color);
+  background: var(--agent-tint);
+}
+
+.term-agent-card[data-agent][data-status="done"] .term-agent-status {
+  background: var(--agent-color);
+  border-color: var(--agent-color);
+  color: var(--agent-on-solid);
+}
+
+@keyframes termBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes termLineIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes agentPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 2px var(--agent-border, var(--border-strong));
+  }
+}
+
+/* ==========================================================================
+   SLIDE 9: CONCLUSION QUOTE
+   ========================================================================== */
+
+.closing-quote-box {
+  padding: clamp(18px, 2.5vh, 32px) clamp(22px, 2.2vw, 38px);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border-left: 4px solid var(--text-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.closing-quote-text {
+  font-size: clamp(1.26rem, min(1.72vw, 2.68vh), 1.82rem);
+  font-weight: 500;
+  line-height: 1.44;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   BOTTOM NAVIGATION & PROGRESS BAR
+   ========================================================================== */
+
+.deck-bottombar {
+  position: relative;
+  height: var(--bottombar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 3vw, 40px);
+  border-top: 1px solid var(--border-hairline);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.progress-track {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-hairline);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 12.5%;
+  background: var(--text-primary);
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-dot {
+  width: 26px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--border-subtle);
+  transition: all var(--duration-fast) ease;
+}
+
+.nav-dot:hover {
+  background: var(--border-strong);
+}
+
+.nav-dot.is-active {
+  width: 40px;
+  background: var(--text-primary);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-counter {
+  font-family: var(--font-mono);
+  font-size: clamp(0.88rem, 1vw, 1.08rem);
+  color: var(--text-secondary);
+  min-width: 78px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE & REDUCED MOTION
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .slide {
+    padding: 24px 28px;
+    justify-content: flex-start;
+  }
+  .cycle-layout,
+  .demo-workbench,
+  .arch-branches,
+  .examples-grid,
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .term-body {
+    height: 280px;
+  }
+  .term-plan-list {
+    grid-template-columns: 1fr;
+  }
+  .examples-grid .agent-tool-card,
+  .examples-grid .agent-tool-card:nth-child(4),
+  .examples-grid .agent-tool-card:nth-child(5) {
+    grid-column: span 1;
+  }
+  .arch-branch {
+    padding-top: 0;
+  }
+  .arch-branch::before,
+  .arch-branch::after,
+  .arch-stem--trunk {
+    display: none;
+  }
+  .arch-branches {
+    margin-top: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="deck-shell">
+    <!-- TOP BAR -->
+    <header class="deck-topbar">
+      <div class="topbar-brand">
+        <span class="topbar-brand-dot"></span>
+        <span>Agentic AI in Software Development</span>
+      </div>
+
+      <div class="topbar-meta">
+        <button class="icon-btn" id="btn-theme" title="Toggle Monochrome Theme (Key: L)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span>Theme</span>
+        </button>
+
+        <button class="icon-btn" id="btn-fullscreen" title="Toggle Fullscreen (Key: F)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN SLIDE STAGE -->
+    <main class="deck-stage" id="deck-stage">
+
+      <!-- ==================================================================
+           SLIDE 1 — INTRODUCTION TO AGENTIC AI
+           ================================================================== -->
+      <section class="slide is-active" data-slide="1">
+        <div class="hero-cover">
+          <h1 class="hero-title anim-item" style="--stagger: 0;">
+            Agentic AI: The Evolution of AI in Software Development
+          </h1>
+
+          <p class="hero-subtitle anim-item" style="--stagger: 1;">
+            From AI-assisted coding to autonomous software engineering.
+          </p>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 2 — WHAT IS AGENTIC AI?
+           ================================================================== -->
+      <section class="slide" data-slide="2">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+            <span>Slide 02 // Core Definition</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">What Is Agentic AI?</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            An AI system capable of pursuing a goal by <strong>planning tasks</strong>, <strong>making decisions</strong>, <strong>using tools</strong>, <strong>executing actions</strong>, and <strong>evaluating results</strong> with varying degrees of human supervision.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="feature-card anim-item" style="--stagger: 3;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+              </div>
+              <span class="card-index">01</span>
+            </div>
+            <h3 class="card-title">Goal-Oriented</h3>
+            <p class="card-desc">Works step by step to finish a big goal instead of answering one question.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 4;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
+                </svg>
+              </div>
+              <span class="card-index">02</span>
+            </div>
+            <h3 class="card-title">Autonomous</h3>
+            <p class="card-desc">Handles tasks on its own without needing instructions at every step.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 5;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              </div>
+              <span class="card-index">03</span>
+            </div>
+            <h3 class="card-title">Action-Oriented</h3>
+            <p class="card-desc">Uses real tools directly, like code editors, terminals, databases, and test tools.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 6;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+              </div>
+              <span class="card-index">04</span>
+            </div>
+            <h3 class="card-title">Adaptive</h3>
+            <p class="card-desc">Reads error messages or failed tests and updates its plan to fix problems.</p>
+          </div>
+        </div>
+
+        <div class="callout-banner anim-item" style="--stagger: 7;">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <div class="callout-label">Software Development Example</div>
+            <p class="callout-text">
+              Instead of asking AI to <em>generate a single login function</em>, you instruct it to <strong>implement an entire authentication feature</strong>—including database schema integration, input validation, and automated tests.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 3 — TRADITIONAL AI VS. AGENTIC AI
+           ================================================================== -->
+      <section class="slide" data-slide="3">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>Slide 03 // Paradigm Shift</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Traditional AI vs. Agentic AI</h2>
+        </div>
+
+        <div class="grid-2">
+          <!-- Traditional AI -->
+          <div class="compare-panel anim-item" style="--stagger: 2;">
+            <div class="compare-header">
+              <div class="compare-title-group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span class="compare-title">Traditional AI</span>
+              </div>
+              <span class="compare-tag">Reactive Assistant</span>
+            </div>
+
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Responds directly to individual prompts</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Generates isolated code snippets</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Suggests theoretical solutions</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Waits passively for next human instruction</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span>Developer manually coordinates every step</span>
+              </li>
+            </ul>
+
+            <div class="scenario-box">
+              <strong>Example: Fixing a Login Bug</strong>
+              Explains the error message you pasted and suggests a snippet of code for you to copy and test.
+            </div>
+          </div>
+
+          <!-- Agentic AI -->
+          <div class="compare-panel compare-highlight anim-item" style="--stagger: 3;">
+            <div class="compare-header">
+              <div class="compare-title-group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+                <span class="compare-title">Agentic AI</span>
+              </div>
+              <span class="compare-tag">Goal-Driven Executor</span>
+            </div>
+
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Works toward overarching engineering goals</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Implements complete end-to-end features</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Executes solutions directly using workspace tools</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Determines appropriate next steps autonomously</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Manages multiple connected actions in sequence</span>
+              </li>
+            </ul>
+
+            <div class="scenario-box">
+              <strong>Example: Fixing a Login Bug</strong>
+              Investigates the codebase, identifies the root cause, modifies the files, runs the test suite, and verifies the fix.
+            </div>
+          </div>
+        </div>
+
+        <div class="callout-banner anim-item" style="--stagger: 4;">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <div class="callout-label">Key Takeaway</div>
+            <p class="callout-text">
+              Traditional AI primarily assists with <strong>individual requests</strong>, while Agentic AI executes <strong>multiple connected actions</strong> toward an objective.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 4 — WHAT MAKES AN AI AGENTIC?
+           ================================================================== -->
+      <section class="slide" data-slide="4">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>Slide 04 // System Capabilities</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">What Makes an AI Agentic?</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card anim-item" style="--stagger: 2;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+              </div>
+              <span class="card-index">01</span>
+            </div>
+            <h3 class="card-title">Autonomy</h3>
+            <p class="card-desc">Can perform assigned tasks without constant human intervention.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 3;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="card-index">02</span>
+            </div>
+            <h3 class="card-title">Planning</h3>
+            <p class="card-desc">Breaks complex engineering objectives into smaller, actionable tasks.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 4;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z"></path>
+                  <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path>
+                </svg>
+              </div>
+              <span class="card-index">03</span>
+            </div>
+            <h3 class="card-title">Reasoning</h3>
+            <p class="card-desc">Analyzes code context and trade-offs to determine appropriate actions.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 5;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              </div>
+              <span class="card-index">04</span>
+            </div>
+            <h3 class="card-title">Tool Usage</h3>
+            <p class="card-desc">Interacts with terminals, APIs, databases, and development environments.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 6;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <span class="card-index">05</span>
+            </div>
+            <h3 class="card-title">Memory &amp; Context</h3>
+            <p class="card-desc">Maintains relevant project architecture information and previous decisions.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 7;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+                </svg>
+              </div>
+              <span class="card-index">06</span>
+            </div>
+            <h3 class="card-title">Adaptability</h3>
+            <p class="card-desc">Evaluates test or runtime outcomes and adjusts strategy when something fails.</p>
+          </div>
+        </div>
+
+        <div class="callout-banner anim-item" style="--stagger: 8;">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <div class="callout-label">Important Distinction</div>
+            <p class="callout-text">
+              Simply using an LLM or chaining multiple AI models does <strong>not</strong> automatically make a system agentic. Its ability to <strong>pursue goals through decisions and actions</strong> is what matters.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 5 — HOW DOES AGENTIC AI WORK?
+           ================================================================== -->
+      <section class="slide" data-slide="5">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            <span>Slide 05 // The Agentic Execution Cycle</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">How Does Agentic AI Work?</h2>
+        </div>
+
+        <div class="cycle-layout">
+          <div class="cycle-steps-grid" id="cycle-stepper">
+            <div class="cycle-step-card is-pulsing anim-item" style="--stagger: 2;" data-step="0">
+              <div class="cycle-step-top">
+                <span class="cycle-step-num">STEP 01</span>
+                <span class="cycle-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                </span>
+              </div>
+              <h3 class="cycle-step-title">Goal</h3>
+              <p class="cycle-step-desc">Understand the developer’s high-level objective and constraints.</p>
+            </div>
+
+            <div class="cycle-step-card anim-item" style="--stagger: 3;" data-step="1">
+              <div class="cycle-step-top">
+                <span class="cycle-step-num">STEP 02</span>
+                <span class="cycle-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </span>
+              </div>
+              <h3 class="cycle-step-title">Planning</h3>
+              <p class="cycle-step-desc">Break down the objective into smaller, sequenced tasks.</p>
+            </div>
+
+            <div class="cycle-step-card anim-item" style="--stagger: 4;" data-step="2">
+              <div class="cycle-step-top">
+                <span class="cycle-step-num">STEP 03</span>
+                <span class="cycle-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                </span>
+              </div>
+              <h3 class="cycle-step-title">Execution</h3>
+              <p class="cycle-step-desc">Perform concrete actions using available workspace tools.</p>
+            </div>
+
+            <div class="cycle-step-card anim-item" style="--stagger: 5;" data-step="3">
+              <div class="cycle-step-top">
+                <span class="cycle-step-num">STEP 04</span>
+                <span class="cycle-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </span>
+              </div>
+              <h3 class="cycle-step-title">Observation</h3>
+              <p class="cycle-step-desc">Inspect terminal outputs, compiler logs, errors, and test results.</p>
+            </div>
+
+            <div class="cycle-step-card anim-item" style="--stagger: 6;" data-step="4">
+              <div class="cycle-step-top">
+                <span class="cycle-step-num">STEP 05</span>
+                <span class="cycle-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </span>
+              </div>
+              <h3 class="cycle-step-title">Evaluation</h3>
+              <p class="cycle-step-desc">Determine whether the current outcome satisfies requirements.</p>
+            </div>
+
+            <div class="cycle-step-card anim-item" style="--stagger: 7;" data-step="5">
+              <div class="cycle-step-top">
+                <span class="cycle-step-num">STEP 06</span>
+                <span class="cycle-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                </span>
+              </div>
+              <h3 class="cycle-step-title">Iteration</h3>
+              <p class="cycle-step-desc">Correct problems and repeat until achieved or human input is needed.</p>
+            </div>
+          </div>
+
+          <div class="example-walkthrough-card anim-item" style="--stagger: 5;">
+            <div>
+              <div class="walkthrough-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>Practical Example: Student Management System</span>
+              </div>
+              <ul class="walkthrough-steps">
+                <li><span>1. Analyze the system requirements</span></li>
+                <li><span>2. Design the database schema</span></li>
+                <li><span>3. Develop the frontend &amp; backend</span></li>
+                <li><span>4. Run the application locally</span></li>
+                <li><span>5. Test student registration &amp; authentication</span></li>
+                <li><span>6. Fix identified runtime or test errors</span></li>
+                <li><span>7. Verify the completed implementation</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 6 — REAL-WORLD EXAMPLES OF AGENTIC AI
+           ================================================================== -->
+      <section class="slide" data-slide="6">
+        <div class="slide-header slide-header--compact">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>Slide 06 // Industry Landscape</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Real-World Examples of Agentic AI</h2>
+        </div>
+
+        <div class="examples-grid">
+          <!-- OpenAI Codex -->
+          <div class="agent-tool-card anim-item" style="--stagger: 2;">
+            <div>
+              <div class="tool-card-header">
+                <div>
+                  <h3 class="tool-name">OpenAI Codex</h3>
+                  <div class="tool-vendor">Software Engineering Agent</div>
+                </div>
+                <div class="card-icon">
+                  <svg class="tool-brand-svg" viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M8.086.457a6.105 6.105 0 013.046-.415c1.333.153 2.521.72 3.564 1.7a.117.117 0 00.107.029c1.408-.346 2.762-.224 4.061.366l.063.03.154.076c1.357.703 2.33 1.77 2.918 3.198.278.679.418 1.388.421 2.126a5.655 5.655 0 01-.18 1.631.167.167 0 00.04.155 5.982 5.982 0 011.578 2.891c.385 1.901-.01 3.615-1.183 5.14l-.182.22a6.063 6.063 0 01-2.934 1.851.162.162 0 00-.108.102c-.255.736-.511 1.364-.987 1.992-1.199 1.582-2.962 2.462-4.948 2.451-1.583-.008-2.986-.587-4.21-1.736a.145.145 0 00-.14-.032c-.518.167-1.04.191-1.604.185a5.924 5.924 0 01-2.595-.622 6.058 6.058 0 01-2.146-1.781c-.203-.269-.404-.522-.551-.821a7.74 7.74 0 01-.495-1.283 6.11 6.11 0 01-.017-3.064.166.166 0 00.008-.074.115.115 0 00-.037-.064 5.958 5.958 0 01-1.38-2.202 5.196 5.196 0 01-.333-1.589 6.915 6.915 0 01.188-2.132c.45-1.484 1.309-2.648 2.577-3.493.282-.188.55-.334.802-.438.286-.12.573-.22.861-.304a.129.129 0 00.087-.087A6.016 6.016 0 015.635 2.31C6.315 1.464 7.132.846 8.086.457zm-.804 7.85a.848.848 0 00-1.473.842l1.694 2.965-1.688 2.848a.849.849 0 001.46.864l1.94-3.272a.849.849 0 00.007-.854l-1.94-3.393zm5.446 6.24a.849.849 0 000 1.695h4.848a.849.849 0 000-1.696h-4.848z"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <ul class="clean-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Understands existing codebases</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Implements features &amp; fixes bugs</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Runs tests &amp; dev commands</span>
+                </li>
+              </ul>
+            </div>
+
+            <a class="tool-link" href="https://openai.com/codex/" target="_blank" rel="noopener noreferrer">
+              <span>openai.com/codex</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <!-- GitHub Copilot Coding Agent -->
+          <div class="agent-tool-card anim-item" style="--stagger: 3;">
+            <div>
+              <div class="tool-card-header">
+                <div>
+                  <h3 class="tool-name">GitHub Copilot Agent</h3>
+                  <div class="tool-vendor">Repository Workflow Agent</div>
+                </div>
+                <div class="card-icon">
+                  <svg class="tool-brand-svg" viewBox="0 0 256 208" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M205.3 31.4c14 14.8 20 35.2 22.5 63.6 6.6 0 12.8 1.5 17 7.2l7.8 10.6c2.2 3 3.4 6.6 3.4 10.4v28.7a12 12 0 0 1-4.8 9.5C215.9 187.2 172.3 208 128 208c-49 0-98.2-28.3-123.2-46.6a12 12 0 0 1-4.8-9.5v-28.7c0-3.8 1.2-7.4 3.4-10.5l7.8-10.5c4.2-5.7 10.4-7.2 17-7.2 2.5-28.4 8.4-48.8 22.5-63.6C77.3 3.2 112.6 0 127.6 0h.4c14.7 0 50.4 2.9 77.3 31.4ZM128 78.7c-3 0-6.5.2-10.3.6a27.1 27.1 0 0 1-6 12.1 45 45 0 0 1-32 13c-6.8 0-13.9-1.5-19.7-5.2-5.5 1.9-10.8 4.5-11.2 11-.5 12.2-.6 24.5-.6 36.8 0 6.1 0 12.3-.2 18.5 0 3.6 2.2 6.9 5.5 8.4C79.9 185.9 105 192 128 192s48-6 74.5-18.1a9.4 9.4 0 0 0 5.5-8.4c.3-18.4 0-37-.8-55.3-.4-6.6-5.7-9.1-11.2-11-5.8 3.7-13 5.1-19.7 5.1a45 45 0 0 1-32-12.9 27.1 27.1 0 0 1-6-12.1c-3.4-.4-6.9-.5-10.3-.6Zm-27 44c5.8 0 10.5 4.6 10.5 10.4v19.2a10.4 10.4 0 0 1-20.8 0V133c0-5.8 4.6-10.4 10.4-10.4Zm53.4 0c5.8 0 10.4 4.6 10.4 10.4v19.2a10.4 10.4 0 0 1-20.8 0V133c0-5.8 4.7-10.4 10.4-10.4Zm-73-94.4c-11.2 1.1-20.6 4.8-25.4 10-10.4 11.3-8.2 40.1-2.2 46.2A31.2 31.2 0 0 0 75 91.7c6.8 0 19.6-1.5 30.1-12.2 4.7-4.5 7.5-15.7 7.2-27-.3-9.1-2.9-16.7-6.7-19.9-4.2-3.6-13.6-5.2-24.2-4.3Zm69 4.3c-3.8 3.2-6.4 10.8-6.7 19.9-.3 11.3 2.5 22.5 7.2 27a41.7 41.7 0 0 0 30 12.2c8.9 0 17-2.9 21.3-7.2 6-6.1 8.2-34.9-2.2-46.3-4.8-5-14.2-8.8-25.4-9.9-10.6-1-20 .7-24.2 4.3ZM128 56c-2.6 0-5.6.2-9 .5.4 1.7.5 3.7.7 5.7 0 1.5 0 3-.2 4.5 3.2-.3 6-.3 8.5-.3 2.6 0 5.3 0 8.5.3-.2-1.6-.2-3-.2-4.5.2-2 .3-4 .7-5.7-3.4-.3-6.4-.5-9-.5Z"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <ul class="clean-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Accepts assigned GitHub issues</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Investigates repositories autonomously</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Creates pull requests for review</span>
+                </li>
+              </ul>
+            </div>
+
+            <a class="tool-link" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">
+              <span>github.com/features/copilot</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <!-- Devin -->
+          <div class="agent-tool-card anim-item" style="--stagger: 4;">
+            <div>
+              <div class="tool-card-header">
+                <div>
+                  <h3 class="tool-name">Devin</h3>
+                  <div class="tool-vendor">Autonomous AI Software Engineer</div>
+                </div>
+                <div class="card-icon">
+                  <svg class="tool-brand-svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.033 9.867l2.554 1.483a.589.589 0 00.592 0l2.554-1.483.01-.008a.608.608 0 00.11-.084l.013-.015a.631.631 0 00.076-.1c.003-.005.008-.01.01-.016a.558.558 0 00.052-.125l.007-.028a.611.611 0 00.019-.14V7.868c0-.572.307-1.105.8-1.392a1.595 1.595 0 011.598 0l1.277.742a.54.54 0 00.129.053l.028.01c.044.01.088.015.133.016h.006l.013-.002a.587.587 0 00.27-.074l.011-.004 2.554-1.483a.596.596 0 00.297-.516V2.253a.595.595 0 00-.297-.516L12.293.257a.587.587 0 00-.591 0L9.148 1.737l-.01.01a.609.609 0 00-.109.083l-.014.015a.632.632 0 00-.076.1c-.003.005-.008.01-.01.016a.57.57 0 00-.052.124l-.007.028a.612.612 0 00-.018.14v1.483c0 .572-.307 1.105-.8 1.393a1.597 1.597 0 01-1.599 0l-1.276-.742a.603.603 0 00-.13-.053l-.028-.008a.658.658 0 00-.133-.018h-.02a.57.57 0 00-.269.074c-.003.002-.008.002-.012.005L2.033 5.872a.596.596 0 00-.297.515v2.966c0 .213.113.41.297.515z" fill="#3969CA"></path>
+                    <path d="M15.943 10.607a1.596 1.596 0 011.599 0l1.276.74c.041.025.085.04.13.055l.028.008c.043.01.088.016.133.018h.005c.005 0 .01-.002.014-.003a.474.474 0 00.122-.016l.021-.005a.616.616 0 00.126-.052c.004-.002.009-.002.013-.005l2.554-1.482a.597.597 0 00.297-.516V6.383a.596.596 0 00-.297-.515l-2.552-1.483a.587.587 0 00-.592 0l-2.553 1.482-.011.008a.61.61 0 00-.108.084l-.014.016a.637.637 0 00-.076.1c-.003.005-.008.01-.01.016a.57.57 0 00-.052.124l-.007.029a.612.612 0 00-.018.14v1.482c0 .572-.307 1.105-.8 1.393a1.597 1.597 0 01-1.599 0l-1.276-.742a.584.584 0 00-.13-.053l-.028-.008a.62.62 0 00-.133-.018h-.02a.587.587 0 00-.269.074l-.012.004L9.15 10a.596.596 0 00-.296.516v2.966c0 .212.112.409.296.515l2.554 1.483s.008.002.012.005c.04.022.082.04.126.052l.02.004a.57.57 0 00.123.017l.014.002h.006c.054 0 .108-.01.16-.025a.587.587 0 00.13-.054l1.277-.741a1.597 1.597 0 012.398 1.392v1.482c0 .049.007.095.019.14l.007.028a.619.619 0 00.051.125c.004.006.008.01.01.016a.6.6 0 00.076.1l.014.015c.033.032.069.06.108.084.004.002.006.006.011.008l2.554 1.483a.59.59 0 00.593 0l2.554-1.483a.597.597 0 00.296-.516v-2.965a.595.595 0 00-.296-.516l-2.554-1.483s-.008-.002-.012-.005a.54.54 0 00-.126-.051c-.007-.003-.013-.003-.02-.005a.635.635 0 00-.125-.017h-.018a.557.557 0 00-.16.026.588.588 0 00-.13.053l-1.276.742a1.595 1.595 0 01-1.598 0 1.615 1.615 0 010-2.785l-.005-.001z" fill="#21C19A"></path>
+                    <path d="M14.848 18.265l-2.554-1.482-.012-.005a.526.526 0 00-.126-.052c-.007-.002-.014-.002-.02-.005a.64.64 0 00-.124-.017h-.02a.56.56 0 00-.16.026.588.588 0 00-.13.053l-1.276.742a1.594 1.594 0 01-1.598 0c-.493-.286-.8-.82-.8-1.393V14.65a.563.563 0 00-.018-.14l-.008-.028a.604.604 0 00-.051-.124l-.01-.017a.603.603 0 00-.076-.1l-.014-.015a.596.596 0 00-.109-.084c-.003-.002-.005-.006-.01-.008L5.178 12.65a.587.587 0 00-.591 0l-2.554 1.483a.596.596 0 00-.297.516v2.965c0 .213.113.41.297.516l2.554 1.483.012.004a.618.618 0 00.267.074l.016.002h.007a.55.55 0 00.16-.026.584.584 0 00.129-.053l1.277-.742a1.597 1.597 0 012.398 1.393v1.482c0 .05.007.095.019.14l.007.028c.013.044.03.085.051.125l.01.016c.022.036.047.07.076.1l.014.015c.032.032.069.06.109.084l.01.008 2.554 1.483a.587.587 0 00.593 0l2.554-1.483a.596.596 0 00.296-.515v-2.966a.596.596 0 00-.296-.516h-.002z" fill="#0294DE"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <ul class="clean-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Operates in a sandboxed environment</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Investigates engineering problems</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Executes multi-step dev tasks</span>
+                </li>
+              </ul>
+            </div>
+
+            <a class="tool-link" href="https://devin.ai/" target="_blank" rel="noopener noreferrer">
+              <span>devin.ai</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <!-- OpenCode -->
+          <div class="agent-tool-card anim-item" style="--stagger: 5;">
+            <div>
+              <div class="tool-card-header">
+                <div>
+                  <h3 class="tool-name">OpenCode</h3>
+                  <div class="tool-vendor">Open-Source Terminal Agent</div>
+                </div>
+                <div class="card-icon">
+                  <svg class="tool-brand-svg" viewBox="0 0 240 300" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M180 240H60V120H180V240Z" fill="currentColor" fill-opacity="0.28"></path>
+                    <path d="M180 60H60V240H180V60ZM240 300H0V0H240V300Z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <ul class="clean-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Operates in a fast terminal interface</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Navigates codebases &amp; runs commands</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Supports orchestrator &amp; subagent workflows</span>
+                </li>
+              </ul>
+            </div>
+
+            <a class="tool-link" href="https://opencode.ai/" target="_blank" rel="noopener noreferrer">
+              <span>opencode.ai</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <!-- Claude Code -->
+          <div class="agent-tool-card anim-item" style="--stagger: 6;">
+            <div>
+              <div class="tool-card-header">
+                <div>
+                  <h3 class="tool-name">Claude Code</h3>
+                  <div class="tool-vendor">Anthropic Agentic CLI &amp; IDE Tool</div>
+                </div>
+                <div class="card-icon">
+                  <svg class="tool-brand-svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z" fill="#D97757" fill-rule="nonzero"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <ul class="clean-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Runs agentic workflows in terminal &amp; IDE</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Reads codebases, edits files &amp; runs tests</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Handles Git workflows, hooks &amp; subagents</span>
+                </li>
+              </ul>
+            </div>
+
+            <a class="tool-link" href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">
+              <span>claude.com/product/claude-code</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="callout-banner anim-item" style="--stagger: 7;">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="callout-body">
+            <div class="callout-label">Key Takeaway</div>
+            <p class="callout-text">
+              These tools demonstrate how AI can actively participate in <strong>actual software engineering workflows</strong>, not just generate isolated code.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 7 — MULTI-AGENT AI IN SOFTWARE DEVELOPMENT
+           ================================================================== -->
+      <section class="slide" data-slide="7">
+        <div class="slide-header slide-header--compact">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="5" r="3"></circle>
+              <line x1="12" y1="8" x2="12" y2="14"></line>
+              <circle cx="6" cy="19" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="12" y1="14" x2="6" y2="16"></line>
+              <line x1="12" y1="14" x2="18" y2="16"></line>
+            </svg>
+            <span>Slide 07 // Collaborative Agent Systems</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Multi-Agent AI in Software Development</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Multiple AI agents working together with <strong>specialized responsibilities</strong> to accomplish a shared objective (e.g., configurable in tools like <strong>OpenCode</strong>).
+          </p>
+        </div>
+
+        <div class="arch-diagram">
+          <!-- Tier 0 & Tier 1: Developer Objective -> Root Orchestrator -->
+          <div class="arch-root-tier anim-item" style="--stagger: 3;">
+            <div class="arch-input-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Developer Objective: Student Management System</span>
+            </div>
+
+            <div class="arch-stem arch-stem--short" aria-hidden="true"></div>
+
+            <div class="arch-root-node" data-agent="orchestrator">
+              <div class="arch-root-left">
+                <div class="arch-root-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="arch-root-title">Orchestrator Agent</div>
+                  <div class="arch-root-desc">Coordinates workflow, delegates tasks &amp; integrates results</div>
+                </div>
+              </div>
+              <span class="arch-root-badge">Root Coordinator</span>
+            </div>
+
+            <div class="arch-stem arch-stem--trunk" aria-hidden="true"></div>
+          </div>
+
+          <!-- Tier 2 & Tier 3: Three Hierarchical Agent Branches -->
+          <div class="arch-branches">
+            <!-- Branch 1: Planning -->
+            <div class="arch-branch anim-item" style="--stagger: 4;">
+              <div class="arch-branch-header">
+                <span class="arch-branch-num">01</span>
+                <span class="arch-branch-label">Planning Tier</span>
+              </div>
+
+              <div class="arch-branch-spine">
+                <div class="arch-node" data-agent="planner">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Planner</span>
+                    <span class="arch-node-task">Analyzes requirements &amp; creates tasks</span>
+                  </div>
+                </div>
+
+                <div class="arch-node arch-node--meta">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="17 1 21 5 17 9"></polyline>
+                      <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                      <polyline points="7 23 3 19 7 15"></polyline>
+                      <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Delegation Flow</span>
+                    <span class="arch-node-task">Objective → Tasks → Build → Review → Iterate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Branch 2: Implementation -->
+            <div class="arch-branch anim-item" style="--stagger: 5;">
+              <div class="arch-branch-header">
+                <span class="arch-branch-num">02</span>
+                <span class="arch-branch-label">Implementation Tier</span>
+              </div>
+
+              <div class="arch-branch-spine">
+                <div class="arch-node" data-agent="frontend">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Frontend Developer</span>
+                    <span class="arch-node-task">Develops user interface</span>
+                  </div>
+                </div>
+
+                <div class="arch-node" data-agent="backend">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Backend Developer</span>
+                    <span class="arch-node-task">Implements APIs &amp; business logic</span>
+                  </div>
+                </div>
+
+                <div class="arch-node" data-agent="db">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Database Engineer</span>
+                    <span class="arch-node-task">Designs database structures</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Branch 3: Verification & Security -->
+            <div class="arch-branch anim-item" style="--stagger: 6;">
+              <div class="arch-branch-header">
+                <span class="arch-branch-num">03</span>
+                <span class="arch-branch-label">Verification Tier</span>
+              </div>
+
+              <div class="arch-branch-spine">
+                <div class="arch-node" data-agent="tester">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="9 11 12 14 22 4"></polyline>
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Tester</span>
+                    <span class="arch-node-task">Executes tests &amp; verifies functionality</span>
+                  </div>
+                </div>
+
+                <div class="arch-node" data-agent="reviewer">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Code Reviewer</span>
+                    <span class="arch-node-task">Reviews implementation quality</span>
+                  </div>
+                </div>
+
+                <div class="arch-node" data-agent="security">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Security Reviewer</span>
+                    <span class="arch-node-task">Identifies potential vulnerabilities</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback Loop Strip -->
+          <div class="arch-feedback-bar anim-item" style="--stagger: 7;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+            <span>
+              <strong>Iterative Feedback Loop:</strong> Orchestrator collects outputs, integrates results, and iterates until verified — configurable with specialized subagents in <strong>OpenCode</strong>.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 8 — MULTI-AGENT TERMINAL DEMO
+           ================================================================== -->
+      <section class="slide" data-slide="8">
+        <div class="slide-header slide-header--compact">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <span>Slide 08 // Live Workflow Simulation</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Multi-Agent Terminal Demo</h2>
+        </div>
+
+        <div class="demo-workbench anim-item" style="--stagger: 2;">
+          <div class="term-window">
+            <div class="term-header">
+              <div class="term-header-left">
+                <div class="term-dots" aria-hidden="true">
+                  <span class="term-dot"></span>
+                  <span class="term-dot"></span>
+                  <span class="term-dot"></span>
+                </div>
+                <span class="term-title">opencode — student-management-system</span>
+              </div>
+              <div class="term-header-actions">
+                <span class="term-phase-badge" id="term-phase-badge" data-state="idle">Idle</span>
+                <button type="button" class="term-btn" id="btn-term-replay" title="Replay terminal simulation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                  </svg>
+                  <span>Replay</span>
+                </button>
+                <button type="button" class="term-btn" id="btn-term-skip" title="Show completed terminal output">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="5 12 19 12"></polyline>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                  <span>Complete</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="term-body" id="term-body" tabindex="0" aria-live="polite">
+              <div class="term-output" id="term-output"></div>
+            </div>
+
+            <div class="term-prompt-bar" id="term-prompt-bar" data-state="idle">
+              <span class="term-prompt-bar-sigil" aria-hidden="true">&gt;</span>
+              <span class="term-prompt-bar-track" id="term-prompt-bar-track">
+                <span class="term-prompt-bar-text" id="term-prompt-bar-text">Waiting for prompt...</span><span class="term-cursor" id="term-prompt-bar-cursor" aria-hidden="true">▊</span>
+              </span>
+              <span class="term-prompt-bar-meta" id="term-prompt-bar-meta">Prompt 1 / 3</span>
+            </div>
+          </div>
+
+          <aside class="term-agents-panel" aria-label="Agent roster status">
+            <div class="term-agents-header">
+              <span>Agent Roster</span>
+              <span class="term-agents-count" id="term-agents-count">0 / 7 done</span>
+            </div>
+
+            <div class="term-agents-list">
+              <div class="term-agent-card" data-agent="orchestrator" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 19 6 19 14 12 18 5 14 5 6 12 2"></polygon>
+                    <circle cx="12" cy="10" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Orchestrator</span>
+                  <span class="term-agent-task">Delegate &amp; integrate</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+
+              <div class="term-agent-card" data-agent="planner" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+                    <rect x="9" y="3" width="6" height="4" rx="1"></rect>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Planner</span>
+                  <span class="term-agent-task">Task breakdown</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+
+              <div class="term-agent-card" data-agent="db" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
+                    <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path>
+                    <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Database Engineer</span>
+                  <span class="term-agent-task">Schema &amp; migrations</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+
+              <div class="term-agent-card" data-agent="backend" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="8" rx="2"></rect>
+                    <rect x="2" y="13" width="20" height="8" rx="2"></rect>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Backend Developer</span>
+                  <span class="term-agent-task">JWT API &amp; guards</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+
+              <div class="term-agent-card" data-agent="frontend" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Frontend Developer</span>
+                  <span class="term-agent-task">Login UI &amp; routes</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+
+              <div class="term-agent-card" data-agent="tester" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 3h6"></path>
+                    <path d="M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"></path>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Tester</span>
+                  <span class="term-agent-task">Integration suite</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+
+              <div class="term-agent-card" data-agent="security" data-status="waiting">
+                <div class="term-agent-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="term-agent-meta">
+                  <span class="term-agent-role">Security Reviewer</span>
+                  <span class="term-agent-task">Token &amp; OWASP audit</span>
+                </div>
+                <span class="term-agent-status">Waiting</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           SLIDE 9 — BENEFITS, CHALLENGES, AND CONCLUSION
+           ================================================================== -->
+      <section class="slide" data-slide="9">
+        <div class="slide-header slide-header--compact">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Slide 09 // Summary &amp; Outlook</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Benefits, Challenges, and Conclusion</h2>
+        </div>
+
+        <div class="grid-2 grid-2--compact">
+          <!-- Benefits -->
+          <div class="compare-panel compare-panel--compact compare-highlight anim-item" style="--stagger: 2;">
+            <div class="compare-header">
+              <div class="compare-title-group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <span class="compare-title">Key Benefits</span>
+              </div>
+              <span class="compare-tag">Velocity &amp; Focus</span>
+            </div>
+
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Faster end-to-end development workflows</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Reduced repetitive programming tasks</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Parallel execution of development work</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Automated testing &amp; verification assistance</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>More time for architecture &amp; problem-solving</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Challenges -->
+          <div class="compare-panel compare-panel--compact compare-danger anim-item" style="--stagger: 3;">
+            <div class="compare-header">
+              <div class="compare-title-group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <span class="compare-title">Core Challenges</span>
+              </div>
+              <span class="compare-tag">Risk &amp; Governance</span>
+            </div>
+
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Risk of incorrect code and flawed decisions</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Potential security vulnerabilities</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Increased computational and API token costs</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Agent coordination and integration complexity</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Continued necessity for skilled human supervision</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="closing-quote-box anim-item" style="--stagger: 4;">
+          <div>
+            <div class="callout-label">Conclusion &amp; Closing Statement</div>
+            <p class="closing-quote-text">
+              “Developers may no longer need to write every line of code themselves, but they will still need to <strong>understand, direct, and validate</strong> the systems they build.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <footer class="deck-bottombar">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="nav-dots" id="nav-dots" role="tablist" aria-label="Slide selector"></div>
+
+      <div class="nav-controls">
+        <button class="icon-btn" id="btn-prev" title="Previous Slide (Left Arrow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span>Prev</span>
+        </button>
+
+        <span class="slide-counter" id="slide-counter">01 / 09</span>
+
+        <button class="icon-btn" id="btn-next" title="Next Slide (Right Arrow / Space)">
+          <span>Next</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+/**
+ * Agentic AI in Software Development — Presentation Controller
+ */
+
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const totalSlides = slides.length;
+
+  const progressFill = document.getElementById('progress-fill');
+  const slideCounter = document.getElementById('slide-counter');
+  const navDotsContainer = document.getElementById('nav-dots');
+
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const btnTheme = document.getElementById('btn-theme');
+  const btnFullscreen = document.getElementById('btn-fullscreen');
+  const termBody = document.getElementById('term-body');
+  const termOutput = document.getElementById('term-output');
+  const termPhaseBadge = document.getElementById('term-phase-badge');
+  const termAgentsCount = document.getElementById('term-agents-count');
+  const btnTermReplay = document.getElementById('btn-term-replay');
+  const btnTermSkip = document.getElementById('btn-term-skip');
+  const termPromptBar = document.getElementById('term-prompt-bar');
+  const termPromptBarTrack = document.getElementById('term-prompt-bar-track');
+  const termPromptBarText = document.getElementById('term-prompt-bar-text');
+  const termPromptBarMeta = document.getElementById('term-prompt-bar-meta');
+  const termAgentCards = Array.from(document.querySelectorAll('.term-agent-card'));
+
+  let currentIndex = 0;
+  let cycleInterval = null;
+  let currentCycleStep = 0;
+  let termRunId = 0;
+  let termInterval = null;
+  const termTimers = new Set();
+
+  // Build navigation dots
+  slides.forEach((_, idx) => {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (idx === 0 ? ' is-active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+    dot.setAttribute('title', `Slide ${idx + 1}`);
+    dot.addEventListener('click', () => goToSlide(idx));
+    navDotsContainer.appendChild(dot);
+  });
+
+  const navDots = Array.from(navDotsContainer.querySelectorAll('.nav-dot'));
+
+  function pad2(n) {
+    return String(n).padStart(2, '0');
+  }
+
+  function goToSlide(index, updateHash = true) {
+    if (index < 0 || index >= totalSlides) return;
+    currentIndex = index;
+
+    slides.forEach((slide, idx) => {
+      slide.classList.remove('is-active', 'is-prev');
+      if (idx === currentIndex) {
+        slide.classList.add('is-active');
+      } else if (idx < currentIndex) {
+        slide.classList.add('is-prev');
+      }
+    });
+
+    navDots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === currentIndex);
+    });
+
+    const pct = ((currentIndex + 1) / totalSlides) * 100;
+    progressFill.style.width = `${pct}%`;
+    slideCounter.textContent = `${pad2(currentIndex + 1)} / ${pad2(totalSlides)}`;
+
+    btnPrev.disabled = currentIndex === 0;
+    btnPrev.style.opacity = currentIndex === 0 ? '0.45' : '1';
+    btnNext.disabled = currentIndex === totalSlides - 1;
+    btnNext.style.opacity = currentIndex === totalSlides - 1 ? '0.45' : '1';
+
+    if (updateHash) {
+      history.replaceState(null, '', `#slide-${currentIndex + 1}`);
+    }
+
+    manageCycleAnimation();
+    manageTerminalDemo();
+  }
+
+  function nextSlide() {
+    if (currentIndex < totalSlides - 1) {
+      goToSlide(currentIndex + 1);
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      goToSlide(currentIndex - 1);
+    }
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  // Slide 5 Interactive Stepper Loop
+  const cycleCards = Array.from(document.querySelectorAll('#cycle-stepper .cycle-step-card'));
+
+  function setActiveCycleStep(stepIdx) {
+    currentCycleStep = stepIdx % cycleCards.length;
+    cycleCards.forEach((card, idx) => {
+      card.classList.toggle('is-pulsing', idx === currentCycleStep);
+    });
+  }
+
+  cycleCards.forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      setActiveCycleStep(idx);
+      restartCycleInterval();
+    });
+  });
+
+  function restartCycleInterval() {
+    if (cycleInterval) clearInterval(cycleInterval);
+    if (currentIndex === 4) {
+      cycleInterval = setInterval(() => {
+        setActiveCycleStep(currentCycleStep + 1);
+      }, 2200);
+    }
+  }
+
+  function manageCycleAnimation() {
+    if (currentIndex === 4) {
+      setActiveCycleStep(0);
+      restartCycleInterval();
+    } else if (cycleInterval) {
+      clearInterval(cycleInterval);
+      cycleInterval = null;
+    }
+  }
+
+  // Event Listeners
+  btnPrev.addEventListener('click', prevSlide);
+  btnNext.addEventListener('click', nextSlide);
+  btnTheme.addEventListener('click', toggleTheme);
+  btnFullscreen.addEventListener('click', toggleFullscreen);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case ' ':
+      case 'PageDown':
+        e.preventDefault();
+        nextSlide();
+        break;
+      case 'ArrowLeft':
+      case 'PageUp':
+        e.preventDefault();
+        prevSlide();
+        break;
+      case 'Home':
+        e.preventDefault();
+        goToSlide(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        goToSlide(totalSlides - 1);
+        break;
+      case 'l':
+      case 'L':
+        e.preventDefault();
+        toggleTheme();
+        break;
+      case 'f':
+      case 'F':
+        e.preventDefault();
+        toggleFullscreen();
+        break;
+    }
+  });
+
+  // ==========================================================================
+  // SLIDE 8: MULTI-AGENT TERMINAL DEMO CONTROLLER
+  // ==========================================================================
+
+  const DEMO_TURNS = [
+    {
+      label: 'Turn 1 // Auth & RBAC',
+      prompt: 'Add JWT authentication and role-based access to the Student Management System',
+      planSummary: 'Decomposed request into 4 parallelizable workstreams',
+      planSteps: [
+        '1. Schema & user seed migration',
+        '2. Auth API & JWT middleware',
+        '3. Login UI & protected routes',
+        '4. Auth tests & security audit'
+      ],
+      executionBlocks: [
+        {
+          agent: 'db',
+          tag: 'Database',
+          cmd: '$ psql -f migrations/004_create_users_roles.sql',
+          lines: [
+            { text: '+ CREATE TABLE users (id UUID PRIMARY KEY, email TEXT UNIQUE, role TEXT);', add: true },
+            { text: '+ CREATE INDEX idx_users_email ON users(email);', add: true }
+          ]
+        },
+        {
+          agent: 'backend',
+          tag: 'Backend',
+          cmd: 'edit src/auth/jwt.middleware.ts & src/routes/auth.ts',
+          lines: [
+            { text: '+ POST /api/auth/login (bcrypt verify + HS256 JWT)', add: true },
+            { text: "+ requireRole(['admin', 'teacher']) guard attached", add: true }
+          ]
+        },
+        {
+          agent: 'frontend',
+          tag: 'Frontend',
+          cmd: 'write src/pages/LoginPage.tsx & src/hooks/useAuth.ts',
+          lines: [
+            { text: '+ ProtectedRoute wrapper + role-aware navigation', add: true }
+          ]
+        }
+      ],
+      qaSummary: 'Verification suite completed',
+      qaBlocks: [
+        {
+          agent: 'tester',
+          tag: 'Tester',
+          cmd: '$ npm test -- auth.spec.ts',
+          badge: 'PASS',
+          summary: 'src/auth/auth.spec.ts (6/6 assertions passed in 0.42s)'
+        },
+        {
+          agent: 'security',
+          tag: 'Security',
+          cmd: 'Static & JWT token configuration audit',
+          badge: 'PASS',
+          summary: '0 high/critical issues • rate limit & httpOnly cookie verified'
+        }
+      ],
+      summaryTitle: 'Orchestrator // Turn 1 Complete',
+      summaryLines: [
+        '• Authentication & RBAC implemented across DB, API, and UI.',
+        '• 5 files updated, 6/6 tests passing, 0 security findings.'
+      ]
+    },
+    {
+      label: 'Turn 2 // Course Enrollment & Export',
+      prompt: 'Now add course enrollment management and role-gated CSV roster export',
+      planSummary: 'Planned 4 enrollment & export tasks across stack',
+      planSteps: [
+        '1. Enrollments schema & foreign keys',
+        '2. Enrollment API & CSV export stream',
+        '3. Enrollment modal & Export CSV button',
+        '4. Integration & RBAC policy checks'
+      ],
+      executionBlocks: [
+        {
+          agent: 'db',
+          tag: 'Database',
+          cmd: '$ psql -f migrations/005_create_enrollments.sql',
+          lines: [
+            { text: '+ CREATE TABLE enrollments (id UUID PRIMARY KEY, student_id UUID, course_id UUID);', add: true }
+          ]
+        },
+        {
+          agent: 'backend',
+          tag: 'Backend',
+          cmd: 'write src/routes/enrollments.ts & src/services/csvExport.ts',
+          lines: [
+            { text: "+ GET /api/roster/export.csv (requireRole(['teacher', 'admin']))", add: true }
+          ]
+        },
+        {
+          agent: 'frontend',
+          tag: 'Frontend',
+          cmd: 'write src/components/EnrollmentModal.tsx & ExportButton.tsx',
+          lines: [
+            { text: '+ Added course enrollment table and role-gated CSV export action', add: true }
+          ]
+        }
+      ],
+      qaSummary: 'Enrollment & permission checks completed',
+      qaBlocks: [
+        {
+          agent: 'tester',
+          tag: 'Tester',
+          cmd: '$ npm test -- enrollment.spec.ts',
+          badge: 'PASS',
+          summary: 'src/enrollments/enrollment.spec.ts (5/5 assertions passed in 0.38s)'
+        },
+        {
+          agent: 'security',
+          tag: 'Security',
+          cmd: 'RBAC scope & student PII audit',
+          badge: 'PASS',
+          summary: 'Student role blocked from bulk roster export (HTTP 403 enforced)'
+        }
+      ],
+      summaryTitle: 'Orchestrator // Turn 2 Complete',
+      summaryLines: [
+        '• Course enrollment & role-gated CSV roster export added.',
+        '• 11/11 cumulative tests passing with RBAC policy verified.'
+      ]
+    },
+    {
+      label: 'Turn 3 // Race Fix & CSV Hardening',
+      prompt: 'Fix duplicate enrollment race condition and sanitize CSV cell formulas',
+      planSummary: 'Targeted hardening plan across constraint, API guard, and QA',
+      planSteps: [
+        '1. Unique composite constraint migration',
+        '2. Idempotent upsert & CSV formula escaping',
+        '3. Conflict notice in EnrollmentModal',
+        '4. Regression & injection security suite'
+      ],
+      executionBlocks: [
+        {
+          agent: 'db',
+          tag: 'Database',
+          cmd: '$ psql -f migrations/006_unique_enrollment.sql',
+          lines: [
+            { text: '+ ALTER TABLE enrollments ADD CONSTRAINT uq_student_course UNIQUE (student_id, course_id);', add: true }
+          ]
+        },
+        {
+          agent: 'backend',
+          tag: 'Backend',
+          cmd: 'edit src/routes/enrollments.ts & src/services/csvExport.ts',
+          lines: [
+            { text: '+ ON CONFLICT DO NOTHING -> HTTP 409; escapeCsvCell() prefixes =, +, -, @', add: true }
+          ]
+        },
+        {
+          agent: 'frontend',
+          tag: 'Frontend',
+          cmd: 'edit src/components/EnrollmentModal.tsx',
+          lines: [
+            { text: '+ Handled HTTP 409 duplicate enrollment alert inline', add: true }
+          ]
+        }
+      ],
+      qaSummary: 'Full regression & CSV injection suite verified',
+      qaBlocks: [
+        {
+          agent: 'tester',
+          tag: 'Tester',
+          cmd: '$ npm test',
+          badge: 'PASS',
+          summary: 'All 3 suites • 14/14 assertions passed in 0.71s'
+        },
+        {
+          agent: 'security',
+          tag: 'Security',
+          cmd: 'OWASP CSV formula & concurrency replay test',
+          badge: 'PASS',
+          summary: 'Duplicate burst safe • =CMD() formula injection neutralized'
+        }
+      ],
+      summaryTitle: 'Orchestrator // Session Verified & Ready',
+      summaryLines: [
+        '• Concurrent enrollment race & CSV formula risks resolved.',
+        '• Full regression suite green (14/14 passing) — ready for review.'
+      ]
+    }
+  ];
+
+  const AGENT_STATUS_LABELS = {
+    waiting: 'Waiting',
+    active: 'Active',
+    done: 'Done'
+  };
+
+  function manageTerminalDemo() {
+    if (currentIndex === 7) {
+      startTerminalDemo();
+    } else {
+      stopTerminalDemo();
+    }
+  }
+
+  function stopTerminalDemo() {
+    termRunId += 1;
+    termTimers.forEach((id) => clearTimeout(id));
+    termTimers.clear();
+    if (termInterval) {
+      clearInterval(termInterval);
+      termInterval = null;
+    }
+  }
+
+  function scheduleTerm(delayMs, callback) {
+    const runId = termRunId;
+    const id = setTimeout(() => {
+      termTimers.delete(id);
+      if (runId !== termRunId) return;
+      callback();
+    }, delayMs);
+    termTimers.add(id);
+  }
+
+  function setTermPhase(label, state) {
+    if (!termPhaseBadge) return;
+    termPhaseBadge.textContent = label;
+    termPhaseBadge.dataset.state = state;
+  }
+
+  function setAgentStatus(agentId, status) {
+    const card = termAgentCards.find((el) => el.dataset.agent === agentId);
+    if (card) {
+      card.dataset.status = status;
+      const badge = card.querySelector('.term-agent-status');
+      if (badge) badge.textContent = AGENT_STATUS_LABELS[status] || status;
+    }
+    if (termAgentsCount) {
+      const doneCount = termAgentCards.filter((el) => el.dataset.status === 'done').length;
+      termAgentsCount.textContent = `${doneCount} / ${termAgentCards.length} done`;
+    }
+  }
+
+  function resetAgentRoster(status) {
+    termAgentCards.forEach((card) => {
+      card.dataset.status = status;
+      const badge = card.querySelector('.term-agent-status');
+      if (badge) badge.textContent = AGENT_STATUS_LABELS[status] || status;
+    });
+    if (termAgentsCount) {
+      const doneCount = status === 'done' ? termAgentCards.length : 0;
+      termAgentsCount.textContent = `${doneCount} / ${termAgentCards.length} done`;
+    }
+  }
+
+  function scrollTerminal() {
+    if (termBody) {
+      termBody.scrollTop = termBody.scrollHeight;
+    }
+  }
+
+  function appendOutputElement(el) {
+    if (!termOutput) return;
+    termOutput.appendChild(el);
+    scrollTerminal();
+  }
+
+  function setPromptBar(state, text, meta) {
+    if (termPromptBar) termPromptBar.dataset.state = state;
+    if (termPromptBarText && text !== undefined) termPromptBarText.textContent = text;
+    if (termPromptBarMeta && meta !== undefined) termPromptBarMeta.textContent = meta;
+    if (termPromptBarTrack && state === 'typing') {
+      termPromptBarTrack.scrollLeft = termPromptBarTrack.scrollWidth;
+    }
+  }
+
+  function createTurnDivider(label) {
+    const div = document.createElement('div');
+    div.className = 'term-line term-turn-divider';
+    div.textContent = label;
+    return div;
+  }
+
+  function createPromptRow(initialText, withCursor, committed) {
+    const row = document.createElement('div');
+    row.className = committed
+      ? 'term-line term-prompt-row term-prompt-row--committed'
+      : 'term-line term-prompt-row';
+
+    const sigil = document.createElement('span');
+    sigil.className = 'term-prompt-sigil';
+    sigil.textContent = '$';
+
+    const typed = document.createElement('span');
+    typed.className = 'term-typed-text';
+    typed.textContent = initialText;
+
+    row.appendChild(sigil);
+    row.appendChild(typed);
+
+    let cursor = null;
+    if (withCursor) {
+      cursor = document.createElement('span');
+      cursor.className = 'term-cursor';
+      cursor.textContent = '▊';
+      row.appendChild(cursor);
+    }
+
+    return { row, typed, cursor };
+  }
+
+  function createStatusRow(text, settled, agentId, tagLabel) {
+    const row = document.createElement('div');
+    row.className = 'term-line term-spinner-row';
+    if (agentId) row.dataset.agent = agentId;
+
+    const glyph = document.createElement('span');
+    glyph.className = settled ? 'term-done-check' : 'term-spinner-glyph';
+    glyph.textContent = settled ? '✓' : '⠋';
+    row.appendChild(glyph);
+
+    let tag = null;
+    if (tagLabel) {
+      tag = document.createElement('span');
+      tag.className = 'term-agent-tag';
+      tag.textContent = tagLabel;
+      row.appendChild(tag);
+    }
+
+    const msg = document.createElement('span');
+    msg.className = 'term-status-text';
+    msg.textContent = text;
+
+    row.appendChild(msg);
+    return { row, glyph, tag, msg };
+  }
+
+  function startSpinner(text, agentId, tagLabel) {
+    const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
+    let frameIndex = 0;
+    const { row, glyph, tag, msg } = createStatusRow(text, false, agentId, tagLabel);
+    appendOutputElement(row);
+
+    const runId = termRunId;
+    if (termInterval) clearInterval(termInterval);
+    termInterval = setInterval(() => {
+      if (runId !== termRunId) {
+        clearInterval(termInterval);
+        termInterval = null;
+        return;
+      }
+      frameIndex = (frameIndex + 1) % frames.length;
+      glyph.textContent = frames[frameIndex];
+    }, 80);
+
+    return (settledText, settledAgentId, settledTagLabel) => {
+      if (termInterval) {
+        clearInterval(termInterval);
+        termInterval = null;
+      }
+      if (settledAgentId) row.dataset.agent = settledAgentId;
+      if (tag && settledTagLabel) tag.textContent = settledTagLabel;
+      glyph.className = 'term-done-check';
+      glyph.textContent = '✓';
+      msg.textContent = settledText;
+      scrollTerminal();
+    };
+  }
+
+  function createPlanBlock(steps) {
+    const list = document.createElement('div');
+    list.className = 'term-line term-plan-list';
+    list.dataset.agent = 'planner';
+    steps.forEach((step) => {
+      const item = document.createElement('div');
+      item.className = 'term-plan-item';
+      item.textContent = step;
+      list.appendChild(item);
+    });
+    return list;
+  }
+
+  function createCmdBlock(block) {
+    const box = document.createElement('div');
+    box.className = 'term-line term-cmd-block';
+    if (block.agent) box.dataset.agent = block.agent;
+
+    const head = document.createElement('div');
+    head.className = 'term-cmd-head';
+
+    const tag = document.createElement('span');
+    tag.className = 'term-agent-tag';
+    tag.textContent = block.tag;
+
+    const cmd = document.createElement('span');
+    cmd.className = 'term-cmd-text';
+    cmd.textContent = block.cmd;
+
+    head.appendChild(tag);
+    head.appendChild(cmd);
+    box.appendChild(head);
+
+    if (block.lines) {
+      block.lines.forEach((line) => {
+        const diff = document.createElement('div');
+        diff.className = line.add ? 'term-diff-line term-diff-line--add' : 'term-diff-line';
+        diff.textContent = line.text;
+        box.appendChild(diff);
+      });
+    }
+
+    if (block.badge) {
+      const passRow = document.createElement('div');
+      passRow.className = 'term-test-pass';
+
+      const badge = document.createElement('span');
+      badge.className = 'term-test-badge';
+      badge.textContent = block.badge;
+
+      const summary = document.createElement('span');
+      summary.textContent = block.summary;
+
+      passRow.appendChild(badge);
+      passRow.appendChild(summary);
+      box.appendChild(passRow);
+    }
+
+    return box;
+  }
+
+  function createSummaryBox(summaryTitle, summaryLines) {
+    const box = document.createElement('div');
+    box.className = 'term-line term-response-box';
+    box.dataset.agent = 'orchestrator';
+
+    const title = document.createElement('div');
+    title.className = 'term-response-title';
+    title.textContent = summaryTitle;
+
+    const list = document.createElement('div');
+    list.className = 'term-response-list';
+    summaryLines.forEach((line) => {
+      const item = document.createElement('div');
+      item.textContent = line;
+      list.appendChild(item);
+    });
+
+    box.appendChild(title);
+    box.appendChild(list);
+    return box;
+  }
+
+  function runTurnSequence(turn, onComplete) {
+    setTermPhase('Planning', 'active');
+    setAgentStatus('orchestrator', 'active');
+    const finishPlanSpinner = startSpinner(
+      'Analyzing repository & delegating tasks...',
+      'orchestrator',
+      'Orchestrator'
+    );
+
+    scheduleTerm(300, () => setAgentStatus('planner', 'active'));
+
+    scheduleTerm(950, () => {
+      finishPlanSpinner(turn.planSummary, 'planner', 'Planner');
+      appendOutputElement(createPlanBlock(turn.planSteps));
+      setAgentStatus('planner', 'done');
+    });
+
+    scheduleTerm(1350, () => {
+      setTermPhase('Executing', 'active');
+      setAgentStatus('db', 'active');
+    });
+    scheduleTerm(1500, () => setAgentStatus('backend', 'active'));
+    scheduleTerm(1650, () => setAgentStatus('frontend', 'active'));
+
+    const blockStepMs = 680;
+    const execStartMs = 2050;
+    turn.executionBlocks.forEach((block, index) => {
+      scheduleTerm(execStartMs + index * blockStepMs, () => {
+        appendOutputElement(createCmdBlock(block));
+        setAgentStatus(block.agent, 'done');
+      });
+    });
+
+    const qaStartMs = execStartMs + turn.executionBlocks.length * blockStepMs + 320;
+    let finishQaSpinner = null;
+    scheduleTerm(qaStartMs, () => {
+      setTermPhase('Verifying', 'active');
+      setAgentStatus('tester', 'active');
+      setAgentStatus('security', 'active');
+      finishQaSpinner = startSpinner('Running verification suite...', 'tester', 'Verification');
+    });
+
+    scheduleTerm(qaStartMs + 780, () => {
+      if (finishQaSpinner) finishQaSpinner(turn.qaSummary, 'tester', 'Verification');
+      appendOutputElement(createCmdBlock(turn.qaBlocks[0]));
+      setAgentStatus('tester', 'done');
+    });
+
+    scheduleTerm(qaStartMs + 1280, () => {
+      appendOutputElement(createCmdBlock(turn.qaBlocks[1]));
+      setAgentStatus('security', 'done');
+    });
+
+    scheduleTerm(qaStartMs + 1780, () => {
+      setAgentStatus('orchestrator', 'done');
+      appendOutputElement(createSummaryBox(turn.summaryTitle, turn.summaryLines));
+      if (onComplete) onComplete();
+    });
+  }
+
+  function playTurn(turnIndex) {
+    const turn = DEMO_TURNS[turnIndex];
+    if (!turn) return;
+
+    const turnTag = `Prompt ${turnIndex + 1} / ${DEMO_TURNS.length}`;
+    appendOutputElement(createTurnDivider(turn.label));
+    setTermPhase('Typing', 'active');
+    setPromptBar('typing', '', turnTag);
+
+    let charIndex = 0;
+    const runId = termRunId;
+    if (termInterval) clearInterval(termInterval);
+    termInterval = setInterval(() => {
+      if (runId !== termRunId) {
+        clearInterval(termInterval);
+        termInterval = null;
+        return;
+      }
+      charIndex += 1;
+      setPromptBar('typing', turn.prompt.slice(0, charIndex));
+      if (charIndex >= turn.prompt.length) {
+        clearInterval(termInterval);
+        termInterval = null;
+        scheduleTerm(200, () => {
+          appendOutputElement(createPromptRow(turn.prompt, false, true).row);
+          resetAgentRoster('waiting');
+          setPromptBar('busy', `Agents working on ${turnTag}...`, turnTag);
+          runTurnSequence(turn, () => {
+            if (turnIndex + 1 < DEMO_TURNS.length) {
+              setPromptBar('busy', `Preparing Prompt ${turnIndex + 2} / ${DEMO_TURNS.length}...`, turnTag);
+              scheduleTerm(1100, () => playTurn(turnIndex + 1));
+            } else {
+              setTermPhase('Verified', 'verified');
+              setPromptBar('busy', 'Session complete — looping continuously...', 'Looping');
+              scheduleTerm(2800, startTerminalDemo);
+            }
+          });
+        });
+      }
+    }, 18);
+  }
+
+  function appendTurnSnapshot(turn) {
+    termOutput.appendChild(createTurnDivider(turn.label));
+    termOutput.appendChild(createPromptRow(turn.prompt, false, true).row);
+    termOutput.appendChild(createStatusRow(turn.planSummary, true, 'planner', 'Planner').row);
+    termOutput.appendChild(createPlanBlock(turn.planSteps));
+    turn.executionBlocks.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
+    termOutput.appendChild(createStatusRow(turn.qaSummary, true, 'tester', 'Verification').row);
+    turn.qaBlocks.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
+    termOutput.appendChild(createSummaryBox(turn.summaryTitle, turn.summaryLines));
+  }
+
+  function startTerminalDemo() {
+    if (!termOutput) return;
+    stopTerminalDemo();
+    termOutput.innerHTML = '';
+    resetAgentRoster('waiting');
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      completeTerminalDemo();
+      return;
+    }
+
+    playTurn(0);
+  }
+
+  function completeTerminalDemo() {
+    if (!termOutput) return;
+    stopTerminalDemo();
+    termOutput.innerHTML = '';
+    resetAgentRoster('done');
+    setTermPhase('Verified', 'verified');
+    setPromptBar(
+      'done',
+      'All 3 prompts verified — click Replay to run continuous loop',
+      `${DEMO_TURNS.length} / ${DEMO_TURNS.length} Done`
+    );
+
+    DEMO_TURNS.forEach(appendTurnSnapshot);
+    scrollTerminal();
+  }
+
+  if (btnTermReplay) {
+    btnTermReplay.addEventListener('click', (e) => {
+      e.currentTarget.blur();
+      startTerminalDemo();
+    });
+  }
+
+  if (btnTermSkip) {
+    btnTermSkip.addEventListener('click', (e) => {
+      e.currentTarget.blur();
+      completeTerminalDemo();
+    });
+  }
+
+  // Initialize from URL hash if present
+  function initFromHash() {
+    const match = window.location.hash.match(/^#slide-(\d+)$/);
+    if (match) {
+      const idx = parseInt(match[1], 10) - 1;
+      if (idx >= 0 && idx < totalSlides) {
+        goToSlide(idx, false);
+        return;
+      }
+    }
+    goToSlide(0, false);
+  }
+
+  window.addEventListener('hashchange', initFromHash);
+  initFromHash();
+})();
+
+</script>
+</body>
+</html>
