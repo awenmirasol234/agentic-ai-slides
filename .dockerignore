@@ -1,0 +1,8 @@
+.git
+.gitignore
+.agents
+*.md
+*.txt
+Dockerfile
+docker-compose.yml
+.dockerignore
