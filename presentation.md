@@ -16,10 +16,10 @@ description: "From AI-assisted coding to autonomous software engineering"
 **Definition:** An AI system capable of pursuing a goal by planning tasks, making decisions, using tools, executing actions, and evaluating results with varying degrees of human supervision.
 
 ### Key Concepts
-- **Goal-Oriented**: Works toward a defined objective.
-- **Autonomous**: Performs tasks without constant instructions.
-- **Action-Oriented**: Interacts with tools and external systems.
-- **Adaptive**: Adjusts its approach based on results.
+- **Goal-Oriented**: Works step by step to finish a big goal instead of answering one question.
+- **Autonomous**: Handles tasks on its own without needing instructions at every step.
+- **Action-Oriented**: Uses real tools directly, like code editors, terminals, databases, and test tools.
+- **Adaptive**: Reads error messages or failed tests and updates its plan to fix problems.
 
 > **Software Development Example:**
 > Instead of asking AI to generate a login function, instruct it to implement an entire authentication feature—including database integration, validation, and testing.
