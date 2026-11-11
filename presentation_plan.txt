@@ -1,0 +1,180 @@
+PRESENTATION PLAN: AGENTIC AI IN SOFTWARE DEVELOPMENT
+
+8 slides | 10–15 minutes | Text-only presentation | Beginner-friendly
+
+PRESENTATION OBJECTIVE Explain how Agentic AI works, how it differs from
+traditional AI, what makes an AI system agentic, and how it is being
+applied in real-world software development.
+
+SLIDE 1 — INTRODUCTION TO AGENTIC AI
+
+Title: Agentic AI: The Evolution of AI in Software Development
+
+Subtitle: From AI-assisted coding to autonomous software engineering.
+
+Key points: - AI is changing how software is developed. - Developers are
+moving beyond asking AI to generate code. - AI agents can now plan,
+execute, and evaluate development tasks.
+
+Opening question: “What if you could assign an AI the task of building
+an application instead of writing every instruction yourself?”
+
+SLIDE 2 — WHAT IS AGENTIC AI?
+
+Definition: Agentic AI is an AI system capable of pursuing a goal by
+planning tasks, making decisions, using tools, executing actions, and
+evaluating results with varying degrees of human supervision.
+
+Key concepts: - Goal-oriented: Works toward a defined objective. -
+Autonomous: Performs tasks without constant instructions. -
+Action-oriented: Interacts with tools and external systems. - Adaptive:
+Adjusts its approach based on results.
+
+Software development example: Instead of asking AI to generate a login
+function, instruct it to implement an entire authentication feature,
+including database integration, validation, and testing.
+
+SLIDE 3 — TRADITIONAL AI VS. AGENTIC AI
+
+Traditional AI: - Responds to prompts. - Generates code snippets. -
+Suggests solutions. - Usually waits for instructions. - Developer
+coordinates every step.
+
+Agentic AI: - Works toward goals. - Implements complete features. -
+Executes solutions using tools. - Can determine appropriate next
+steps. - Can manage multiple connected actions.
+
+Example: Fixing a login bug - Traditional AI: Explains the error and
+suggests code to fix it. - Agentic AI: Investigates the codebase,
+identifies the issue, modifies the code, runs tests, and evaluates the
+results.
+
+Key takeaway: Traditional AI primarily assists with individual requests,
+while Agentic AI can execute multiple connected actions toward an
+objective.
+
+SLIDE 4 — WHAT MAKES AN AI AGENTIC?
+
+Six important characteristics:
+
+1.  Autonomy — Can perform assigned tasks without constant human
+    intervention.
+2.  Planning — Breaks complex objectives into smaller tasks.
+3.  Reasoning — Analyzes situations and determines appropriate actions.
+4.  Tool Usage — Interacts with terminals, APIs, databases, and
+    development environments.
+5.  Memory and Context — Maintains relevant project information and
+    previous decisions.
+6.  Adaptability — Evaluates outcomes and adjusts when something fails.
+
+Important: Simply using an LLM or multiple AI models does not
+automatically make a system agentic. Its ability to pursue goals through
+decisions and actions is what matters.
+
+SLIDE 5 — HOW DOES AGENTIC AI WORK?
+
+The agentic execution cycle:
+
+1.  Goal — Understand the developer’s objective.
+2.  Planning — Break down the objective into smaller tasks.
+3.  Execution — Perform actions using available tools.
+4.  Observation — Inspect outputs, errors, and results.
+5.  Evaluation — Determine whether the outcome meets requirements.
+6.  Iteration — Correct problems and repeat until the objective is
+    achieved or the task requires human intervention.
+
+Practical example: Building a student management system - Analyze the
+requirements. - Design the database. - Develop the frontend and
+backend. - Run the application. - Test registration and
+authentication. - Fix identified errors. - Verify the completed
+implementation.
+
+SLIDE 6 — REAL-WORLD EXAMPLES OF AGENTIC AI
+
+Examples of AI agents used in software development:
+
+1.  OpenAI Codex
+
+-   Understands existing codebases.
+-   Implements features and fixes bugs.
+-   Runs tests and development commands. Website:
+    https://openai.com/codex/
+
+2.  GitHub Copilot Coding Agent
+
+-   Accepts assigned GitHub issues.
+-   Investigates repositories.
+-   Implements code changes.
+-   Creates pull requests for review. Website:
+    https://github.com/features/copilot
+
+3.  Devin
+
+-   Operates in a development environment.
+-   Investigates engineering problems.
+-   Executes multi-step software development tasks. Website:
+    https://devin.ai/
+
+Key takeaway: These tools demonstrate how AI can participate in actual
+software engineering workflows, not just generate code.
+
+SLIDE 7 — MULTI-AGENT AI IN SOFTWARE DEVELOPMENT
+
+What is a Multi-Agent System? A multi-agent system consists of multiple
+AI agents working together, often with specialized responsibilities, to
+accomplish a shared objective.
+
+Example: Developing a student management system
+
+-   Orchestrator: Coordinates the development process.
+-   Planner: Analyzes requirements and creates tasks.
+-   Frontend Developer: Develops the user interface.
+-   Backend Developer: Implements APIs and business logic.
+-   Database Engineer: Designs database structures.
+-   Tester: Executes tests and verifies functionality.
+-   Code Reviewer: Reviews implementation quality.
+-   Security Reviewer: Identifies potential vulnerabilities.
+
+How they collaborate: 1. Developer provides a high-level objective. 2.
+Orchestrator analyzes and delegates tasks. 3. Specialized agents execute
+their assignments. 4. Orchestrator collects results and coordinates
+integration. 5. Testing and reviews identify problems. 6. The system
+iterates until the requirements are satisfied.
+
+Real-world example: OpenCode can be configured with an orchestrator and
+specialized subagents to demonstrate this architecture.
+
+SLIDE 8 — BENEFITS, CHALLENGES, AND CONCLUSION
+
+Benefits: - Faster development workflows. - Reduced repetitive
+programming tasks. - Parallel execution of development work. - Automated
+testing assistance. - More time for developers to focus on architecture
+and problem-solving.
+
+Challenges: - Incorrect code and decisions. - Security
+vulnerabilities. - Increased computational and API costs. - Agent
+coordination and integration issues. - Need for human supervision.
+
+Conclusion: Agentic AI represents a shift from AI that simply assists
+developers to AI systems that can actively participate in accomplishing
+software development goals.
+
+Closing statement: “Developers may no longer need to write every line of
+code themselves, but they will still need to understand, direct, and
+validate the systems they build.”
+
+RECOMMENDED PRESENTATION TIMING
+
+Slide 1 — Introduction: 1 minute Slide 2 — Definition: 1.5 minutes Slide
+3 — Traditional vs. Agentic AI: 2 minutes Slide 4 — Agentic
+characteristics: 1.5 minutes Slide 5 — How it works: 2 minutes Slide 6 —
+Real-world examples: 2 minutes Slide 7 — Multi-agent systems: 2 minutes
+Slide 8 — Conclusion: 1 minute
+
+Estimated total: 13 minutes
+
+PRESENTATION APPROACH
+
+Keep each slide focused on one main idea. Use short bullet points,
+concise explanations, and text-based examples. Avoid diagrams,
+photographs, icons, and decorative visuals.
