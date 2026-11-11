@@ -20,6 +20,10 @@
   const termAgentsCount = document.getElementById('term-agents-count');
   const btnTermReplay = document.getElementById('btn-term-replay');
   const btnTermSkip = document.getElementById('btn-term-skip');
+  const termPromptBar = document.getElementById('term-prompt-bar');
+  const termPromptBarTrack = document.getElementById('term-prompt-bar-track');
+  const termPromptBarText = document.getElementById('term-prompt-bar-text');
+  const termPromptBarMeta = document.getElementById('term-prompt-bar-meta');
   const termAgentCards = Array.from(document.querySelectorAll('.term-agent-card'));
 
   let currentIndex = 0;
@@ -188,65 +192,186 @@
   // SLIDE 8: MULTI-AGENT TERMINAL DEMO CONTROLLER
   // ==========================================================================
 
-  const TERMINAL_PROMPT =
-    'Add JWT authentication and role-based access to the Student Management System';
-
-  const PLAN_STEPS = [
-    '1. Schema & user seed migration',
-    '2. Auth API & JWT middleware',
-    '3. Login UI & protected routes',
-    '4. Auth tests & security audit'
-  ];
-
-  const EXECUTION_BLOCKS = [
+  const DEMO_TURNS = [
     {
-      agent: 'db',
-      tag: 'Database',
-      cmd: '$ psql -f migrations/004_create_users_roles.sql',
-      lines: [
-        { text: '+ CREATE TABLE users (id UUID PRIMARY KEY, email TEXT UNIQUE, role TEXT);', add: true },
-        { text: '+ CREATE INDEX idx_users_email ON users(email);', add: true }
+      label: 'Turn 1 // Auth & RBAC',
+      prompt: 'Add JWT authentication and role-based access to the Student Management System',
+      planSummary: 'Decomposed request into 4 parallelizable workstreams',
+      planSteps: [
+        '1. Schema & user seed migration',
+        '2. Auth API & JWT middleware',
+        '3. Login UI & protected routes',
+        '4. Auth tests & security audit'
+      ],
+      executionBlocks: [
+        {
+          agent: 'db',
+          tag: 'Database',
+          cmd: '$ psql -f migrations/004_create_users_roles.sql',
+          lines: [
+            { text: '+ CREATE TABLE users (id UUID PRIMARY KEY, email TEXT UNIQUE, role TEXT);', add: true },
+            { text: '+ CREATE INDEX idx_users_email ON users(email);', add: true }
+          ]
+        },
+        {
+          agent: 'backend',
+          tag: 'Backend',
+          cmd: 'edit src/auth/jwt.middleware.ts & src/routes/auth.ts',
+          lines: [
+            { text: '+ POST /api/auth/login (bcrypt verify + HS256 JWT)', add: true },
+            { text: "+ requireRole(['admin', 'teacher']) guard attached", add: true }
+          ]
+        },
+        {
+          agent: 'frontend',
+          tag: 'Frontend',
+          cmd: 'write src/pages/LoginPage.tsx & src/hooks/useAuth.ts',
+          lines: [
+            { text: '+ ProtectedRoute wrapper + role-aware navigation', add: true }
+          ]
+        }
+      ],
+      qaSummary: 'Verification suite completed',
+      qaBlocks: [
+        {
+          agent: 'tester',
+          tag: 'Tester',
+          cmd: '$ npm test -- auth.spec.ts',
+          badge: 'PASS',
+          summary: 'src/auth/auth.spec.ts (6/6 assertions passed in 0.42s)'
+        },
+        {
+          agent: 'security',
+          tag: 'Security',
+          cmd: 'Static & JWT token configuration audit',
+          badge: 'PASS',
+          summary: '0 high/critical issues • rate limit & httpOnly cookie verified'
+        }
+      ],
+      summaryTitle: 'Orchestrator // Turn 1 Complete',
+      summaryLines: [
+        '• Authentication & RBAC implemented across DB, API, and UI.',
+        '• 5 files updated, 6/6 tests passing, 0 security findings.'
       ]
     },
     {
-      agent: 'backend',
-      tag: 'Backend',
-      cmd: 'edit src/auth/jwt.middleware.ts & src/routes/auth.ts',
-      lines: [
-        { text: '+ POST /api/auth/login (bcrypt verify + HS256 JWT)', add: true },
-        { text: "+ requireRole(['admin', 'teacher']) guard attached", add: true }
+      label: 'Turn 2 // Course Enrollment & Export',
+      prompt: 'Now add course enrollment management and role-gated CSV roster export',
+      planSummary: 'Planned 4 enrollment & export tasks across stack',
+      planSteps: [
+        '1. Enrollments schema & foreign keys',
+        '2. Enrollment API & CSV export stream',
+        '3. Enrollment modal & Export CSV button',
+        '4. Integration & RBAC policy checks'
+      ],
+      executionBlocks: [
+        {
+          agent: 'db',
+          tag: 'Database',
+          cmd: '$ psql -f migrations/005_create_enrollments.sql',
+          lines: [
+            { text: '+ CREATE TABLE enrollments (id UUID PRIMARY KEY, student_id UUID, course_id UUID);', add: true }
+          ]
+        },
+        {
+          agent: 'backend',
+          tag: 'Backend',
+          cmd: 'write src/routes/enrollments.ts & src/services/csvExport.ts',
+          lines: [
+            { text: "+ GET /api/roster/export.csv (requireRole(['teacher', 'admin']))", add: true }
+          ]
+        },
+        {
+          agent: 'frontend',
+          tag: 'Frontend',
+          cmd: 'write src/components/EnrollmentModal.tsx & ExportButton.tsx',
+          lines: [
+            { text: '+ Added course enrollment table and role-gated CSV export action', add: true }
+          ]
+        }
+      ],
+      qaSummary: 'Enrollment & permission checks completed',
+      qaBlocks: [
+        {
+          agent: 'tester',
+          tag: 'Tester',
+          cmd: '$ npm test -- enrollment.spec.ts',
+          badge: 'PASS',
+          summary: 'src/enrollments/enrollment.spec.ts (5/5 assertions passed in 0.38s)'
+        },
+        {
+          agent: 'security',
+          tag: 'Security',
+          cmd: 'RBAC scope & student PII audit',
+          badge: 'PASS',
+          summary: 'Student role blocked from bulk roster export (HTTP 403 enforced)'
+        }
+      ],
+      summaryTitle: 'Orchestrator // Turn 2 Complete',
+      summaryLines: [
+        '• Course enrollment & role-gated CSV roster export added.',
+        '• 11/11 cumulative tests passing with RBAC policy verified.'
       ]
     },
     {
-      agent: 'frontend',
-      tag: 'Frontend',
-      cmd: 'write src/pages/LoginPage.tsx & src/hooks/useAuth.ts',
-      lines: [
-        { text: '+ ProtectedRoute wrapper + role-aware navigation', add: true }
+      label: 'Turn 3 // Race Fix & CSV Hardening',
+      prompt: 'Fix duplicate enrollment race condition and sanitize CSV cell formulas',
+      planSummary: 'Targeted hardening plan across constraint, API guard, and QA',
+      planSteps: [
+        '1. Unique composite constraint migration',
+        '2. Idempotent upsert & CSV formula escaping',
+        '3. Conflict notice in EnrollmentModal',
+        '4. Regression & injection security suite'
+      ],
+      executionBlocks: [
+        {
+          agent: 'db',
+          tag: 'Database',
+          cmd: '$ psql -f migrations/006_unique_enrollment.sql',
+          lines: [
+            { text: '+ ALTER TABLE enrollments ADD CONSTRAINT uq_student_course UNIQUE (student_id, course_id);', add: true }
+          ]
+        },
+        {
+          agent: 'backend',
+          tag: 'Backend',
+          cmd: 'edit src/routes/enrollments.ts & src/services/csvExport.ts',
+          lines: [
+            { text: '+ ON CONFLICT DO NOTHING -> HTTP 409; escapeCsvCell() prefixes =, +, -, @', add: true }
+          ]
+        },
+        {
+          agent: 'frontend',
+          tag: 'Frontend',
+          cmd: 'edit src/components/EnrollmentModal.tsx',
+          lines: [
+            { text: '+ Handled HTTP 409 duplicate enrollment alert inline', add: true }
+          ]
+        }
+      ],
+      qaSummary: 'Full regression & CSV injection suite verified',
+      qaBlocks: [
+        {
+          agent: 'tester',
+          tag: 'Tester',
+          cmd: '$ npm test',
+          badge: 'PASS',
+          summary: 'All 3 suites • 14/14 assertions passed in 0.71s'
+        },
+        {
+          agent: 'security',
+          tag: 'Security',
+          cmd: 'OWASP CSV formula & concurrency replay test',
+          badge: 'PASS',
+          summary: 'Duplicate burst safe • =CMD() formula injection neutralized'
+        }
+      ],
+      summaryTitle: 'Orchestrator // Session Verified & Ready',
+      summaryLines: [
+        '• Concurrent enrollment race & CSV formula risks resolved.',
+        '• Full regression suite green (14/14 passing) — ready for review.'
       ]
     }
-  ];
-
-  const QA_BLOCKS = [
-    {
-      agent: 'tester',
-      tag: 'Tester',
-      cmd: '$ npm test -- auth.spec.ts',
-      badge: 'PASS',
-      summary: 'src/auth/auth.spec.ts (6/6 assertions passed in 0.42s)'
-    },
-    {
-      agent: 'security',
-      tag: 'Security',
-      cmd: 'Static & JWT token configuration audit',
-      badge: 'PASS',
-      summary: '0 high/critical issues • rate limit & httpOnly cookie verified'
-    }
-  ];
-
-  const SUMMARY_LINES = [
-    '• Authentication & RBAC implemented across DB, API, and UI.',
-    '• 5 files updated, 6/6 tests passing, 0 security findings.'
   ];
 
   const AGENT_STATUS_LABELS = {
@@ -326,9 +451,27 @@
     scrollTerminal();
   }
 
-  function createPromptRow(initialText, withCursor) {
+  function setPromptBar(state, text, meta) {
+    if (termPromptBar) termPromptBar.dataset.state = state;
+    if (termPromptBarText && text !== undefined) termPromptBarText.textContent = text;
+    if (termPromptBarMeta && meta !== undefined) termPromptBarMeta.textContent = meta;
+    if (termPromptBarTrack && state === 'typing') {
+      termPromptBarTrack.scrollLeft = termPromptBarTrack.scrollWidth;
+    }
+  }
+
+  function createTurnDivider(label) {
+    const div = document.createElement('div');
+    div.className = 'term-line term-turn-divider';
+    div.textContent = label;
+    return div;
+  }
+
+  function createPromptRow(initialText, withCursor, committed) {
     const row = document.createElement('div');
-    row.className = 'term-line term-prompt-row';
+    row.className = committed
+      ? 'term-line term-prompt-row term-prompt-row--committed'
+      : 'term-line term-prompt-row';
 
     const sigil = document.createElement('span');
     sigil.className = 'term-prompt-sigil';
@@ -410,11 +553,11 @@
     };
   }
 
-  function createPlanBlock() {
+  function createPlanBlock(steps) {
     const list = document.createElement('div');
     list.className = 'term-line term-plan-list';
     list.dataset.agent = 'planner';
-    PLAN_STEPS.forEach((step) => {
+    steps.forEach((step) => {
       const item = document.createElement('div');
       item.className = 'term-plan-item';
       item.textContent = step;
@@ -471,18 +614,18 @@
     return box;
   }
 
-  function createSummaryBox() {
+  function createSummaryBox(summaryTitle, summaryLines) {
     const box = document.createElement('div');
     box.className = 'term-line term-response-box';
     box.dataset.agent = 'orchestrator';
 
     const title = document.createElement('div');
     title.className = 'term-response-title';
-    title.textContent = 'Orchestrator // Ready for Review';
+    title.textContent = summaryTitle;
 
     const list = document.createElement('div');
     list.className = 'term-response-list';
-    SUMMARY_LINES.forEach((line) => {
+    summaryLines.forEach((line) => {
       const item = document.createElement('div');
       item.textContent = line;
       list.appendChild(item);
@@ -493,7 +636,7 @@
     return box;
   }
 
-  function runOrchestrationSequence() {
+  function runTurnSequence(turn, onComplete) {
     setTermPhase('Planning', 'active');
     setAgentStatus('orchestrator', 'active');
     const finishPlanSpinner = startSpinner(
@@ -502,52 +645,108 @@
       'Orchestrator'
     );
 
-    scheduleTerm(350, () => setAgentStatus('planner', 'active'));
+    scheduleTerm(300, () => setAgentStatus('planner', 'active'));
 
-    scheduleTerm(1050, () => {
-      finishPlanSpinner('Decomposed request into 4 parallelizable workstreams', 'planner', 'Planner');
-      appendOutputElement(createPlanBlock());
+    scheduleTerm(950, () => {
+      finishPlanSpinner(turn.planSummary, 'planner', 'Planner');
+      appendOutputElement(createPlanBlock(turn.planSteps));
       setAgentStatus('planner', 'done');
     });
 
-    scheduleTerm(1550, () => {
+    scheduleTerm(1350, () => {
       setTermPhase('Executing', 'active');
       setAgentStatus('db', 'active');
     });
-    scheduleTerm(1700, () => setAgentStatus('backend', 'active'));
-    scheduleTerm(1850, () => setAgentStatus('frontend', 'active'));
+    scheduleTerm(1500, () => setAgentStatus('backend', 'active'));
+    scheduleTerm(1650, () => setAgentStatus('frontend', 'active'));
 
-    EXECUTION_BLOCKS.forEach((block, index) => {
-      scheduleTerm(2350 + index * 800, () => {
+    const blockStepMs = 680;
+    const execStartMs = 2050;
+    turn.executionBlocks.forEach((block, index) => {
+      scheduleTerm(execStartMs + index * blockStepMs, () => {
         appendOutputElement(createCmdBlock(block));
         setAgentStatus(block.agent, 'done');
       });
     });
 
+    const qaStartMs = execStartMs + turn.executionBlocks.length * blockStepMs + 320;
     let finishQaSpinner = null;
-    scheduleTerm(4450, () => {
+    scheduleTerm(qaStartMs, () => {
       setTermPhase('Verifying', 'active');
       setAgentStatus('tester', 'active');
       setAgentStatus('security', 'active');
       finishQaSpinner = startSpinner('Running verification suite...', 'tester', 'Verification');
     });
 
-    scheduleTerm(5350, () => {
-      if (finishQaSpinner) finishQaSpinner('Verification suite completed', 'tester', 'Verification');
-      appendOutputElement(createCmdBlock(QA_BLOCKS[0]));
+    scheduleTerm(qaStartMs + 780, () => {
+      if (finishQaSpinner) finishQaSpinner(turn.qaSummary, 'tester', 'Verification');
+      appendOutputElement(createCmdBlock(turn.qaBlocks[0]));
       setAgentStatus('tester', 'done');
     });
 
-    scheduleTerm(5900, () => {
-      appendOutputElement(createCmdBlock(QA_BLOCKS[1]));
+    scheduleTerm(qaStartMs + 1280, () => {
+      appendOutputElement(createCmdBlock(turn.qaBlocks[1]));
       setAgentStatus('security', 'done');
     });
 
-    scheduleTerm(6500, () => {
+    scheduleTerm(qaStartMs + 1780, () => {
       setAgentStatus('orchestrator', 'done');
-      setTermPhase('Verified', 'verified');
-      appendOutputElement(createSummaryBox());
+      appendOutputElement(createSummaryBox(turn.summaryTitle, turn.summaryLines));
+      if (onComplete) onComplete();
     });
+  }
+
+  function playTurn(turnIndex) {
+    const turn = DEMO_TURNS[turnIndex];
+    if (!turn) return;
+
+    const turnTag = `Prompt ${turnIndex + 1} / ${DEMO_TURNS.length}`;
+    appendOutputElement(createTurnDivider(turn.label));
+    setTermPhase('Typing', 'active');
+    setPromptBar('typing', '', turnTag);
+
+    let charIndex = 0;
+    const runId = termRunId;
+    if (termInterval) clearInterval(termInterval);
+    termInterval = setInterval(() => {
+      if (runId !== termRunId) {
+        clearInterval(termInterval);
+        termInterval = null;
+        return;
+      }
+      charIndex += 1;
+      setPromptBar('typing', turn.prompt.slice(0, charIndex));
+      if (charIndex >= turn.prompt.length) {
+        clearInterval(termInterval);
+        termInterval = null;
+        scheduleTerm(200, () => {
+          appendOutputElement(createPromptRow(turn.prompt, false, true).row);
+          resetAgentRoster('waiting');
+          setPromptBar('busy', `Agents working on ${turnTag}...`, turnTag);
+          runTurnSequence(turn, () => {
+            if (turnIndex + 1 < DEMO_TURNS.length) {
+              setPromptBar('busy', `Preparing Prompt ${turnIndex + 2} / ${DEMO_TURNS.length}...`, turnTag);
+              scheduleTerm(1100, () => playTurn(turnIndex + 1));
+            } else {
+              setTermPhase('Verified', 'verified');
+              setPromptBar('busy', 'Session complete — looping continuously...', 'Looping');
+              scheduleTerm(2800, startTerminalDemo);
+            }
+          });
+        });
+      }
+    }, 18);
+  }
+
+  function appendTurnSnapshot(turn) {
+    termOutput.appendChild(createTurnDivider(turn.label));
+    termOutput.appendChild(createPromptRow(turn.prompt, false, true).row);
+    termOutput.appendChild(createStatusRow(turn.planSummary, true, 'planner', 'Planner').row);
+    termOutput.appendChild(createPlanBlock(turn.planSteps));
+    turn.executionBlocks.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
+    termOutput.appendChild(createStatusRow(turn.qaSummary, true, 'tester', 'Verification').row);
+    turn.qaBlocks.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
+    termOutput.appendChild(createSummaryBox(turn.summaryTitle, turn.summaryLines));
   }
 
   function startTerminalDemo() {
@@ -561,27 +760,7 @@
       return;
     }
 
-    setTermPhase('Typing', 'active');
-    const { row, typed, cursor } = createPromptRow('', true);
-    appendOutputElement(row);
-
-    let charIndex = 0;
-    const runId = termRunId;
-    termInterval = setInterval(() => {
-      if (runId !== termRunId) {
-        clearInterval(termInterval);
-        termInterval = null;
-        return;
-      }
-      charIndex += 1;
-      typed.textContent = TERMINAL_PROMPT.slice(0, charIndex);
-      if (charIndex >= TERMINAL_PROMPT.length) {
-        clearInterval(termInterval);
-        termInterval = null;
-        if (cursor) cursor.remove();
-        scheduleTerm(180, runOrchestrationSequence);
-      }
-    }, 20);
+    playTurn(0);
   }
 
   function completeTerminalDemo() {
@@ -590,19 +769,13 @@
     termOutput.innerHTML = '';
     resetAgentRoster('done');
     setTermPhase('Verified', 'verified');
+    setPromptBar(
+      'done',
+      'All 3 prompts verified — click Replay to run continuous loop',
+      `${DEMO_TURNS.length} / ${DEMO_TURNS.length} Done`
+    );
 
-    const { row } = createPromptRow(TERMINAL_PROMPT, false);
-    termOutput.appendChild(row);
-    termOutput.appendChild(
-      createStatusRow('Decomposed request into 4 parallelizable workstreams', true, 'planner', 'Planner').row
-    );
-    termOutput.appendChild(createPlanBlock());
-    EXECUTION_BLOCKS.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
-    termOutput.appendChild(
-      createStatusRow('Verification suite completed', true, 'tester', 'Verification').row
-    );
-    QA_BLOCKS.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
-    termOutput.appendChild(createSummaryBox());
+    DEMO_TURNS.forEach(appendTurnSnapshot);
     scrollTerminal();
   }
 

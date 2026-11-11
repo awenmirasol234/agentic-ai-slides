@@ -1475,7 +1475,7 @@ button {
 }
 
 .term-body {
-  height: clamp(300px, 55vh, 630px);
+  height: clamp(260px, 49vh, 575px);
   overflow-y: auto;
   padding: clamp(14px, 1.65vh, 22px) clamp(16px, 1.6vw, 26px);
   font-family: var(--font-mono);
@@ -1505,12 +1505,38 @@ button {
   animation: termLineIn 0.22s ease forwards;
 }
 
+.term-turn-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.term-turn-divider::before,
+.term-turn-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-hairline);
+}
+
 .term-prompt-row {
   display: flex;
   align-items: baseline;
   gap: 8px;
   color: var(--text-primary);
   font-weight: 500;
+}
+
+.term-prompt-row--committed {
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--term-card);
+  border-left: 3px solid var(--text-primary);
 }
 
 .term-prompt-sigil {
@@ -1692,6 +1718,71 @@ button {
 
 .term-response-box[data-agent] .term-response-title {
   color: var(--agent-color);
+}
+
+/* Bottom Live Prompt Bar */
+.term-prompt-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(8px, 1.05vh, 13px) clamp(14px, 1.5vw, 22px);
+  background: var(--term-surface);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: clamp(0.84rem, min(1.08vw, 1.68vh), 1.14rem);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.term-prompt-bar[data-state="typing"] {
+  border-top-color: var(--text-primary);
+}
+
+.term-prompt-bar[data-state="busy"] {
+  color: var(--text-muted);
+}
+
+.term-prompt-bar[data-state="busy"] .term-cursor,
+.term-prompt-bar[data-state="done"] .term-cursor,
+.term-prompt-bar[data-state="idle"] .term-cursor {
+  display: none;
+}
+
+.term-prompt-bar-sigil {
+  color: var(--text-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.term-prompt-bar[data-state="busy"] .term-prompt-bar-sigil {
+  color: var(--text-muted);
+}
+
+.term-prompt-bar-track {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.term-prompt-bar-text {
+  white-space: nowrap;
+}
+
+.term-prompt-bar-meta {
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.term-prompt-bar[data-state="typing"] .term-prompt-bar-meta {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
 }
 
 /* Right Pane: Live Agent Roster */
@@ -2007,7 +2098,7 @@ button {
     grid-template-columns: 1fr;
   }
   .term-body {
-    height: 320px;
+    height: 280px;
   }
   .term-plan-list {
     grid-template-columns: 1fr;

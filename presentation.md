@@ -111,18 +111,11 @@ Analyze requirements → Design database → Develop frontend & backend → Run 
 
 # Multi-Agent Terminal Demo
 
-**Simulated OpenCode Terminal Session (`student-management-system`)**
+**Simulated Continuous OpenCode Session (`student-management-system`)**
 
-1. **Prompt Input:** Developer asks the agent team to add JWT authentication and role-based access control to the Student Management System.
-2. **Planning:** Orchestrator invokes **Planner**, breaking the objective into 4 workstreams (schema, API, UI, verification).
-3. **Parallel Build:**
-   - **Database Engineer:** Applies SQL migration (`004_create_users_roles.sql`) creating `users` and email index.
-   - **Backend Developer:** Implements `/api/auth/login` (bcrypt + HS256 JWT) and `requireRole()` middleware.
-   - **Frontend Developer:** Builds `LoginPage.tsx`, `useAuth.ts`, and `ProtectedRoute` navigation guards.
-4. **Verification:**
-   - **Tester:** Executes `npm test -- auth.spec.ts` (`PASS 6/6 assertions`).
-   - **Security Reviewer:** Completes static & token audit (`0 high/critical issues`).
-5. **Synthesis:** Orchestrator reports completion across DB, API, and UI ready for human review.
+1. **Turn 1 — Auth & RBAC:** Prompt types live and commits as a `$` prompt row; Planner decomposes schema, API, UI, and tests; specialists deliver `users` table, JWT middleware, and `LoginPage.tsx` (`PASS 6/6 assertions`).
+2. **Turn 2 — Course Enrollment & CSV Export:** Follow-up prompt triggers a fresh planning/build cycle creating `enrollments`, `/api/roster/export.csv`, and role-gated UI export (`PASS 5/5 assertions`, HTTP 403 enforced for student role).
+3. **Turn 3 — Hardening Iteration:** Final prompt resolves duplicate-enrollment race conditions (`UNIQUE` constraint + HTTP 409 handling) and sanitizes CSV cell formulas (`PASS 14/14 cumulative assertions`), then loops continuously while active.
 
 ---
 
