@@ -352,27 +352,36 @@
     return { row, typed, cursor };
   }
 
-  function createStatusRow(text, settled) {
+  function createStatusRow(text, settled, agentId, tagLabel) {
     const row = document.createElement('div');
     row.className = 'term-line term-spinner-row';
+    if (agentId) row.dataset.agent = agentId;
 
     const glyph = document.createElement('span');
     glyph.className = settled ? 'term-done-check' : 'term-spinner-glyph';
     glyph.textContent = settled ? '✓' : '⠋';
+    row.appendChild(glyph);
+
+    let tag = null;
+    if (tagLabel) {
+      tag = document.createElement('span');
+      tag.className = 'term-agent-tag';
+      tag.textContent = tagLabel;
+      row.appendChild(tag);
+    }
 
     const msg = document.createElement('span');
     msg.className = 'term-status-text';
     msg.textContent = text;
 
-    row.appendChild(glyph);
     row.appendChild(msg);
-    return { row, glyph, msg };
+    return { row, glyph, tag, msg };
   }
 
-  function startSpinner(text) {
+  function startSpinner(text, agentId, tagLabel) {
     const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
     let frameIndex = 0;
-    const { row, glyph, msg } = createStatusRow(text, false);
+    const { row, glyph, tag, msg } = createStatusRow(text, false, agentId, tagLabel);
     appendOutputElement(row);
 
     const runId = termRunId;
@@ -387,11 +396,13 @@
       glyph.textContent = frames[frameIndex];
     }, 80);
 
-    return (settledText) => {
+    return (settledText, settledAgentId, settledTagLabel) => {
       if (termInterval) {
         clearInterval(termInterval);
         termInterval = null;
       }
+      if (settledAgentId) row.dataset.agent = settledAgentId;
+      if (tag && settledTagLabel) tag.textContent = settledTagLabel;
       glyph.className = 'term-done-check';
       glyph.textContent = '✓';
       msg.textContent = settledText;
@@ -402,6 +413,7 @@
   function createPlanBlock() {
     const list = document.createElement('div');
     list.className = 'term-line term-plan-list';
+    list.dataset.agent = 'planner';
     PLAN_STEPS.forEach((step) => {
       const item = document.createElement('div');
       item.className = 'term-plan-item';
@@ -414,6 +426,7 @@
   function createCmdBlock(block) {
     const box = document.createElement('div');
     box.className = 'term-line term-cmd-block';
+    if (block.agent) box.dataset.agent = block.agent;
 
     const head = document.createElement('div');
     head.className = 'term-cmd-head';
@@ -461,6 +474,7 @@
   function createSummaryBox() {
     const box = document.createElement('div');
     box.className = 'term-line term-response-box';
+    box.dataset.agent = 'orchestrator';
 
     const title = document.createElement('div');
     title.className = 'term-response-title';
@@ -482,12 +496,16 @@
   function runOrchestrationSequence() {
     setTermPhase('Planning', 'active');
     setAgentStatus('orchestrator', 'active');
-    const finishPlanSpinner = startSpinner('Orchestrator analyzing repository & delegating tasks...');
+    const finishPlanSpinner = startSpinner(
+      'Analyzing repository & delegating tasks...',
+      'orchestrator',
+      'Orchestrator'
+    );
 
     scheduleTerm(350, () => setAgentStatus('planner', 'active'));
 
     scheduleTerm(1050, () => {
-      finishPlanSpinner('Planner decomposed request into 4 parallelizable workstreams');
+      finishPlanSpinner('Decomposed request into 4 parallelizable workstreams', 'planner', 'Planner');
       appendOutputElement(createPlanBlock());
       setAgentStatus('planner', 'done');
     });
@@ -511,11 +529,11 @@
       setTermPhase('Verifying', 'active');
       setAgentStatus('tester', 'active');
       setAgentStatus('security', 'active');
-      finishQaSpinner = startSpinner('Tester & Security running verification suite...');
+      finishQaSpinner = startSpinner('Running verification suite...', 'tester', 'Verification');
     });
 
     scheduleTerm(5350, () => {
-      if (finishQaSpinner) finishQaSpinner('Verification suite completed');
+      if (finishQaSpinner) finishQaSpinner('Verification suite completed', 'tester', 'Verification');
       appendOutputElement(createCmdBlock(QA_BLOCKS[0]));
       setAgentStatus('tester', 'done');
     });
@@ -575,10 +593,14 @@
 
     const { row } = createPromptRow(TERMINAL_PROMPT, false);
     termOutput.appendChild(row);
-    termOutput.appendChild(createStatusRow('Planner decomposed request into 4 parallelizable workstreams', true).row);
+    termOutput.appendChild(
+      createStatusRow('Decomposed request into 4 parallelizable workstreams', true, 'planner', 'Planner').row
+    );
     termOutput.appendChild(createPlanBlock());
     EXECUTION_BLOCKS.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
-    termOutput.appendChild(createStatusRow('Verification suite completed', true).row);
+    termOutput.appendChild(
+      createStatusRow('Verification suite completed', true, 'tester', 'Verification').row
+    );
     QA_BLOCKS.forEach((block) => termOutput.appendChild(createCmdBlock(block)));
     termOutput.appendChild(createSummaryBox());
     scrollTerminal();
