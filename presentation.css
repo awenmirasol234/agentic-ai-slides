@@ -326,159 +326,30 @@ button {
 }
 
 /* Hero Slide 1 Specifics */
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1.28fr 0.92fr;
-  gap: clamp(28px, 3.6vw, 56px);
+.hero-cover {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-surface);
-  font-family: var(--font-mono);
-  font-size: clamp(0.82rem, 0.95vw, 0.96rem);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: clamp(16px, 2.4vh, 26px);
-}
-
-.hero-badge svg {
-  width: 17px;
-  height: 17px;
+  justify-content: center;
+  text-align: center;
+  max-width: 1180px;
+  margin: 0 auto;
+  gap: clamp(18px, 2.8vh, 32px);
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, min(4.3vw, 6.6vh), 4.25rem);
+  font-size: clamp(2.8rem, min(5.2vw, 8vh), 5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1.07;
-  margin-bottom: clamp(12px, 1.8vh, 22px);
+  line-height: 1.08;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.25rem, min(1.85vw, 2.9vh), 1.7rem);
+  font-size: clamp(1.35rem, min(2.1vw, 3.2vh), 2rem);
   color: var(--text-secondary);
   font-weight: 400;
-  line-height: 1.38;
-  margin-bottom: clamp(20px, 3vh, 34px);
-}
-
-.hero-points {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(10px, 1.5vh, 16px);
-}
-
-.hero-point {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: clamp(14px, 1.8vh, 20px) clamp(16px, 1.6vw, 22px);
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  transition: transform var(--duration-fast) ease, border-color var(--duration-fast) ease;
-}
-
-.hero-point:hover {
-  transform: translateX(4px);
-  border-color: var(--border-strong);
-}
-
-.hero-point-icon {
-  width: clamp(34px, 2.4vw, 40px);
-  height: clamp(34px, 2.4vw, 40px);
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--text-primary);
-}
-
-.hero-point-icon svg {
-  width: clamp(18px, 1.3vw, 22px);
-  height: clamp(18px, 1.3vw, 22px);
-}
-
-.hero-point-text {
-  font-size: clamp(1.02rem, min(1.28vw, 2vh), 1.25rem);
-  line-height: 1.45;
-  color: var(--text-secondary);
-}
-
-.hero-point-text strong {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.question-card {
-  position: relative;
-  padding: clamp(26px, 3.4vh, 42px) clamp(24px, 2.4vw, 36px);
-  border-radius: var(--radius-lg);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.35);
-}
-
-.question-card-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 0.95vw, 0.94rem);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: clamp(14px, 2vh, 22px);
-}
-
-.question-card-label svg {
-  width: 18px;
-  height: 18px;
-}
-
-.question-card-quote {
-  font-size: clamp(1.3rem, min(1.9vw, 3vh), 1.75rem);
-  font-weight: 600;
-  line-height: 1.42;
-  letter-spacing: -0.015em;
-  color: var(--text-primary);
-  margin-bottom: clamp(20px, 2.8vh, 32px);
-}
-
-.question-shift-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: clamp(16px, 2vh, 24px);
-  border-top: 1px solid var(--border-hairline);
-}
-
-.shift-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: clamp(0.84rem, 1vw, 0.98rem);
-  padding: 11px 16px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-elevated);
-}
-
-.shift-row.active-shift {
-  background: var(--text-primary);
-  color: var(--text-inverse);
-  font-weight: 600;
+  line-height: 1.4;
+  max-width: 900px;
 }
 
 /* ==========================================================================
@@ -1184,7 +1055,6 @@ button {
     padding: 24px 28px;
     justify-content: flex-start;
   }
-  .hero-layout,
   .cycle-layout,
   .multiagent-layout,
   .grid-4,

@@ -7,14 +7,7 @@ description: "From AI-assisted coding to autonomous software engineering"
 ---
 
 # Agentic AI: The Evolution of AI in Software Development
-### From AI-assisted coding to autonomous software engineering
-
-- **Transforming Workflows**: AI is fundamentally changing how software is developed.
-- **Beyond Snippets**: Developers are moving beyond asking AI to generate isolated code snippets.
-- **Autonomous Execution**: AI agents can now plan, execute, and evaluate complete development tasks.
-
-> **Opening Question:**
-> *“What if you could assign an AI the task of building an application instead of writing every instruction yourself?”*
+### From AI-assisted coding to autonomous software engineering.
 
 ---
 
