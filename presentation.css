@@ -744,14 +744,6 @@ button {
   border: 1px solid var(--border-hairline);
 }
 
-.walkthrough-steps li span.step-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--text-primary);
-  flex-shrink: 0;
-}
-
 /* ==========================================================================
    SLIDE 6: REAL-WORLD EXAMPLES
    ========================================================================== */
