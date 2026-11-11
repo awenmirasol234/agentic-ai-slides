@@ -682,123 +682,191 @@
           </p>
         </div>
 
-        <div class="multiagent-layout">
-          <div class="agent-network-box anim-item" style="--stagger: 3;">
-            <div class="orchestrator-banner">
-              <div class="orchestrator-banner-left">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                  <polyline points="2 17 12 22 22 17"></polyline>
-                  <polyline points="2 12 12 17 22 12"></polyline>
-                </svg>
-                <span>Orchestrator Agent</span>
-              </div>
-              <span class="orchestrator-sub">Coordinates development process</span>
+        <div class="arch-diagram">
+          <!-- Tier 0 & Tier 1: Developer Objective -> Root Orchestrator -->
+          <div class="arch-root-tier anim-item" style="--stagger: 3;">
+            <div class="arch-input-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Developer Objective: Student Management System</span>
             </div>
 
-            <div class="subagents-grid">
-              <div class="subagent-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Planner</span>
-                  <span class="subagent-task">Analyzes requirements &amp; tasks</span>
+            <div class="arch-stem arch-stem--short" aria-hidden="true"></div>
+
+            <div class="arch-root-node">
+              <div class="arch-root-left">
+                <div class="arch-root-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="arch-root-title">Orchestrator Agent</div>
+                  <div class="arch-root-desc">Coordinates workflow, delegates tasks &amp; integrates results</div>
                 </div>
               </div>
+              <span class="arch-root-badge">Root Coordinator</span>
+            </div>
 
-              <div class="subagent-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Frontend Developer</span>
-                  <span class="subagent-task">Develops user interface</span>
-                </div>
+            <div class="arch-stem arch-stem--trunk" aria-hidden="true"></div>
+          </div>
+
+          <!-- Tier 2 & Tier 3: Three Hierarchical Agent Branches -->
+          <div class="arch-branches">
+            <!-- Branch 1: Planning -->
+            <div class="arch-branch anim-item" style="--stagger: 4;">
+              <div class="arch-branch-header">
+                <span class="arch-branch-num">01</span>
+                <span class="arch-branch-label">Planning Tier</span>
               </div>
 
-              <div class="subagent-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Backend Developer</span>
-                  <span class="subagent-task">Implements APIs &amp; logic</span>
+              <div class="arch-branch-spine">
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Planner</span>
+                    <span class="arch-node-task">Analyzes requirements &amp; creates tasks</span>
+                  </div>
+                </div>
+
+                <div class="arch-node arch-node--meta">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="17 1 21 5 17 9"></polyline>
+                      <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                      <polyline points="7 23 3 19 7 15"></polyline>
+                      <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Delegation Flow</span>
+                    <span class="arch-node-task">Objective → Tasks → Build → Review → Iterate</span>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="subagent-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Database Engineer</span>
-                  <span class="subagent-task">Designs database structures</span>
-                </div>
+            <!-- Branch 2: Implementation -->
+            <div class="arch-branch anim-item" style="--stagger: 5;">
+              <div class="arch-branch-header">
+                <span class="arch-branch-num">02</span>
+                <span class="arch-branch-label">Implementation Tier</span>
               </div>
 
-              <div class="subagent-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Tester</span>
-                  <span class="subagent-task">Executes tests &amp; verifies</span>
+              <div class="arch-branch-spine">
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Frontend Developer</span>
+                    <span class="arch-node-task">Develops user interface</span>
+                  </div>
+                </div>
+
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Backend Developer</span>
+                    <span class="arch-node-task">Implements APIs &amp; business logic</span>
+                  </div>
+                </div>
+
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Database Engineer</span>
+                    <span class="arch-node-task">Designs database structures</span>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="subagent-chip">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Code Reviewer</span>
-                  <span class="subagent-task">Reviews implementation quality</span>
-                </div>
+            <!-- Branch 3: Verification & Security -->
+            <div class="arch-branch anim-item" style="--stagger: 6;">
+              <div class="arch-branch-header">
+                <span class="arch-branch-num">03</span>
+                <span class="arch-branch-label">Verification Tier</span>
               </div>
 
-              <div class="subagent-chip" style="grid-column: span 2;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                <div class="subagent-info">
-                  <span class="subagent-role">Security Reviewer</span>
-                  <span class="subagent-task">Identifies potential vulnerabilities across the system</span>
+              <div class="arch-branch-spine">
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="9 11 12 14 22 4"></polyline>
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Tester</span>
+                    <span class="arch-node-task">Executes tests &amp; verifies functionality</span>
+                  </div>
+                </div>
+
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Code Reviewer</span>
+                    <span class="arch-node-task">Reviews implementation quality</span>
+                  </div>
+                </div>
+
+                <div class="arch-node">
+                  <div class="arch-node-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <div class="arch-node-info">
+                    <span class="arch-node-role">Security Reviewer</span>
+                    <span class="arch-node-task">Identifies potential vulnerabilities</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="collab-flow-box anim-item" style="--stagger: 4;">
-            <div>
-              <div class="walkthrough-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="17 1 21 5 17 9"></polyline>
-                  <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-                  <polyline points="7 23 3 19 7 15"></polyline>
-                  <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-                </svg>
-                <span>How Specialized Agents Collaborate</span>
-              </div>
-
-              <ol class="collab-list">
-                <li>
-                  <span class="collab-num">1</span>
-                  <span>Developer provides a high-level objective.</span>
-                </li>
-                <li>
-                  <span class="collab-num">2</span>
-                  <span>Orchestrator analyzes and delegates tasks.</span>
-                </li>
-                <li>
-                  <span class="collab-num">3</span>
-                  <span>Specialized agents execute their assignments.</span>
-                </li>
-                <li>
-                  <span class="collab-num">4</span>
-                  <span>Orchestrator collects results &amp; coordinates integration.</span>
-                </li>
-                <li>
-                  <span class="collab-num">5</span>
-                  <span>Testing and review agents identify problems.</span>
-                </li>
-                <li>
-                  <span class="collab-num">6</span>
-                  <span>System iterates until requirements are satisfied.</span>
-                </li>
-              </ol>
-            </div>
-
-            <div class="scenario-box">
-              <strong>Real-World Architecture Demo</strong>
-              OpenCode can be configured with an orchestrator and specialized subagents to demonstrate this collaborative workflow live.
-            </div>
+          <!-- Feedback Loop Strip -->
+          <div class="arch-feedback-bar anim-item" style="--stagger: 7;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+            <span>
+              <strong>Iterative Feedback Loop:</strong> Orchestrator collects outputs, integrates results, and iterates until verified — configurable with specialized subagents in <strong>OpenCode</strong>.
+            </span>
           </div>
         </div>
       </section>
