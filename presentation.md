@@ -109,6 +109,23 @@ Analyze requirements → Design database → Develop frontend & backend → Run 
 
 ---
 
+# Multi-Agent Terminal Demo
+
+**Simulated OpenCode Terminal Session (`student-management-system`)**
+
+1. **Prompt Input:** Developer asks the agent team to add JWT authentication and role-based access control to the Student Management System.
+2. **Planning:** Orchestrator invokes **Planner**, breaking the objective into 4 workstreams (schema, API, UI, verification).
+3. **Parallel Build:**
+   - **Database Engineer:** Applies SQL migration (`004_create_users_roles.sql`) creating `users` and email index.
+   - **Backend Developer:** Implements `/api/auth/login` (bcrypt + HS256 JWT) and `requireRole()` middleware.
+   - **Frontend Developer:** Builds `LoginPage.tsx`, `useAuth.ts`, and `ProtectedRoute` navigation guards.
+4. **Verification:**
+   - **Tester:** Executes `npm test -- auth.spec.ts` (`PASS 6/6 assertions`).
+   - **Security Reviewer:** Completes static & token audit (`0 high/critical issues`).
+5. **Synthesis:** Orchestrator reports completion across DB, API, and UI ready for human review.
+
+---
+
 # Benefits, Challenges, and Conclusion
 
 ### Benefits
