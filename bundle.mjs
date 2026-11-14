@@ -3,11 +3,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const targetArg = process.argv[2];
+if (!targetArg) {
+  console.error('Usage: node bundle.mjs <topic-directory>');
+  process.exit(1);
+}
+const targetDir = path.resolve(__dirname, targetArg);
 
-const htmlPath = path.join(__dirname, 'index.html');
-const cssPath = path.join(__dirname, 'presentation.css');
-const jsPath = path.join(__dirname, 'presentation.js');
-const outputPath = path.join(__dirname, 'slides.html');
+const htmlPath = path.join(targetDir, 'index.html');
+const cssPath = path.join(targetDir, 'presentation.css');
+const jsPath = path.join(targetDir, 'presentation.js');
+const outputPath = path.join(targetDir, 'slides.html');
 
 console.log('Reading source files...');
 const html = fs.readFileSync(htmlPath, 'utf8');
