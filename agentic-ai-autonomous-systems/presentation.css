@@ -1,0 +1,1016 @@
+/* ==========================================================================
+   AGENTIC AI: THE EVOLUTION OF AUTONOMOUS AI SYSTEMS — DESIGN SYSTEM
+   Aesthetic: Architectural Neutral Monochromatic with Precision Motion
+   ========================================================================== */
+
+:root {
+  --bg-canvas: #09090b;
+  --bg-slide: #0c0c0f;
+  --bg-surface: #121216;
+  --bg-surface-hover: #18181d;
+  --bg-elevated: #1c1c22;
+  --bg-glass: rgba(18, 18, 22, 0.88);
+
+  --border-hairline: #23232b;
+  --border-subtle: #2e2e38;
+  --border-strong: #4a4a58;
+  --border-focus: #b4b4c0;
+
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4dc;
+  --text-muted: #9494a3;
+  --text-inverse: #09090b;
+
+  --accent-primary: #ffffff;
+  --accent-soft: rgba(255, 255, 255, 0.08);
+  --accent-medium: rgba(255, 255, 255, 0.16);
+  --accent-glow: rgba(255, 255, 255, 0.05);
+  --color-check: #22c55e;
+  --color-wrong: #ef4444;
+
+  /* Agent Role Colors (Slide 08) */
+  --role-coord: #a78bfa;
+  --role-research: #38bdf8;
+  --role-operator: #34d399;
+  --role-guardrail: #fbbf24;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 360ms;
+
+  --topbar-height: clamp(42px, 4.8vh, 52px);
+  --bottombar-height: clamp(44px, 5.2vh, 56px);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+[data-theme="light"] {
+  --bg-canvas: #f4f4f6;
+  --bg-slide: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f4f4f8;
+  --bg-elevated: #ececf1;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+
+  --border-hairline: #dcdce3;
+  --border-subtle: #c8c8d2;
+  --border-strong: #8e8e9c;
+  --border-focus: #18181b;
+
+  --text-primary: #09090b;
+  --text-secondary: #27272a;
+  --text-muted: #52525b;
+  --text-inverse: #fafafa;
+
+  --accent-primary: #09090b;
+  --accent-soft: rgba(9, 9, 11, 0.06);
+  --accent-medium: rgba(9, 9, 11, 0.12);
+  --accent-glow: rgba(9, 9, 11, 0.03);
+  --color-check: #16a34a;
+  --color-wrong: #dc2626;
+
+  --role-coord: #7c3aed;
+  --role-research: #0284c7;
+  --role-operator: #059669;
+  --role-guardrail: #d97706;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--duration-normal) var(--ease-out-expo),
+              color var(--duration-normal) var(--ease-out-expo);
+}
+
+/* ==========================================================================
+   DECK SHELL, TOPBAR, STAGE & BOTTOMBAR
+   ========================================================================== */
+
+.deck-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-canvas);
+}
+
+.deck-topbar {
+  height: var(--topbar-height);
+  padding: 0 clamp(18px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-hairline);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(12px, 1.15vw, 14px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.topbar-brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+
+.topbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.icon-btn:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.icon-btn:disabled {
+  cursor: default;
+}
+
+.icon-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.deck-stage {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 65%), var(--bg-slide);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: clamp(18px, 2.8vh, 34px) clamp(24px, 4vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(14px, 2vh, 22px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition: opacity var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.slide.is-prev {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.slide .anim-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 420ms var(--ease-out-expo), transform 420ms var(--ease-out-expo);
+  transition-delay: calc(var(--stagger, 0) * 55ms);
+}
+
+.slide.is-active .anim-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.deck-bottombar {
+  position: relative;
+  height: var(--bottombar-height);
+  padding: 0 clamp(18px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-hairline);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.progress-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-hairline);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 11.11%;
+  background: var(--accent-primary);
+  transition: width 320ms var(--ease-out-expo);
+}
+
+.nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: all 220ms var(--ease-out-expo);
+}
+
+.nav-dot.is-active {
+  width: 24px;
+  background: var(--accent-primary);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slide-counter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  min-width: 56px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & HEADERS
+   ========================================================================== */
+
+.slide-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 1120px;
+}
+
+.slide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1vw, 12px);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.slide-eyebrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.slide-title {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--text-primary);
+}
+
+.slide-subtitle {
+  font-size: clamp(14px, 1.35vw, 17px);
+  line-height: 1.45;
+  color: var(--text-secondary);
+  max-width: 980px;
+}
+
+/* ==========================================================================
+   SLIDE 01 — HERO COVER
+   ========================================================================== */
+
+.hero-cover {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2.4vh, 26px);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.hero-title {
+  font-size: clamp(34px, 4.8vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: clamp(17px, 1.9vw, 24px);
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.hero-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.hero-point-card {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+  font-size: clamp(13px, 1.15vw, 14.5px);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.hero-question {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-primary);
+  background: var(--bg-surface);
+}
+
+.hero-question-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.hero-question-text {
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   SLIDE 02 — 5-STAGE EVOLUTION TIMELINE
+   ========================================================================== */
+
+.timeline-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+  transition: border-color var(--duration-fast) var(--ease-out-expo),
+              transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.timeline-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.timeline-card.is-highlight {
+  border-color: var(--border-strong);
+  background: var(--bg-elevated);
+}
+
+.timeline-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.timeline-num {
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.timeline-title {
+  font-size: clamp(15px, 1.3vw, 17px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.timeline-desc {
+  font-size: clamp(12.5px, 1.05vw, 14px);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.timeline-shift {
+  padding-top: 10px;
+  border-top: 1px solid var(--border-hairline);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SLIDE 03 — ANATOMY (5 BUILDING BLOCKS)
+   ========================================================================== */
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+}
+
+.card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  display: grid;
+  place-items: center;
+  color: var(--text-primary);
+}
+
+.card-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.card-index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-size: clamp(14.5px, 1.25vw, 16.5px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.card-desc {
+  font-size: clamp(12.5px, 1.05vw, 14px);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.callout-bar {
+  padding: 13px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-primary);
+  background: var(--bg-surface);
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.callout-bar strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SLIDES 04, 05, 06 — PLATFORM SHOWCASE CARDS
+   ========================================================================== */
+
+.platform-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.platform-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.platform-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+}
+
+.platform-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.platform-name {
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.platform-org {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.platform-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.clean-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.clean-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: clamp(13px, 1.12vw, 14.5px);
+  line-height: 1.42;
+  color: var(--text-secondary);
+}
+
+.clean-list li svg {
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  color: var(--text-primary);
+}
+
+.clean-list li strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SLIDE 07 — INTERACTIVE EXECUTION LOOP & SCENARIO TABS
+   ========================================================================== */
+
+.cycle-stepper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.cycle-step-card {
+  padding: 13px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+  cursor: pointer;
+  text-align: left;
+  transition: all 220ms var(--ease-out-expo);
+}
+
+.cycle-step-card:hover {
+  border-color: var(--border-strong);
+}
+
+.cycle-step-card.is-pulsing {
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+}
+
+.cycle-step-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.cycle-step-card.is-pulsing .cycle-step-num {
+  color: var(--text-primary);
+}
+
+.cycle-step-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.cycle-step-desc {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.scenario-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.scenario-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.scenario-tab {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.scenario-tab.is-active {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.scenario-panel {
+  display: none;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.scenario-panel.is-active {
+  display: grid;
+}
+
+.scenario-text {
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.48;
+  color: var(--text-secondary);
+}
+
+.scenario-text strong {
+  color: var(--text-primary);
+}
+
+.scenario-tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   SLIDE 08 — MULTI-AGENT COLLABORATION DEMO
+   ========================================================================== */
+
+.multiagent-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 16px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.role-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-card {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  border-left: 3px solid var(--role-color, var(--border-strong));
+  background: var(--bg-surface);
+  transition: background-color var(--duration-fast) var(--ease-out-expo),
+              border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.role-card.is-working {
+  background: var(--bg-elevated);
+  border-color: var(--role-color, var(--accent-primary));
+}
+
+.role-card[data-role="coord"] { --role-color: var(--role-coord); }
+.role-card[data-role="research"] { --role-color: var(--role-research); }
+.role-card[data-role="operator"] { --role-color: var(--role-operator); }
+.role-card[data-role="guardrail"] { --role-color: var(--role-guardrail); }
+
+.role-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.role-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.role-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--role-color, var(--text-muted));
+}
+
+.role-desc {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.term-panel {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+}
+
+.term-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.term-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.term-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.term-body {
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: clamp(11.5px, 1vw, 12.5px);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  flex: 1;
+  min-height: 230px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.term-line {
+  opacity: 0;
+  animation: fadeLine 220ms var(--ease-out-expo) forwards;
+}
+
+@keyframes fadeLine {
+  to { opacity: 1; }
+}
+
+.term-agent-coord { color: var(--role-coord); font-weight: 600; }
+.term-agent-research { color: var(--role-research); font-weight: 600; }
+.term-agent-operator { color: var(--role-operator); font-weight: 600; }
+.term-agent-guardrail { color: var(--role-guardrail); font-weight: 600; }
+.term-agent-done { color: var(--color-check); font-weight: 600; }
+
+/* ==========================================================================
+   SLIDE 09 — BENEFITS, RISKS & CONCLUSION
+   ========================================================================== */
+
+.compare-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.compare-panel {
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.compare-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.compare-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.compare-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.compare-good .clean-list li svg {
+  color: var(--color-check);
+}
+
+.compare-danger .clean-list li svg {
+  color: var(--color-wrong);
+}
+
+.closing-quote-box {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-primary);
+  background: var(--bg-surface);
+}
+
+.callout-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.closing-quote-text {
+  font-size: clamp(14px, 1.3vw, 17px);
+  line-height: 1.48;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADAPTATION
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .timeline-5, .grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cycle-stepper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .platform-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .multiagent-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  .slide {
+    overflow-y: auto;
+    justify-content: flex-start;
+  }
+  .hero-points, .timeline-5, .grid-5, .platform-grid-2, .compare-grid-2, .cycle-stepper {
+    grid-template-columns: 1fr;
+  }
+  .scenario-panel.is-active {
+    grid-template-columns: 1fr;
+  }
+}

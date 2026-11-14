@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic AI: The Evolution of Autonomous AI Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="presentation.css" />
+</head>
+<body>
+  <div class="deck-shell">
+    <!-- TOP BAR -->
+    <header class="deck-topbar">
+      <div class="topbar-brand">
+        <span class="topbar-brand-dot"></span>
+        <span>Agentic AI: Autonomous Systems</span>
+      </div>
+
+      <div class="topbar-meta">
+        <button class="icon-btn" id="btn-theme" title="Toggle Monochrome Theme (Key: L)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span>Theme</span>
+        </button>
+
+        <button class="icon-btn" id="btn-fullscreen" title="Toggle Fullscreen (Key: F)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN SLIDE STAGE -->
+    <main class="deck-stage" id="deck-stage">
+
+      <!-- SLIDE 01 — INTRODUCTION -->
+      <section class="slide is-active" data-slide="1">
+        <div class="hero-cover">
+          <div class="hero-badge anim-item" style="--stagger: 0;">
+            <span>Slide 01 // Overview</span>
+          </div>
+
+          <h1 class="hero-title anim-item" style="--stagger: 1;">
+            Agentic AI: The Evolution of Autonomous AI Systems
+          </h1>
+
+          <p class="hero-subtitle anim-item" style="--stagger: 2;">
+            From passive chatbots to persistent digital teammates.
+          </p>
+
+          <div class="hero-points anim-item" style="--stagger: 3;">
+            <div class="hero-point-card">
+              Early AI waited for prompts and returned text inside a single chat window.
+            </div>
+            <div class="hero-point-card">
+              Modern autonomous systems plan, use tools, operate computers, and run in the background.
+            </div>
+            <div class="hero-point-card">
+              Instead of asking AI how to do a task, users can delegate the end-to-end outcome.
+            </div>
+          </div>
+
+          <div class="hero-question anim-item" style="--stagger: 4;">
+            <div class="hero-question-label">Opening Question</div>
+            <p class="hero-question-text">
+              “What changes when AI stops being a chat box you prompt—and becomes a digital teammate with its own computer, memory, and tools?”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 02 — THE EVOLUTION OF AI SYSTEMS -->
+      <section class="slide" data-slide="2">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 02 // Historical Progression</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">The Evolution of AI Systems</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Each generation shifts more of the planning, execution, and verification loop from the human to the system.
+          </p>
+        </div>
+
+        <div class="timeline-5">
+          <div class="timeline-card anim-item" style="--stagger: 3;">
+            <div class="timeline-top">
+              <div class="timeline-stage">
+                <span>STAGE 1</span>
+                <span class="timeline-num">01</span>
+              </div>
+              <h3 class="timeline-title">Rule-Based &amp; Predictive AI</h3>
+              <p class="timeline-desc">Fixed logic, narrow classifiers, and forecasting models built for single tasks.</p>
+            </div>
+            <div class="timeline-shift">Human: Writes rules &amp; acts</div>
+          </div>
+
+          <div class="timeline-card anim-item" style="--stagger: 4;">
+            <div class="timeline-top">
+              <div class="timeline-stage">
+                <span>STAGE 2</span>
+                <span class="timeline-num">02</span>
+              </div>
+              <h3 class="timeline-title">Generative Chatbots</h3>
+              <p class="timeline-desc">Responds to one prompt at a time with text or code inside a chat box.</p>
+            </div>
+            <div class="timeline-shift">Human: Coordinates every step</div>
+          </div>
+
+          <div class="timeline-card anim-item" style="--stagger: 5;">
+            <div class="timeline-top">
+              <div class="timeline-stage">
+                <span>STAGE 3</span>
+                <span class="timeline-num">03</span>
+              </div>
+              <h3 class="timeline-title">Tool-Using Assistants</h3>
+              <p class="timeline-desc">Calls search, APIs, or calculators in a single turn, then stops and waits.</p>
+            </div>
+            <div class="timeline-shift">Human: Drives the workflow</div>
+          </div>
+
+          <div class="timeline-card is-highlight anim-item" style="--stagger: 6;">
+            <div class="timeline-top">
+              <div class="timeline-stage">
+                <span>STAGE 4</span>
+                <span class="timeline-num">04</span>
+              </div>
+              <h3 class="timeline-title">Persistent Autonomous Agents</h3>
+              <p class="timeline-desc">Operates terminals, browsers, and chat apps with memory and 24/7 background tasks.</p>
+            </div>
+            <div class="timeline-shift">Human: Sets goals &amp; approves</div>
+          </div>
+
+          <div class="timeline-card is-highlight anim-item" style="--stagger: 7;">
+            <div class="timeline-top">
+              <div class="timeline-stage">
+                <span>STAGE 5</span>
+                <span class="timeline-num">05</span>
+              </div>
+              <h3 class="timeline-title">Multi-Agent Ecosystems</h3>
+              <p class="timeline-desc">Specialized digital teammates delegate subtasks, share context, and collaborate.</p>
+            </div>
+            <div class="timeline-shift">Human: Directs &amp; governs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 03 — ANATOMY OF AN AUTONOMOUS AI SYSTEM -->
+      <section class="slide" data-slide="3">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 03 // Core Architecture</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Anatomy of an Autonomous AI System</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Five building blocks that turn a language model into an autonomous actor.
+          </p>
+        </div>
+
+        <div class="grid-5">
+          <div class="feature-card anim-item" style="--stagger: 3;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              </div>
+              <span class="card-index">01</span>
+            </div>
+            <h3 class="card-title">Goal Decomposition</h3>
+            <p class="card-desc">Breaks a high-level objective into ordered, verifiable sub-tasks.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 4;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              </div>
+              <span class="card-index">02</span>
+            </div>
+            <h3 class="card-title">Memory &amp; Skills</h3>
+            <p class="card-desc">Remembers user preferences, past lessons, and reusable procedures across sessions.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 5;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <span class="card-index">03</span>
+            </div>
+            <h3 class="card-title">Computer &amp; Tool Use</h3>
+            <p class="card-desc">Interacts directly with terminals, browsers, local files, GUIs, and APIs.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 6;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+              </div>
+              <span class="card-index">04</span>
+            </div>
+            <h3 class="card-title">Self-Correction</h3>
+            <p class="card-desc">Inspects outputs, catches errors, and adapts its plan without constant prompting.</p>
+          </div>
+
+          <div class="feature-card anim-item" style="--stagger: 7;">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <span class="card-index">05</span>
+            </div>
+            <h3 class="card-title">Safety Guardrails</h3>
+            <p class="card-desc">Enforces approval checkpoints, sandboxes, and secret redaction for risky actions.</p>
+          </div>
+        </div>
+
+        <div class="callout-bar anim-item" style="--stagger: 8;">
+          <strong>Key Principle:</strong> Autonomy is not just a bigger model—it is the harness of memory, tools, feedback loops, and safety boundaries around the model.
+        </div>
+      </section>
+
+      <!-- SLIDE 04 — OPEN-SOURCE & LOCAL-FIRST AGENTS -->
+      <section class="slide" data-slide="4">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 04 // Open-Source &amp; Local-First</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Hermes Agent &amp; OpenClaw</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Bringing persistent autonomy directly to user-owned hardware and everyday chat channels.
+          </p>
+        </div>
+
+        <div class="platform-grid-2">
+          <div class="platform-card anim-item" style="--stagger: 3;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">Hermes Agent</h3>
+                <div class="platform-org">Nous Research</div>
+              </div>
+              <span class="platform-badge">MIT Open-Source</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Self-Improving Skills:</strong> Saves completed workflows as reusable <code>SKILL.md</code> procedures without retraining weights.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Cross-Session Memory:</strong> Remembers preferences, environments, and past lessons across runs.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Multi-Platform Gateway:</strong> Model-agnostic core running on CLI, TUI, desktop, Telegram, Discord, Slack, WhatsApp, Signal, and email.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Built-in Guardrails:</strong> Command approvals, containerized backends, and secret redaction.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="platform-card anim-item" style="--stagger: 4;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">OpenClaw</h3>
+                <div class="platform-org">OpenClaw Foundation</div>
+              </div>
+              <span class="platform-badge">Local-First Assistant</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>User-Owned Hardware:</strong> Self-hosted locally for full privacy and control over data and API keys.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Chat-Native Interface:</strong> Lives inside WhatsApp, Telegram, Slack, Discord, iMessage, and Signal—no extra dashboard needed.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Multi-Step Automation:</strong> Manages local files, emails, calendars, and external APIs using cloud or local LLMs.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Companion Triggers:</strong> Supports mobile and wearable triggers with explicit approval workflows.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 05 — CLOUD-NATIVE PERSONAL & TEAM AGENTS -->
+      <section class="slide" data-slide="5">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 05 // Cloud-Native Teammates</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Muse &amp; Grok Bot</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Always-on managed cloud environments tailored for personal administration or team operations.
+          </p>
+        </div>
+
+        <div class="platform-grid-2">
+          <div class="platform-card anim-item" style="--stagger: 3;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">Muse</h3>
+                <div class="platform-org">Meta (Muse Spark)</div>
+              </div>
+              <span class="platform-badge">Personal &amp; SMB</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Connected Life Surfaces:</strong> Syncs with Gmail, Calendar, Drive, Notion, Messenger, OpenTable, and Plaid.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Busywork Automation:</strong> Resolves scheduling conflicts, books reservations, and tracks deadlines.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Commerce &amp; Finances:</strong> Audits subscriptions, tracks expenses, and executes approved checkouts.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Small Business Tools:</strong> Manages Instagram Business, Facebook pages, and Meta ad workflows.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="platform-card anim-item" style="--stagger: 4;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">Grok Bot</h3>
+                <div class="platform-org">xAI / SpaceXSI</div>
+              </div>
+              <span class="platform-badge">Enterprise &amp; Teams</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Dedicated Cloud Computer:</strong> Every bot gets a persistent browser, file system, terminal, and app logins.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>24/7 Background Execution:</strong> Continues working in the cloud even after you close your laptop.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>“Teach-a-Task” Learning:</strong> Screen-record a workflow once and turn it into a repeatable routine.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Multiplayer Collaboration:</strong> Bots work in Slack and MS Teams, delegating tasks across a “Chief of Staff” model.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 06 — POPULAR GENERAL-PURPOSE & COMPUTER-USE AGENTS -->
+      <section class="slide" data-slide="6">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 06 // Ecosystem Peers</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Popular General-Purpose &amp; Computer-Use Agents</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Three distinct execution philosophies shaping how AI operates software.
+          </p>
+        </div>
+
+        <div class="platform-grid-3">
+          <div class="platform-card anim-item" style="--stagger: 3;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">Manus</h3>
+                <div class="platform-org">Hybrid Cloud + Local CLI</div>
+              </div>
+              <span class="platform-badge">CLI &amp; Sandbox</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Bridges cloud sandboxes with local terminal and file-system control.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Excels at heavy research, batch file sorting, and spinning up web apps.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Supports 24/7 scheduled cloud computer tasks.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="platform-card anim-item" style="--stagger: 4;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">OpenAI Operator</h3>
+                <div class="platform-org">Web &amp; Transactional Agent</div>
+              </div>
+              <span class="platform-badge">Browser-Native</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Navigates live websites and desktop views directly inside a browser.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Specializes in complex form-filling, bookings, and online shopping.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Built for structured web data extraction and repeatable web flows.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="platform-card anim-item" style="--stagger: 5;">
+            <div class="platform-head">
+              <div>
+                <h3 class="platform-name">Claude Computer Use</h3>
+                <div class="platform-org">Anthropic (Cowork / API)</div>
+              </div>
+              <span class="platform-badge">Vision GUI Loop</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Uses a visual loop (screenshot → inspect → click/type/scroll) like a human.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Operates legacy enterprise software and intranets that lack APIs.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Handles unstructured documents and mixed browser-desktop tasks.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 07 — HOW AUTONOMOUS AGENTS WORK IN PRACTICE -->
+      <section class="slide" data-slide="7">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 07 // Execution Lifecycle</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">How Autonomous Agents Work in Practice</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Every autonomous system runs a continuous loop—and pairs it with domain-specific tools.
+          </p>
+        </div>
+
+        <div class="cycle-stepper anim-item" id="cycle-stepper" style="--stagger: 3;">
+          <button class="cycle-step-card is-pulsing" data-step="0">
+            <div class="cycle-step-num">STEP 01</div>
+            <div class="cycle-step-title">Goal</div>
+            <div class="cycle-step-desc">Receive a high-level outcome via chat, CLI, or schedule.</div>
+          </button>
+          <button class="cycle-step-card" data-step="1">
+            <div class="cycle-step-num">STEP 02</div>
+            <div class="cycle-step-title">Plan</div>
+            <div class="cycle-step-desc">Break the objective into ordered sub-tasks and tool calls.</div>
+          </button>
+          <button class="cycle-step-card" data-step="2">
+            <div class="cycle-step-num">STEP 03</div>
+            <div class="cycle-step-title">Act</div>
+            <div class="cycle-step-desc">Execute via terminal, browser, API, or GUI clicks.</div>
+          </button>
+          <button class="cycle-step-card" data-step="3">
+            <div class="cycle-step-num">STEP 04</div>
+            <div class="cycle-step-title">Observe</div>
+            <div class="cycle-step-desc">Read outputs, screenshots, logs, or error messages.</div>
+          </button>
+          <button class="cycle-step-card" data-step="4">
+            <div class="cycle-step-num">STEP 05</div>
+            <div class="cycle-step-title">Adapt</div>
+            <div class="cycle-step-desc">Fix failures and retry until success criteria are met.</div>
+          </button>
+          <button class="cycle-step-card" data-step="5">
+            <div class="cycle-step-num">STEP 06</div>
+            <div class="cycle-step-title">Remember</div>
+            <div class="cycle-step-desc">Persist context or save a reusable skill for next time.</div>
+          </button>
+        </div>
+
+        <div class="scenario-box anim-item" style="--stagger: 4;">
+          <div class="scenario-tabs" role="tablist">
+            <button class="scenario-tab is-active" data-scenario="personal">Personal (Muse / OpenClaw)</button>
+            <button class="scenario-tab" data-scenario="team">Team Ops (Grok Bot / Manus)</button>
+            <button class="scenario-tab" data-scenario="skills">Self-Improving (Hermes Agent)</button>
+          </div>
+
+          <div class="scenario-panel is-active" data-panel="personal">
+            <p class="scenario-text">
+              <strong>Workflow:</strong> Scans recurring bank/Plaid charges, flags unused subscriptions, resolves a calendar conflict by proposing new times, and waits for a single tap in WhatsApp or Messenger to confirm cancellation or booking.
+            </p>
+            <span class="scenario-tag">Human-Approved Checkout</span>
+          </div>
+
+          <div class="scenario-panel" data-panel="team">
+            <p class="scenario-text">
+              <strong>Workflow:</strong> Runs overnight on a cloud computer—opens competitor sites in a real browser, extracts pricing into a spreadsheet, generates a summary report, and posts the findings to the team’s Slack channel by 8:00 AM.
+            </p>
+            <span class="scenario-tag">24/7 Cloud Computer</span>
+          </div>
+
+          <div class="scenario-panel" data-panel="skills">
+            <p class="scenario-text">
+              <strong>Workflow:</strong> Completes a multi-step API migration via terminal and tests, catches an auth error, fixes the script, and automatically saves the verified procedure as a reusable <code>SKILL.md</code> for future runs.
+            </p>
+            <span class="scenario-tag">Compounding Skill Memory</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 08 — MULTI-AGENT COLLABORATION -->
+      <section class="slide" data-slide="8">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 08 // Digital Teams</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Multi-Agent Collaboration: From Solo Bots to Teams</h2>
+          <p class="slide-subtitle anim-item" style="--stagger: 2;">
+            Specialized agents with distinct tools and permissions coordinate toward a shared objective.
+          </p>
+        </div>
+
+        <div class="multiagent-layout">
+          <div class="role-list anim-item" style="--stagger: 3;">
+            <div class="role-card" data-role="coord">
+              <div class="role-head">
+                <span class="role-name">Coordinator / Chief of Staff</span>
+                <span class="role-status" data-status="coord">Idle</span>
+              </div>
+              <p class="role-desc">Interprets user intent, delegates subtasks, and tracks completion.</p>
+            </div>
+
+            <div class="role-card" data-role="research">
+              <div class="role-head">
+                <span class="role-name">Researcher Agent</span>
+                <span class="role-status" data-status="research">Idle</span>
+              </div>
+              <p class="role-desc">Browses the web, reads documents, and synthesizes verified facts.</p>
+            </div>
+
+            <div class="role-card" data-role="operator">
+              <div class="role-head">
+                <span class="role-name">Operator / Executor</span>
+                <span class="role-status" data-status="operator">Idle</span>
+              </div>
+              <p class="role-desc">Runs terminal commands, fills forms, and updates records across apps.</p>
+            </div>
+
+            <div class="role-card" data-role="guardrail">
+              <div class="role-head">
+                <span class="role-name">Guardrail Reviewer</span>
+                <span class="role-status" data-status="guardrail">Idle</span>
+              </div>
+              <p class="role-desc">Checks policy compliance and requests human sign-off for sensitive actions.</p>
+            </div>
+          </div>
+
+          <div class="term-panel anim-item" style="--stagger: 4;">
+            <div class="term-bar">
+              <span class="term-title">autonomous-team-orchestrator // live trace</span>
+              <div class="term-actions">
+                <span class="term-badge" id="term-phase-badge">Ready</span>
+                <button class="icon-btn" id="btn-term-replay" title="Replay Demo">Replay</button>
+                <button class="icon-btn" id="btn-term-skip" title="Skip to End">Skip</button>
+              </div>
+            </div>
+            <div class="term-body" id="term-body"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 09 — BENEFITS, RISKS, AND CONCLUSION -->
+      <section class="slide" data-slide="9">
+        <div class="slide-header">
+          <div class="slide-eyebrow anim-item" style="--stagger: 0;">
+            <span>Slide 09 // Impact &amp; Governance</span>
+          </div>
+          <h2 class="slide-title anim-item" style="--stagger: 1;">Benefits, Risks, and Conclusion</h2>
+        </div>
+
+        <div class="compare-grid-2">
+          <div class="compare-panel compare-good anim-item" style="--stagger: 2;">
+            <div class="compare-header">
+              <span class="compare-title">Key Benefits</span>
+              <span class="compare-tag">Value Unlocked</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>24/7 background execution without constant micromanagement</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Automates repetitive cross-app, terminal, and browser busywork</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Compounding capability through persistent memory and saved skills</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Accessible inside familiar chat apps instead of complex dashboards</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="compare-panel compare-danger anim-item" style="--stagger: 3;">
+            <div class="compare-header">
+              <span class="compare-title">Risks &amp; Challenges</span>
+              <span class="compare-tag">Safety &amp; Governance</span>
+            </div>
+            <ul class="clean-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Prompt injection from untrusted web pages or emails hijacking actions</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Over-privileged local or cloud access (highlighted in OpenClaw security debates)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Runaway API and compute costs from infinite retry loops</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Accountability and verification when agents act autonomously</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="closing-quote-box anim-item" style="--stagger: 4;">
+          <div class="callout-label">Conclusion &amp; Closing Statement</div>
+          <p class="closing-quote-text">
+            “The most effective users and teams won’t just write better prompts—they will design <strong>clear goals, safe boundaries, and reliable workflows</strong> for their autonomous agents.”
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <footer class="deck-bottombar">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="nav-dots" id="nav-dots" role="tablist" aria-label="Slide selector"></div>
+
+      <div class="nav-controls">
+        <button class="icon-btn" id="btn-prev" title="Previous Slide (Left Arrow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span>Prev</span>
+        </button>
+
+        <span class="slide-counter" id="slide-counter">01 / 09</span>
+
+        <button class="icon-btn" id="btn-next" title="Next Slide (Right Arrow / Space)">
+          <span>Next</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="presentation.js"></script>
+</body>
+</html>
