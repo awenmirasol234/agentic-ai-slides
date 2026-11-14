@@ -1,0 +1,195 @@
+PRESENTATION PLAN: AGENTIC AI — THE EVOLUTION OF AUTONOMOUS AI SYSTEMS
+
+9 slides | Text-only presentation | Beginner-friendly
+
+PRESENTATION OBJECTIVE Explain how AI evolved from passive chatbots into
+persistent autonomous AI systems, how modern autonomous agents operate,
+and how real-world platforms—including Hermes Agent, OpenClaw, Muse,
+Grok Bot, Manus, OpenAI Operator, and Claude Computer Use—are shaping
+personal, team, and enterprise workflows.
+
+SLIDE 1 — INTRODUCTION TO AUTONOMOUS AI SYSTEMS
+
+Title: Agentic AI: The Evolution of Autonomous AI Systems
+
+Subtitle: From passive chatbots to persistent digital teammates.
+
+Key points:
+- Early AI waited for prompts and returned text in a single chat window.
+- Modern autonomous AI systems can plan, use tools, operate computers,
+  and run continuously in the background.
+- Instead of asking AI how to do a task, users can delegate the outcome.
+
+Opening question: “What changes when AI stops being a chat box you
+prompt—and becomes a digital teammate with its own computer, memory,
+and tools?”
+
+SLIDE 2 — THE EVOLUTION OF AI SYSTEMS
+
+Five generations of AI capability:
+
+1.  Rule-Based & Predictive AI — Fixed logic and narrow classification
+    or forecasting models.
+2.  Generative Chatbots — Responds to one prompt at a time with text or
+    code; the human coordinates every step.
+3.  Tool-Using Assistants — Calls search, APIs, or calculators within a
+    single turn, then stops and waits.
+4.  Persistent Autonomous Agents — Operates across terminals, browsers,
+    and messaging apps with long-term memory and 24/7 background tasks.
+5.  Multi-Agent Ecosystems — Specialized digital teammates that delegate
+    subtasks, share context, and collaborate toward complex goals.
+
+Key takeaway: Each generation shifts more of the planning, execution,
+and verification loop from the human to the system.
+
+SLIDE 3 — ANATOMY OF AN AUTONOMOUS AI SYSTEM
+
+Five core building blocks that make an AI system autonomous:
+
+1.  Goal Decomposition & Planning — Breaks a high-level objective into
+    ordered, verifiable steps.
+2.  Persistent Memory & Reusable Skills — Remembers user preferences,
+    past lessons, and repeatable procedures across sessions.
+3.  Computer & Tool Use — Interacts directly with terminals, browsers,
+    local files, graphical interfaces, and external APIs.
+4.  Observation & Self-Correction — Inspects outputs, catches errors,
+    and adjusts its plan without constant prompting.
+5.  Guardrails & Human-in-the-Loop — Uses approval checkpoints,
+    sandboxes, and secret redaction before high-impact actions.
+
+Important: Autonomy is not just a bigger model—it is the harness of
+memory, tools, feedback loops, and safety boundaries around the model.
+
+SLIDE 4 — OPEN-SOURCE & LOCAL-FIRST AGENTS: HERMES AGENT & OPENCLAW
+
+1.  Hermes Agent (Nous Research)
+-   Open-source (MIT-licensed), model-agnostic agent framework.
+-   Self-improving through skills: saves successful workflows as
+    reusable SKILL.md procedures without retraining model weights.
+-   Maintains cross-session memory across CLI, TUI, desktop, and chat
+    gateways (Telegram, Discord, Slack, WhatsApp, Signal, Matrix, email).
+-   Includes command approvals, containerized backends, and secret
+    redaction.
+
+2.  OpenClaw (OpenClaw Foundation)
+-   Open-source, local-first autonomous agent and personal assistant
+    running on the user’s own hardware for privacy and data control.
+-   Lives inside everyday messaging apps (WhatsApp, Telegram, Slack,
+    Discord, iMessage, Signal) instead of a separate dashboard.
+-   Executes multi-step local file, email, calendar, and API tasks,
+    with mobile companion triggers and approval workflows.
+
+Key takeaway: Local-first and open-source agents bring persistent
+autonomy directly to user-owned hardware and existing chat channels.
+
+SLIDE 5 — CLOUD-NATIVE PERSONAL & TEAM AGENTS: MUSE & GROK BOT
+
+1.  Muse (Meta)
+-   Always-on cloud-backed personal and small-business agent powered by
+    Meta models (such as Muse Spark).
+-   Connects to everyday services: Gmail, Google Calendar, Google Drive,
+    Notion, Messenger, OpenTable, and financial data via Plaid.
+-   Handles scheduling conflicts, restaurant bookings, subscription
+    audits, approved checkouts, and small-business social/ad workflows.
+
+2.  Grok Bot (xAI / SpaceXSI)
+-   Gives each bot a dedicated, persistent cloud computer with a real
+    browser, file system, terminal, and app logins.
+-   Runs 24/7 in the background even after the user closes their laptop.
+-   “Teach-a-Task” learning: record a workflow once on screen and turn
+    it into a repeatable routine.
+-   Supports multiplayer teamwork inside Slack and Microsoft Teams with
+    cross-bot delegation.
+
+Key takeaway: Cloud-native agents trade local setup for always-on
+managed environments—targeting either personal life or team operations.
+
+SLIDE 6 — POPULAR GENERAL-PURPOSE & COMPUTER-USE AGENTS
+
+1.  Manus
+-   Bridges cloud sandboxes with local CLI and file-system execution.
+-   Excels at heavy research, organizing large local folders, spinning
+    up web apps, and running scheduled 24/7 background tasks.
+
+2.  OpenAI Operator
+-   Web-native browser and desktop task automation agent.
+-   Specializes in navigating websites, filling out complex forms,
+    bookings, shopping, and structured web data extraction.
+
+3.  Claude Computer Use (Anthropic)
+-   Uses a visual perception loop (screenshot -> inspect -> click/type/
+    scroll) to operate software like a human.
+-   Bridges legacy desktop software and mixed browser-desktop workflows
+    that lack modern APIs.
+
+Key takeaway: Modern agents span CLI-first execution, structured web
+automation, and vision-driven GUI control.
+
+SLIDE 7 — HOW AUTONOMOUS AGENTS WORK IN PRACTICE
+
+The autonomous execution loop:
+
+1.  Goal — Receive a high-level outcome via chat, CLI, or schedule.
+2.  Plan — Break the objective into concrete sub-tasks and tool calls.
+3.  Act — Execute commands via terminal, browser, API, or GUI clicks.
+4.  Observe — Read outputs, screenshots, logs, or error messages.
+5.  Evaluate & Adapt — Fix failures and retry until criteria are met.
+6.  Remember — Persist context or save a reusable skill for next time.
+
+Practical examples:
+-   Personal life (Muse / OpenClaw): Audit recurring subscriptions,
+    reschedule conflicting meetings, and confirm bookings with approval.
+-   Team operations (Grok Bot / Manus): Monitor incoming reports,
+    research competitors in a browser, update spreadsheets, and post a
+    Slack summary.
+-   Self-improving workflows (Hermes Agent): Complete a multi-step API
+    migration once and store the steps as a reusable skill for future
+    runs.
+
+SLIDE 8 — MULTI-AGENT COLLABORATION: FROM SOLO BOTS TO DIGITAL TEAMS
+
+What is a Multi-Agent System? Multiple autonomous agents with distinct
+roles, tools, and permissions collaborating toward a shared objective.
+
+Common agent roles in autonomous operations:
+-   Coordinator / Chief of Staff: Interprets user intent, delegates
+    work, and tracks completion.
+-   Researcher: Browses the web, reads documents, and synthesizes facts.
+-   Operator / Executor: Runs terminal commands, fills forms, or updates
+    records across apps.
+-   Reviewer / Guardrail: Verifies outputs, checks policy compliance,
+    and requests human sign-off for sensitive actions.
+
+Real-world patterns:
+-   Grok Bot multiplayer teams delegating tasks across Slack/Teams.
+-   Hermes Agent and OpenClaw routing specialized sub-tasks across
+    local tools, containers, and messaging gateways.
+
+SLIDE 9 — BENEFITS, RISKS, AND CONCLUSION
+
+Benefits:
+-   24/7 background execution without constant micromanagement.
+-   Automates repetitive cross-app and browser busywork.
+-   Compounding capability through persistent memory and saved skills.
+-   Accessible through familiar chat apps instead of complex dashboards.
+
+Risks & Challenges:
+-   Prompt injection and untrusted web content hijacking agent actions.
+-   Over-privileged local or cloud access (as highlighted in OpenClaw
+    security and governance discussions).
+-   Runaway API/compute costs from infinite loops or unverified retries.
+-   Accountability and verification when agents act autonomously.
+
+Conclusion: Autonomous AI systems mark the transition from software that
+answers questions to software that reliably executes work on our behalf.
+
+Closing statement: “The most effective users and teams won’t just write
+better prompts—they will design clear goals, safe boundaries, and
+reliable workflows for their autonomous agents.”
+
+PRESENTATION APPROACH
+
+Keep each slide focused on one main idea. Use short bullet points,
+concise comparisons, and concrete workflow examples. Avoid dense
+paragraphs, excessive jargon, and decorative visuals so the audience can
+clearly grasp how autonomous AI systems evolved and operate today.
